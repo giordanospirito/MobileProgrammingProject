@@ -1,19 +1,20 @@
 <resources>
     <string name="app_name">YAHTZEE!</string>
-    <string name="Rules">Yahtzee è un gioco basato sul lancio di cinque dadi.\
-        L\'obiettivo è quello di totalizzare più punti possibili eseguendo
-        le combinazioni possibili una volta soltanto. Queste sono:\
-        -) Ripetizioni di più numeri(punteggio pari al numero per quante volte è uscito)\
-        -) Bonus: si ottiene quando la somma delle combinazioni precedenti supera 62(35 punti)\
-        -) Scala con 4 o 5 dadi: si ottiene quando 4 o 5 dadi sono ordinati in modo crescente(30 e 40 punti rispettivamente)\
-        -) Tre o quattro dadi uguali(il punteggio è la somma dei cinque dadi)\
-        -) Full: come nel poker, un tris e una coppia(25 punti)\
-        -) Yahtzee!: 5 dadi uguali(50 punti), è ripetibile al posto di altre combinazioni con un bonus di 100 punti\
-        -) Chance: Utilizzabile quando si è ottenuta una combinazione già usata o non si hanno combinazioni disponibili(25 punti)\
-        A ogni turno, il giocatore lancia il dado fino a tre volte. Negli ultimi due può trattenere dei dadi per cercare una combinazione desiderata\
-        Se al termine dei tre lanci, non vi sono combinazioni il punteggio è 0.\
-        Chi ha il punteggio più alto dopo 13 lanci eseguiti vince la partita.\
-
+    <string name="RulesLong">
+        Yahtzee è un gioco basato sul lancio di cinque dadi.
+        L\'obiettivo è quello di totalizzare più punti possibili eseguendo le combinazioni possibili una volta soltanto.
+        Queste sono:
+        \n\n
+        • Ripetizioni di più numeri(punteggio pari al numero per quante volte è uscito)\n\n
+        • Bonus: si ottiene quando la somma delle combinazioni precedenti supera 62(35 punti)\n\n
+        • Scala con 4 o 5 dadi: si ottiene quando 4 o 5 dadi sono ordinati in modo crescente(30 e 40 punti rispettivamente)\n\n
+        • Tre o quattro dadi uguali(il punteggio è la somma dei cinque dadi)\n\n
+        • Full: come nel poker, un tris e una coppia(25 punti)\n\n
+        • Yahtzee!: 5 dadi uguali(50 punti), è ripetibile al posto di altre combinazioni con un bonus di 100 punti\n\n
+        • Chance: Utilizzabile quando si è ottenuta una combinazione già usata o non si hanno combinazioni disponibili(25 punti)\n
+        \nA ogni turno, il giocatore lancia il dado fino a tre volte. Negli ultimi due può trattenere dei dadi per cercare una combinazione
+        desiderata.Se al termine dei tre lanci, non vi sono combinazioni il punteggio è 0.
+        Chi ha il punteggio più alto dopo 13 lanci eseguiti vince la partita.\n\nBUONA FORTUNA!
     </string>
     <string name="close">CLOSE</string>
     <string name="Regolamento">Rules</string>
