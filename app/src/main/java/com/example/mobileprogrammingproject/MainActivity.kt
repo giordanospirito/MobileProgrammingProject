@@ -2,11 +2,17 @@ package com.example.mobileprogrammingproject
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Button
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        val MyButtonRules = findViewById<Button>(R.id.Rules_Button)
+        MyButtonRules.setOnClickListener{
+            val Rules_file = RuleDialog()
+            Rules_file.show(supportFragmentManager, "001")
+        }
     }
 }
 
@@ -32,7 +38,7 @@ class MainActivity : AppCompatActivity() {
 //TODO change app icon background color
 
 /* cosa è stato fatto fin'ora
-*
+*****UPDATE***** creato un tasto "RULES" che apre un dialog per mostrare sinteticamente le regole del gioco
 * modificata l'icona dell'app
 * aggiunto un folder icon con tutte le dimensioni all'interno
 * creato un drawable splash_screen
