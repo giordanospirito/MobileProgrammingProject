@@ -30,7 +30,7 @@
 
 
         <Button
-            android:id="@+id/Rules_Button"
+            android:id="@+id/rulesButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/Regolamento"
@@ -40,23 +40,23 @@
             />
 
         <Button
-            android:id="@+id/Play_Button"
+            android:id="@+id/playButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/Play"
-            app:layout_constraintTop_toBottomOf="@id/Rules_Button"
+            app:layout_constraintTop_toBottomOf="@id/rulesButton"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             />
 
         <Button
-            android:id="@+id/button"
+            android:id="@+id/settingsButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/settings"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/Play_Button" />
+            app:layout_constraintTop_toBottomOf="@+id/playButton" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
     

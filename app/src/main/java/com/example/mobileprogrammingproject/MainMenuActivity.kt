@@ -2,17 +2,17 @@ package com.example.mobileprogrammingproject
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.example.mobileprogrammingproject.databinding.ActivityMainBinding
+import com.example.mobileprogrammingproject.databinding.MainMenuBinding
 
 class MainMenuActivity : AppCompatActivity() {
-    private lateinit var binding: ActivityMainBinding
+    private lateinit var binding: MainMenuBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityMainBinding.inflate(layoutInflater)
+        binding = MainMenuBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         //start rules button
-        binding.RulesButton.setOnClickListener{
+        binding.rulesButton.setOnClickListener{
             val rulesFile = RuleDialog()
             rulesFile.show(supportFragmentManager, "rulesDialogTag")
         }
@@ -51,4 +51,8 @@ class MainMenuActivity : AppCompatActivity() {
 * creato un tema dedicato alla splashscreen
 * modificato il manifest aggiungendo una nuova activity e mettendola come launchactivity e settando il suo theme
 * modificato il nuovo file activity.kt della splash screen usando un'intent
+*
+* workflow
+* splash screen--> main menu--> ...
+*
 * */
