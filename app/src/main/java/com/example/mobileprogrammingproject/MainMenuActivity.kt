@@ -17,6 +17,12 @@ class MainMenuActivity : AppCompatActivity() {
             rulesFile.show(supportFragmentManager, "rulesDialogTag")
         }
         //end rules button
+
+        //start exit button
+        binding.exitButton.setOnClickListener {
+            finish()
+        }
+        //end exit button
     }
 }
 
