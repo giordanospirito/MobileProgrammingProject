@@ -49,5 +49,3 @@ class MainActivity : AppCompatActivity() {
 * modificato il manifest aggiungendo una nuova activity e mettendola come launchactivity e settando il suo theme
 * modificato il nuovo file activity.kt della splash screen usando un'intent
 * */
-
-//sas
