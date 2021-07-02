@@ -2,19 +2,18 @@ package com.example.mobileprogrammingproject
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Button
 import com.example.mobileprogrammingproject.databinding.ActivityMainBinding
 
-class MainActivity : AppCompatActivity() {
+class MainMenuActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
         binding.RulesButton.setOnClickListener{
-            val Rules_file = RuleDialog()
-            Rules_file.show(supportFragmentManager, "001")
+            val rulesFile = RuleDialog()
+            rulesFile.show(supportFragmentManager, "001")
         }
     }
 }
@@ -39,6 +38,7 @@ class MainActivity : AppCompatActivity() {
 //TODO action bar color
 //TODO animations (also in splash screen)
 //TODO change app icon background color
+//todo apertura scattosa
 
 /* cosa è stato fatto fin'ora
 *****UPDATE***** creato un tasto "RULES" che apre un dialog per mostrare sinteticamente le regole del gioco
