@@ -38,7 +38,7 @@ class MainMenuActivity : AppCompatActivity() {
 //TODO action bar color
 //TODO animations (also in splash screen)
 //TODO change app icon background color
-//todo apertura scattosa
+//todo apertura scattosa (risolto dalle prestazioni del telefono)
 
 /* cosa è stato fatto fin'ora
 *****UPDATE***** creato un tasto "RULES" che apre un dialog per mostrare sinteticamente le regole del gioco
