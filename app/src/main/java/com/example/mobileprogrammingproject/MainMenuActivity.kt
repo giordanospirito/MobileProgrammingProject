@@ -33,7 +33,7 @@ class MainMenuActivity : AppCompatActivity() {
 //TODO main xml graphic
 //TODO hide sysUI
 //TODO fullscreen
-//TODO antialias edges
+//TODO antialias edges of dialogs and buttons
 //TODO create landscape variant
 //TODO delete and modify gradle files
 //TODO translating the app in "italian" and "english"
