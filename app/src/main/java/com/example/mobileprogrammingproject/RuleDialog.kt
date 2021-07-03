@@ -12,7 +12,7 @@ class RuleDialog : DialogFragment() {
             val builder = AlertDialog.Builder(it)
             builder.setTitle(R.string.Regolamento)
             builder.setMessage(R.string.RulesLong)
-            builder.setNegativeButton(R.string.close) { _: DialogInterface, _: Int-> }
+            builder.setNegativeButton(R.string.close) { _: DialogInterface, _: Int -> }
             builder.create()
         }?:throw IllegalStateException("Error")
     }
