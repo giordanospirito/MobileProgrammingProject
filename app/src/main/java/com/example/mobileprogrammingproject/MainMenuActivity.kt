@@ -49,6 +49,8 @@ class MainMenuActivity : AppCompatActivity() {
 //todo apertura scattosa (risolto dalle prestazioni del telefono)
 //todo fare le cose di gradle che dice il prof, tipo cancellare alcuni file, e aggiungere i pacchetti necessari
 //todo rimuovere i warning dai file gradle
+//todo icona rotonda e quadrata
+//todo pensare a rifinire i bottoni, cambiare i colori, pensare se usare un custom layout, fare una bozza delle schermate
 
 /* cosa è stato fatto fin'ora
 *****UPDATE***** creato un tasto "RULES" che apre un dialog per mostrare sinteticamente le regole del gioco
