@@ -12,9 +12,7 @@ class MainMenuActivity : AppCompatActivity() {
         binding = MainMenuBinding.inflate(layoutInflater)
         setContentView(binding.root)
         //start play button
-        binding.playButton.setOnClickListener {
-            startActivity(Intent(applicationContext, PlayActivity::class.java))
-        }
+
         //end play button
 
         //start rules button

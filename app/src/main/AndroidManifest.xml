@@ -10,9 +10,6 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MobileProgrammingProject">
 
-        <activity android:name=".PlayActivity">
-        </activity>
-
         <activity
             android:name=".SplashScreenActivity"
             android:theme="@style/SplashScreen">
