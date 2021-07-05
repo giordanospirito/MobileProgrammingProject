@@ -61,7 +61,7 @@ class MainMenuActivity : AppCompatActivity() {
 //todo sql lite
 //todo aggiungere suoni di roll e soundtrack dell'app
 //todo schermata regole ad immagine
-//todo selezionare numero di giocatori
+//todo selezionare numero di giocatori, username
 //todo schermata play/history/scoreboard
 
 /* cosa è stato fatto fin'ora
