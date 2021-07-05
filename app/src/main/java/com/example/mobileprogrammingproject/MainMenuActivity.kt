@@ -76,6 +76,8 @@ class MainMenuActivity : AppCompatActivity() {
 //todo schermata regole ad immagine
 //todo selezionare numero di giocatori, username
 //todo schermata play/history/scoreboard
+//todo fare le animazioni belle con il navigation.xml
+//todo da ripulire i file xml, alcuni hanno troppi layout uno dentro l'altro
 
 /* cosa è stato fatto fin'ora
 *****UPDATE***** creato un tasto "RULES" che apre un dialog per mostrare sinteticamente le regole del gioco
