@@ -1,18 +1,22 @@
 package com.example.mobileprogrammingproject
 
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.mobileprogrammingproject.databinding.MainMenuBinding
+import com.example.mobileprogrammingproject.dialogs.RuleDialog
 
 class MainMenuActivity : AppCompatActivity() {
-    private lateinit var binding: MainMenuBinding
+    //private lateinit var binding: FragmentMainMenuBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = MainMenuBinding.inflate(layoutInflater)
-        setContentView(binding.root)
-        //start play button
+        //binding = FragmentMainMenuBinding.inflate(layoutInflater)
+        setContentView(R.layout.main_menu)
 
+        /*
+        //start play button
+        binding.playButton.setOnClickListener {
+            //findNavController().navigate(R.id.action_mainMenuActivity_to_playFragment)
+        }
         //end play button
 
         //start rules button
@@ -27,8 +31,19 @@ class MainMenuActivity : AppCompatActivity() {
             finish()
         }
         //end exit button
+    }*/
     }
 }
+
+
+
+
+
+
+
+
+
+
 
 //TODO back button 1st press only dialog, then close app
 //TODO back button default dialog (alert)
