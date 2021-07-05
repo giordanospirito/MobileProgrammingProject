@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.mobileprogrammingproject">
 
     <application
@@ -11,15 +10,17 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MobileProgrammingProject">
 
+        <activity android:name=".PlayActivity">
+        </activity>
 
         <activity
-            android:name=".SplashScreenActivity" android:theme="@style/SplashScreen" >
+            android:name=".SplashScreenActivity"
+            android:theme="@style/SplashScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
 
         <activity android:name=".MainMenuActivity">
             <intent-filter>
@@ -27,7 +28,6 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-
 
     </application>
 
