@@ -12,8 +12,10 @@ interface UserDao {
     @Query("SELECT * FROM user_table ORDER BY id ASC")
     fun readAllData(): LiveData<List<User>>
 
-    @Update(onConflict = OnConflictStrategy.IGNORE)
+    @Update
     suspend fun setScore(user:User)
+
+    @Update
     suspend fun setFlag(user: User)
 
 }

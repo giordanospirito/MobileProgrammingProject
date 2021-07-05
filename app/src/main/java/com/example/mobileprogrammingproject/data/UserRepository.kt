@@ -12,4 +12,7 @@ class UserRepository(private val userDao: UserDao){
     suspend fun setScore(user:User){
         userDao.setScore(user)
     }
+    suspend fun setFlag(user:User){
+        userDao.setFlag(user)
+    }
 }

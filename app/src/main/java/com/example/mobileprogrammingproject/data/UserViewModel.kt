@@ -18,14 +18,20 @@ class UserViewModel(application: Application): AndroidViewModel(application) {
         readAllData = repository.readAllData
     }
 
-    fun addUser(user: User){
-        viewModelScope.launch(Dispatchers.IO){
+    fun addUser(user: User) {
+        viewModelScope.launch(Dispatchers.IO) {
             repository.addUser(user)
-        }
+            }
+    }
     fun setScore(user:User){
         viewModelScope.launch(Dispatchers.IO){
             repository.setScore(user)
             }
+    }
+    fun setFlag(user:User){
+        viewModelScope.launch(Dispatchers.IO){
+            repository.setFlag(user)
         }
     }
+
 }
