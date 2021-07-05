@@ -57,6 +57,12 @@ class MainMenuActivity : AppCompatActivity() {
 //todo rimuovere i warning dai file gradle
 //todo icona rotonda e quadrata
 //todo pensare a rifinire i bottoni, cambiare i colori, pensare se usare un custom layout, fare una bozza delle schermate
+//todo scoreboard
+//todo sql lite
+//todo aggiungere suoni di roll e soundtrack dell'app
+//todo schermata regole ad immagine
+//todo selezionare numero di giocatori
+//todo schermata play/history/scoreboard
 
 /* cosa è stato fatto fin'ora
 *****UPDATE***** creato un tasto "RULES" che apre un dialog per mostrare sinteticamente le regole del gioco
