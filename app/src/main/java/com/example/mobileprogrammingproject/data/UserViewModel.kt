@@ -22,5 +22,10 @@ class UserViewModel(application: Application): AndroidViewModel(application) {
         viewModelScope.launch(Dispatchers.IO){
             repository.addUser(user)
         }
+    fun setScore(user:User){
+        viewModelScope.launch(Dispatchers.IO){
+            repository.setScore(user)
+            }
+        }
     }
 }
