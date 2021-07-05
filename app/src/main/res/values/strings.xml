@@ -21,4 +21,8 @@
     <string name="Play">Play</string>
     <string name="settings">Settings</string>
     <string name="exitButton">exit game</string>
+    <string name="leaving">Are you sure about leaving?\n\nAll progress will be lost forever
+    </string>
+    <string name="yes">yes</string>
+    <string name="no">no</string>
 </resources>

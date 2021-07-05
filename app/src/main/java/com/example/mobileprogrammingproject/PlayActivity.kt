@@ -11,4 +11,8 @@ class PlayActivity : AppCompatActivity() {
         binding = ActivityPlayBinding.inflate(layoutInflater)
         setContentView(binding.root)
     }
+    override fun onBackPressed() {
+        val closeGameDialog = ExitGameDialog()
+        closeGameDialog.show(supportFragmentManager,"chiudite")
+    }
 }

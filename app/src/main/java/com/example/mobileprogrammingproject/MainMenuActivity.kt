@@ -1,5 +1,6 @@
 package com.example.mobileprogrammingproject
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.mobileprogrammingproject.databinding.MainMenuBinding
@@ -10,6 +11,11 @@ class MainMenuActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = MainMenuBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        //start play button
+        binding.playButton.setOnClickListener {
+            startActivity(Intent(applicationContext, PlayActivity::class.java))
+        }
+        //end play button
 
         //start rules button
         binding.rulesButton.setOnClickListener{
