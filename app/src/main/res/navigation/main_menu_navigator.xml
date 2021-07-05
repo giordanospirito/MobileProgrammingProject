@@ -12,10 +12,18 @@
         <action
             android:id="@+id/action_menuFragment_to_playFragment3"
             app:destination="@id/playFragment3" />
+        <action
+            android:id="@+id/action_menuFragment_to_settingsFragment"
+            app:destination="@id/settingsFragment" />
     </fragment>
     <fragment
         android:id="@+id/playFragment3"
         android:name="com.example.mobileprogrammingproject.fragments.PlayFragment"
         android:label="fragment_play"
         tools:layout="@layout/fragment_play" />
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="com.example.mobileprogrammingproject.SettingsFragment"
+        android:label="fragment_settings"
+        tools:layout="@layout/fragment_settings" />
 </navigation>

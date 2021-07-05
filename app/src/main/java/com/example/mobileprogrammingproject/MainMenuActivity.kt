@@ -78,6 +78,7 @@ class MainMenuActivity : AppCompatActivity() {
 //todo schermata play/history/scoreboard
 //todo fare le animazioni belle con il navigation.xml
 //todo da ripulire i file xml, alcuni hanno troppi layout uno dentro l'altro
+//todo da capire bene se ha senso mettere le freccie all'indietro di transizione nel navigation graph, tanto basta fare back button in teoria..
 
 /* cosa è stato fatto fin'ora
 *****UPDATE***** creato un tasto "RULES" che apre un dialog per mostrare sinteticamente le regole del gioco
