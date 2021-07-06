@@ -10,6 +10,7 @@ import android.view.animation.AnimationUtils
 import com.example.mobileprogrammingproject.R
 import android.widget.Button
 import android.widget.ImageView
+import android.widget.TextView
 import com.example.mobileprogrammingproject.databinding.FragmentMenuBinding
 import com.example.mobileprogrammingproject.databinding.FragmentPlayBinding
 import kotlinx.coroutines.delay
@@ -19,7 +20,7 @@ class PlayFragment : Fragment() {
     private var _binding: FragmentPlayBinding? = null
     private val binding get() = _binding!!
     private val diceImages = mutableListOf<Int>()
-    private lateinit var combo : String
+    private lateinit var comboText : TextView
     private lateinit var firstDice : ImageView
     private lateinit var secondDice : ImageView
     private lateinit var thirdDice : ImageView
@@ -35,18 +36,27 @@ class PlayFragment : Fragment() {
         val view = binding.root
 
         //logic...
+        val rollResults = mutableListOf<Int>()
+        //picking dices imageview
         firstDice = binding.FirstRoll
         secondDice = binding.SecondRoll
         thirdDice = binding.ThirdRoll
         fourthDice = binding.FourthRoll
         fifthDice = binding.FifthRoll
+        comboText = binding.Combo
+        //use an array to better implement later code
         val ArrayDice = mutableListOf<ImageView>(firstDice,secondDice,thirdDice,fourthDice,fifthDice)
+        //picking button and setting listener
         val rollAndCheckButton = binding.RollerAndChecker
         rollAndCheckButton.setOnClickListener {
+            rollResults.removeAll(listOf(1,2,3,4,5,6))
             for(i in 0..4){
-                getRandomValue(ArrayDice[i])
+                getRandomValue(ArrayDice[i],rollResults)
                 }
+            comboText.text = rollResults.toString()
         }
+
+        //preparing images to display on the dices when roll ends
         diceImages.add(R.drawable.ic_dice_one)
         diceImages.add(R.drawable.ic_dice_two)
         diceImages.add(R.drawable.ic_dice_three)
@@ -59,12 +69,11 @@ class PlayFragment : Fragment() {
         return view
     }
     //gets a random value between one and six and sets the right dice image
-    private fun getRandomValue(dice: ImageView?): Int {
+    private fun getRandomValue(dice: ImageView?,list: MutableList<Int>){
         val random = Random().nextInt(6)
         dice?.startAnimation(animation)
         dice?.setImageResource(diceImages.elementAt(random))
-
-        return random
+        list.add(random+1)
     }
 }
 
