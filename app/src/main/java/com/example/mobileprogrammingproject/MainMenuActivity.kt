@@ -2,11 +2,19 @@ package com.example.mobileprogrammingproject
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.animation.AlphaAnimation
+import android.view.animation.Animation
+import android.view.animation.AnimationUtils
+import android.widget.Button
+import android.widget.ImageView
+import androidx.lifecycle.LiveData
 import com.example.mobileprogrammingproject.databinding.MainMenuBinding
 import com.example.mobileprogrammingproject.dialogs.RuleDialog
+import java.util.*
 
 class MainMenuActivity : AppCompatActivity() {
     //private lateinit var binding: FragmentMainMenuBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         //binding = FragmentMainMenuBinding.inflate(layoutInflater)
@@ -32,7 +40,13 @@ class MainMenuActivity : AppCompatActivity() {
         }
         //end exit button
     }*/
+
+
+        //initializing dice images
+
+
     }
+
 }
 
 
