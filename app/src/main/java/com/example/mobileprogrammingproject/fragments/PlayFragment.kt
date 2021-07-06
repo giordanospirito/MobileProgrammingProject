@@ -17,7 +17,7 @@ class PlayFragment : Fragment() {
         _binding = FragmentPlayBinding.inflate(inflater, container, false)
         val view = binding.root
 
-        //logic ...
+        //logic...
 
         return view
     }

@@ -33,11 +33,11 @@ class MenuFragment : Fragment() {
         }
         //end rules button
 
-        //start play button
+        //start settings button
         binding.settingsButton.setOnClickListener {
             findNavController().navigate(R.id.action_menuFragment_to_settingsFragment)
         }
-        //end play button
+        //end settings button
 
         //start exit button
         binding.exitButton.setOnClickListener {

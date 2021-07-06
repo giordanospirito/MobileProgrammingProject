@@ -17,7 +17,7 @@ class SettingsFragment : Fragment() {
         _binding = FragmentSettingsBinding.inflate(inflater, container, false)
         val view = binding.root
 
-        //logic ...
+        //logic...
 
         return view
     }
