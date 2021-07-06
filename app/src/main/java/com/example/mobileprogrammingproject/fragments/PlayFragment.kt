@@ -17,63 +17,49 @@ import kotlinx.coroutines.delay
 import java.util.*
 
 class PlayFragment : Fragment() {
+
     private var _binding: FragmentPlayBinding? = null
     private val binding get() = _binding!!
     private val diceImages = mutableListOf<Int>()
-    private lateinit var comboText : TextView
-    private lateinit var firstDice : ImageView
-    private lateinit var secondDice : ImageView
-    private lateinit var thirdDice : ImageView
-    private lateinit var fourthDice : ImageView
-    private lateinit var fifthDice : ImageView
     private lateinit var animation: Animation
-
-
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
 
+        //binding section
         _binding = FragmentPlayBinding.inflate(inflater, container, false)
         val view = binding.root
 
-        //logic...
+        //roll section
         val rollResults = mutableListOf<Int>()
-        //picking dices imageview
-        firstDice = binding.FirstRoll
-        secondDice = binding.SecondRoll
-        thirdDice = binding.ThirdRoll
-        fourthDice = binding.FourthRoll
-        fifthDice = binding.FifthRoll
-        comboText = binding.Combo
-        //use an array to better implement later code
-        val ArrayDice = mutableListOf<ImageView>(firstDice,secondDice,thirdDice,fourthDice,fifthDice)
-        //picking button and setting listener
-        val rollAndCheckButton = binding.RollerAndChecker
-        rollAndCheckButton.setOnClickListener {
+        val ArrayDice = mutableListOf(binding.FirstRoll,binding.SecondRoll,binding.ThirdRoll,binding.FourthRoll,binding.FifthRoll)
+        binding.RollerAndChecker.setOnClickListener {
             rollResults.removeAll(listOf(1,2,3,4,5,6))
             for(i in 0..4){
                 getRandomValue(ArrayDice[i],rollResults)
                 }
-            comboText.text = rollResults.toString()
+            binding.Combo.text = rollResults.toString()
         }
-
-        //preparing images to display on the dices when roll ends
-        diceImages.add(R.drawable.ic_dice_one)
-        diceImages.add(R.drawable.ic_dice_two)
-        diceImages.add(R.drawable.ic_dice_three)
-        diceImages.add(R.drawable.ic_dice_four)
-        diceImages.add(R.drawable.ic_dice_five)
-        diceImages.add(R.drawable.ic_dice_six)
-        //initializing animation
+        diceImagesAdder(diceImages)
         animation = AnimationUtils.loadAnimation(this.context,R.anim.shake_animation)
 
+        //return section
         return view
     }
-    //gets a random value between one and six and sets the right dice image
+
+    //functions
     private fun getRandomValue(dice: ImageView?,list: MutableList<Int>){
         val random = Random().nextInt(6)
         dice?.startAnimation(animation)
         dice?.setImageResource(diceImages.elementAt(random))
         list.add(random+1)
-    }
+    } //get and add random value to rollResult. set right diceview
+    private fun diceImagesAdder(diceImagesList: MutableList<Int>){
+        diceImagesList.add(R.drawable.ic_dice_one)
+        diceImagesList.add(R.drawable.ic_dice_two)
+        diceImagesList.add(R.drawable.ic_dice_three)
+        diceImagesList.add(R.drawable.ic_dice_four)
+        diceImagesList.add(R.drawable.ic_dice_five)
+        diceImagesList.add(R.drawable.ic_dice_six)
+    } //given dicelist, adds to this the dices images of 1 to 6 dices
 }
 
