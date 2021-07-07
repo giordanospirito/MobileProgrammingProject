@@ -42,7 +42,7 @@ class MainMenuActivity : AppCompatActivity() {
     }*/
 
 
-        //initializing dice images
+        //initializing dice imagess
 
 
     }
