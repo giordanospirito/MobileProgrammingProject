@@ -32,15 +32,10 @@ class PlayFragment : Fragment() {
         _binding = FragmentPlayBinding.inflate(inflater, container, false)
         val view = binding.root
 
-
-
         //this button links playfragment to resultfragment after a single dice roll
         binding.seeResults.setOnClickListener {
             findNavController().navigate(R.id.action_playFragment3_to_resultsFragment)
         }
-
-        var NumberOfRolls = 0
-        binding.NumberOfRolls.text = "Number of Rolls:$NumberOfRolls"
 
         //roll section
         val rollResults = mutableListOf<Int>()
@@ -53,7 +48,6 @@ class PlayFragment : Fragment() {
         )
         binding.seeResults.isClickable = false
         binding.RollerAndChecker.setOnClickListener {
-            NumberOfRolls += 1
             binding.RollerAndChecker.isClickable = false
             binding.ComboReader.text = "..."
             rollResults.removeAll(listOf(1, 2, 3, 4, 5, 6))
