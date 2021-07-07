@@ -43,6 +43,7 @@ class PlayFragment : Fragment() {
         val rollResults = mutableListOf<Int>()
         val arrayDices = mutableListOf(binding.FirstRoll, binding.SecondRoll, binding.ThirdRoll, binding.FourthRoll, binding.FifthRoll)
         binding.seeResults.isClickable = false
+        binding.seeResults.setBackgroundColor(resources.getColor(R.color.grey)
 
         binding.RollerAndChecker.setOnClickListener {
             rollResults.removeAll(listOf(1, 2, 3, 4, 5, 6))
