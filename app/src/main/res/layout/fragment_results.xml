@@ -7,70 +7,79 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".ResultsFragment"
     android:orientation="vertical"
-    android:background="@color/coloresfondo">
+    android:background="@color/black">
 
     <TextView
         android:id="@+id/CoppiaText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="30sp"
-        android:text="@string/coppia" />
+        android:text="@string/coppia"
+        android:textColor="#F6E362"/>
 
     <TextView
         android:id="@+id/TrisText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="30sp"
-        android:text="@string/tris" />
+        android:text="@string/tris"
+        android:textColor="#F6E362"/>
 
     <TextView
         android:id="@+id/QuaterText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="30sp"
-        android:text="@string/quater" />
+        android:text="@string/quater"
+        android:textColor="#F6E362"/>
 
     <TextView
         android:id="@+id/YahtzeeText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="30sp"
-        android:text="@string/yahtzee" />
+        android:text="@string/yahtzee"
+        android:textColor="#F6E362"/>
 
     <TextView
         android:id="@+id/ScalaDa4Text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="30sp"
-        android:text="@string/scala_da_4" />
+        android:text="@string/scala_da_4"
+        android:textColor="#F6E362"/>
 
     <TextView
         android:id="@+id/ScalaDa5Text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="30sp"
-        android:text="@string/scala_da_5" />
+        android:text="@string/scala_da_5"
+        android:textColor="#F6E362"/>
 
     <TextView
         android:id="@+id/FullText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="30sp"
-        android:text="@string/full" />
+        android:text="@string/full"
+        android:textColor="#F6E362"/>
 
     <TextView
         android:id="@+id/BonusText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="30sp"
-        android:text="@string/bonus" />
+        android:text="@string/bonus"
+        android:textColor="#F6E362"/>
 
     <TextView
         android:id="@+id/ChanceText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="30sp"
-        android:text="@string/chance" />
+        android:text="@string/chance"
+        android:textColor="#F6E362"/>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
