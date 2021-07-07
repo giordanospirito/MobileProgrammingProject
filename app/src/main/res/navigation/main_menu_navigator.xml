@@ -20,10 +20,23 @@
         android:id="@+id/playFragment3"
         android:name="com.example.mobileprogrammingproject.fragments.PlayFragment"
         android:label="fragment_play"
-        tools:layout="@layout/fragment_play" />
+        tools:layout="@layout/fragment_play" >
+        <action
+            android:id="@+id/action_playFragment3_to_resultsFragment"
+            app:destination="@id/resultsFragment" />
+    </fragment>
     <fragment
         android:id="@+id/settingsFragment"
         android:name="com.example.mobileprogrammingproject.fragments.SettingsFragment"
         android:label="fragment_settings"
         tools:layout="@layout/fragment_settings" />
+    <fragment
+        android:id="@+id/resultsFragment"
+        android:name="com.example.mobileprogrammingproject.ResultsFragment"
+        android:label="fragment_results"
+        tools:layout="@layout/fragment_results" >
+        <action
+            android:id="@+id/action_resultsFragment_to_playFragment3"
+            app:destination="@id/playFragment3" />
+    </fragment>
 </navigation>

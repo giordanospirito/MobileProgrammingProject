@@ -10,7 +10,9 @@ import android.view.animation.Animation
 import android.view.animation.AnimationUtils
 import com.example.mobileprogrammingproject.R
 import android.widget.ImageView
+import androidx.navigation.fragment.findNavController
 import com.example.mobileprogrammingproject.databinding.FragmentPlayBinding
+import java.sql.RowIdLifetime
 import java.util.*
 
 class PlayFragment : Fragment() {
@@ -30,6 +32,13 @@ class PlayFragment : Fragment() {
         _binding = FragmentPlayBinding.inflate(inflater, container, false)
         val view = binding.root
 
+
+
+        //this button links playfragment to resultfragment after a single dice roll
+        binding.seeResults.setOnClickListener {
+            findNavController().navigate(R.id.action_playFragment3_to_resultsFragment)
+        }
+
         //roll section
         val rollResults = mutableListOf<Int>()
         val arrayDices = mutableListOf(
@@ -39,22 +48,38 @@ class PlayFragment : Fragment() {
             binding.FourthRoll,
             binding.FifthRoll
         )
+        binding.seeResults.isClickable = false
         binding.RollerAndChecker.setOnClickListener {
             binding.RollerAndChecker.isClickable = false
-            binding.ComboMaker.text = "..."
+            binding.ComboReader.text = "..."
             rollResults.removeAll(listOf(1, 2, 3, 4, 5, 6))
             for (i in 0..4) {
                 getRandomValue(arrayDices[i], rollResults)
             }
             binding.Combo.text = rollResults.toString()
-            binding.ComboMaker.text = getCombo(rollResults)
-            binding.RollerAndChecker.isClickable = true
+            binding.ComboReader.text = getCombo(rollResults)
+            binding.Score.text = getScore(getCombo(rollResults)).toString()
+            binding.seeResults.isClickable = true
         }
         diceImagesAdder(diceImages)
         animation = AnimationUtils.loadAnimation(this.context, R.anim.shake_animation)
 
         //return section
         return view
+    }
+
+    private fun getScore(s: String): Int {
+        val value = when(s){
+            "Coppia" -> 5
+            "Tris"->10
+            "Quater" -> 20
+            "Yahtzee" ->50
+            "Scala da 4" ->30
+            "Scala da 5" -> 40
+            "Full" ->25
+            else -> 0
+        }
+        return value
     }
 
     // Combo algorithm section
