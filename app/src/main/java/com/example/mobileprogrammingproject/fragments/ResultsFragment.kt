@@ -22,8 +22,8 @@ class ResultsFragment : Fragment() {
 
         binding.GoToNextRollButton.setOnClickListener {
             findNavController().navigate(R.id.action_resultsFragment_to_playFragment3)
+            findNavController().popBackStack(R.id.resultsFragment, true)
         }
-
 
         return view
     }

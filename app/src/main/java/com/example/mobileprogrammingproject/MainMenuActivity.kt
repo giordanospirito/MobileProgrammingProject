@@ -13,38 +13,10 @@ import com.example.mobileprogrammingproject.dialogs.RuleDialog
 import java.util.*
 
 class MainMenuActivity : AppCompatActivity() {
-    //private lateinit var binding: FragmentMainMenuBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        //binding = FragmentMainMenuBinding.inflate(layoutInflater)
         setContentView(R.layout.main_menu)
-
-        /*
-        //start play button
-        binding.playButton.setOnClickListener {
-            //findNavController().navigate(R.id.action_mainMenuActivity_to_playFragment)
-        }
-        //end play button
-
-        //start rules button
-        binding.rulesButton.setOnClickListener{
-            val rulesFile = RuleDialog()
-            rulesFile.show(supportFragmentManager, "rulesDialogTag")
-        }
-        //end rules button
-
-        //start exit button
-        binding.exitButton.setOnClickListener {
-            finish()
-        }
-        //end exit button
-    }*/
-
-
-        //initializing dice imagess
-
-
     }
 
 }
@@ -94,6 +66,8 @@ class MainMenuActivity : AppCompatActivity() {
 //todo da ripulire i file xml, alcuni hanno troppi layout uno dentro l'altro
 //todo da capire bene se ha senso mettere le freccie all'indietro di transizione nel navigation graph, tanto basta fare back button in teoria..
 //todo i dadi escono dallo schermo
+//todo modifa colore button quando cliccato
+//todo tieni premuto per lancio truccato
 
 /* cosa è stato fatto fin'ora
 *****UPDATE***** creato un tasto "RULES" che apre un dialog per mostrare sinteticamente le regole del gioco
