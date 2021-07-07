@@ -39,6 +39,7 @@ class PlayFragment : Fragment() {
         binding.seeResults.isClickable = false
         binding.RollerAndChecker.setOnClickListener {
             binding.RollerAndChecker.isClickable = false
+            binding.dicesRow.visibility = View.VISIBLE
             binding.ComboReader.text = "..."
             rollResults.removeAll(listOf(1, 2, 3, 4, 5, 6))
             for (i in 0..4) {
