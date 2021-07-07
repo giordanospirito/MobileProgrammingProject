@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.animation.Animation
+import android.view.animation.AnimationSet
 import android.view.animation.AnimationUtils
 import com.example.mobileprogrammingproject.R
 import android.widget.ImageView
@@ -20,38 +21,56 @@ class PlayFragment : Fragment() {
     private var _binding: FragmentPlayBinding? = null
     private val binding get() = _binding!!
     private val diceImages = mutableListOf<Int>()
-    private lateinit var animation: Animation
+    private lateinit var animation1: Animation
+    private lateinit var animation2: Animation
+    private lateinit var animation3: Animation
+    private lateinit var animation1_animation3: AnimationSet
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
 
-        //binding section
+        //start binding section
         _binding = FragmentPlayBinding.inflate(inflater, container, false)
         val view = binding.root
+        //end binding section
 
-        //this button links playfragment to resultfragment after a single dice roll
+        //start see result button
         binding.seeResults.setOnClickListener {
             findNavController().navigate(R.id.action_playFragment3_to_resultsFragment)
         }
+        //end see result button
 
-        //roll section
+        //start roll section
         val rollResults = mutableListOf<Int>()
         val arrayDices = mutableListOf(binding.FirstRoll, binding.SecondRoll, binding.ThirdRoll, binding.FourthRoll, binding.FifthRoll)
         binding.seeResults.isClickable = false
+
         binding.RollerAndChecker.setOnClickListener {
-            binding.RollerAndChecker.isClickable = false
-            binding.dicesRow.visibility = View.VISIBLE
-            binding.ComboReader.text = "..."
             rollResults.removeAll(listOf(1, 2, 3, 4, 5, 6))
             for (i in 0..4) {
                 getRandomValue(arrayDices[i], rollResults)
             }
+            binding.dicesRow.visibility = View.VISIBLE
+            binding.RollerAndChecker.isClickable = false
+            binding.ComboReader.text = "..."
+            binding.Combo.startAnimation(animation2)
+            binding.ComboReader.startAnimation(animation2)
+            binding.Score.startAnimation(animation2)
             binding.Combo.text = rollResults.toString()
             binding.ComboReader.text = getCombo(rollResults)
             binding.Score.text = getScore(getCombo(rollResults)).toString()
             binding.seeResults.isClickable = true
         }
+
         diceImagesAdder(diceImages)
-        animation = AnimationUtils.loadAnimation(this.context, R.anim.shake_animation)
+
+        animation1 = AnimationUtils.loadAnimation(this.context, R.anim.shake_animation)
+        animation2 = AnimationUtils.loadAnimation(this.context, R.anim.fade_in_delay)
+        animation3 = AnimationUtils.loadAnimation(this.context, R.anim.fade_in)
+        animation1_animation3 = AnimationSet(false)
+        animation1_animation3.addAnimation(animation1)
+        animation1_animation3.addAnimation(animation3)
+        //end roll section
+
 
         //return section
         return view
@@ -66,7 +85,7 @@ class PlayFragment : Fragment() {
     //functions
     private fun getRandomValue(dice: ImageView?,list: MutableList<Int>){
         val random = Random().nextInt(6)
-        dice?.startAnimation(animation)
+        dice?.startAnimation(animation1_animation3)
         dice?.setImageResource(diceImages.elementAt(random))
         list.add(random+1)
     } //get and add random value to rollResult. set right diceview
