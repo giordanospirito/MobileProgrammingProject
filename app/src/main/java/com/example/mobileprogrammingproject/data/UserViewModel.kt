@@ -34,9 +34,9 @@ class UserViewModel(application: Application): AndroidViewModel(application) {
             repository.setFlag(user)
         }
     }
-    fun AddCombo(user: User,s:String){
+    fun AddCombo(user: User){
         viewModelScope.launch(Dispatchers.IO){
-            repository.addCombo(user,s)
+            repository.addCombo(user)
         }
     }
 

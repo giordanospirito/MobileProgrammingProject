@@ -15,7 +15,7 @@ class UserRepository(private val userDao: UserDao){
     suspend fun setFlag(user:User){
         userDao.setFlag(user)
     }
-    suspend fun addCombo(user: User,s:String){
-        userDao.AddCombo(user,s)
+    suspend fun addCombo(user: User){
+        userDao.AddCombo(user)
     }
 }
