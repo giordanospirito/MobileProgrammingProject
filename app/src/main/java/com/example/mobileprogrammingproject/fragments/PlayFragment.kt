@@ -22,11 +22,7 @@ class PlayFragment : Fragment() {
     private val diceImages = mutableListOf<Int>()
     private lateinit var animation: Animation
 
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
 
         //binding section
         _binding = FragmentPlayBinding.inflate(inflater, container, false)
@@ -39,13 +35,7 @@ class PlayFragment : Fragment() {
 
         //roll section
         val rollResults = mutableListOf<Int>()
-        val arrayDices = mutableListOf(
-            binding.FirstRoll,
-            binding.SecondRoll,
-            binding.ThirdRoll,
-            binding.FourthRoll,
-            binding.FifthRoll
-        )
+        val arrayDices = mutableListOf(binding.FirstRoll, binding.SecondRoll, binding.ThirdRoll, binding.FourthRoll, binding.FifthRoll)
         binding.seeResults.isClickable = false
         binding.RollerAndChecker.setOnClickListener {
             binding.RollerAndChecker.isClickable = false
@@ -66,6 +56,27 @@ class PlayFragment : Fragment() {
         return view
     }
 
+
+
+
+
+
+
+    //functions
+    private fun getRandomValue(dice: ImageView?,list: MutableList<Int>){
+        val random = Random().nextInt(6)
+        dice?.startAnimation(animation)
+        dice?.setImageResource(diceImages.elementAt(random))
+        list.add(random+1)
+    } //get and add random value to rollResult. set right diceview
+    private fun diceImagesAdder(diceImagesList: MutableList<Int>){
+        diceImagesList.add(R.drawable.ic_dice_one)
+        diceImagesList.add(R.drawable.ic_dice_two)
+        diceImagesList.add(R.drawable.ic_dice_three)
+        diceImagesList.add(R.drawable.ic_dice_four)
+        diceImagesList.add(R.drawable.ic_dice_five)
+        diceImagesList.add(R.drawable.ic_dice_six)
+    } //given dicelist, adds to this the dices images of 1 to 6 dices
     private fun getScore(s: String): Int {
         val value = when(s){
             "Coppia" -> 5
@@ -80,7 +91,7 @@ class PlayFragment : Fragment() {
         return value
     }
 
-    // Combo algorithm section
+    // Combo algorithm fun section
     private fun getCombo(List: MutableList<Int>): String {
         if (FiveASCorder(List)) {
             return "Scala da 5"
@@ -128,7 +139,6 @@ class PlayFragment : Fragment() {
         }
         return false
     }
-
 
     private fun BonusUsed(list: MutableList<Int>): Boolean {
         return false
@@ -215,25 +225,5 @@ class PlayFragment : Fragment() {
         }
         return false
     }
-
-
-
-
-
-    //functions
-    private fun getRandomValue(dice: ImageView?,list: MutableList<Int>){
-        val random = Random().nextInt(6)
-        dice?.startAnimation(animation)
-        dice?.setImageResource(diceImages.elementAt(random))
-        list.add(random+1)
-    } //get and add random value to rollResult. set right diceview
-    private fun diceImagesAdder(diceImagesList: MutableList<Int>){
-        diceImagesList.add(R.drawable.ic_dice_one)
-        diceImagesList.add(R.drawable.ic_dice_two)
-        diceImagesList.add(R.drawable.ic_dice_three)
-        diceImagesList.add(R.drawable.ic_dice_four)
-        diceImagesList.add(R.drawable.ic_dice_five)
-        diceImagesList.add(R.drawable.ic_dice_six)
-    } //given dicelist, adds to this the dices images of 1 to 6 dices
 }
 
