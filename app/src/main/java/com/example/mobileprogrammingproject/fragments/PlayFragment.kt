@@ -1,5 +1,6 @@
 package com.example.mobileprogrammingproject.fragments
 
+import android.icu.text.RelativeDateTimeFormatter
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -19,7 +20,11 @@ class PlayFragment : Fragment() {
     private val diceImages = mutableListOf<Int>()
     private lateinit var animation: Animation
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
 
         //binding section
         _binding = FragmentPlayBinding.inflate(inflater, container, false)
@@ -27,20 +32,170 @@ class PlayFragment : Fragment() {
 
         //roll section
         val rollResults = mutableListOf<Int>()
-        val arrayDices = mutableListOf(binding.FirstRoll,binding.SecondRoll,binding.ThirdRoll,binding.FourthRoll,binding.FifthRoll)
+        val arrayDices = mutableListOf(
+            binding.FirstRoll,
+            binding.SecondRoll,
+            binding.ThirdRoll,
+            binding.FourthRoll,
+            binding.FifthRoll
+        )
         binding.RollerAndChecker.setOnClickListener {
-            rollResults.removeAll(listOf(1,2,3,4,5,6))
-            for(i in 0..4){
-                getRandomValue(arrayDices[i],rollResults)
-                }
+            binding.RollerAndChecker.isClickable = false
+            binding.ComboMaker.text = "..."
+            rollResults.removeAll(listOf(1, 2, 3, 4, 5, 6))
+            for (i in 0..4) {
+                getRandomValue(arrayDices[i], rollResults)
+            }
             binding.Combo.text = rollResults.toString()
+            binding.ComboMaker.text = getCombo(rollResults)
+            binding.RollerAndChecker.isClickable = true
         }
         diceImagesAdder(diceImages)
-        animation = AnimationUtils.loadAnimation(this.context,R.anim.shake_animation)
+        animation = AnimationUtils.loadAnimation(this.context, R.anim.shake_animation)
 
         //return section
         return view
     }
+
+    // Combo algorithm section
+    private fun getCombo(List: MutableList<Int>): String {
+        if (FiveASCorder(List)) {
+            return "Scala da 5"
+        } else {
+            if (FourASCorder(List)) {
+                return "Scala da 4"
+            } else {
+                for (i in 1..6) {
+                    for (j in 1..6) {
+                        if (isYahtzee(List,i)) {
+                            return "Yahtzee"
+                        } else {
+                            if (isQuater(List,i)) {
+                                return "Quater"
+                            } else {
+                                if (isFull(List)) {
+                                    return "Full"
+                                } else {
+                                    if (isTriple(List, i)) {
+                                        return "Tris"
+                                    } else {
+                                        if (isDouble(List, i)) {
+                                            return "Coppia"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        return "NO combo"
+    }
+
+    private fun isFull(list: MutableList<Int>): Boolean {
+        for (i in 1..6){
+            if(isTriple(list,i)){
+                for(j in 1..6){
+                    if((i != j) and isDouble(list,j)){
+                        return true
+                    }
+                }
+            }
+        }
+        return false
+    }
+
+
+    private fun BonusUsed(list: MutableList<Int>): Boolean {
+        return false
+    }
+
+    private fun FiveASCorder(list: MutableList<Int>): Boolean {
+        for(i in 0..4){
+            if(list[i]<=list[i+1]){
+                return false
+            }
+        }
+        return true
+    }
+
+    private fun FourASCorder(list: MutableList<Int>): Boolean {
+        for(i in 0..3){
+            if(list[i]<=list[i+1]) {
+                for (j in 1..4) {
+                    if (list[j] <= list[j + 1]) {
+                        return false
+                    }
+                }
+            }
+        }
+        return true
+    }
+
+    private fun isYahtzee(List: MutableList<Int>, number: Int): Boolean {
+        var counter = 0
+        for (i in 0..4) {
+            for (j in i+1..4) {
+                if (List[i] == List[j] && List[i] == number) {
+                    counter += 1
+                }
+                if (counter > 6) {
+                    return true
+                }
+            }
+        }
+        return false
+    }
+
+    private fun isQuater(List: MutableList<Int>, number: Int): Boolean {
+        var counter = 0
+        for (i in 0..4) {
+            for (j in i+1..4) {
+                if (List[i] == List[j] && List[i] == number) {
+                    counter += 1
+                }
+                if (counter == 6) {
+                    return true
+                }
+            }
+        }
+        return false
+    }
+
+    private fun isTriple(List: MutableList<Int>, number:Int): Boolean {
+        var counter = 0
+        for (i in 0..4) {
+            for (j in i+1..4) {
+                if (List[i] == List[j] && List[i] == number) {
+                    counter += 1
+                }
+                if (counter == 3) {
+                    return true
+                }
+            }
+        }
+        return false
+    }
+
+    private fun isDouble(List: MutableList<Int>,number: Int): Boolean {
+        var counter = 0
+        for (i in 0..4) {
+            for (j in i+1..4) {
+                if (List[i] == List[j] && List[i] == number) {
+                    counter += 1
+                }
+                if (counter == 1) {
+                    return true
+                }
+            }
+        }
+        return false
+    }
+
+
+
+
 
     //functions
     private fun getRandomValue(dice: ImageView?,list: MutableList<Int>){

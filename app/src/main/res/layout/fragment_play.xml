@@ -113,6 +113,19 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 />
 
+            <TextView
+                android:id="@+id/ComboMaker"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="..."
+                android:textSize="50dp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                tools:layout_editor_absoluteX="174dp"
+                tools:layout_editor_absoluteY="269dp" />
+
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
