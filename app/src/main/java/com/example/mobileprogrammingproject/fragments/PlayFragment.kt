@@ -46,10 +46,10 @@ class PlayFragment : Fragment() {
 
         binding.RollerAndChecker.setOnClickListener {
             rollResults.removeAll(listOf(1, 2, 3, 4, 5, 6))
+            binding.dicesRow.visibility = View.VISIBLE
             for (i in 0..4) {
                 getRandomValue(arrayDices[i], rollResults)
             }
-            binding.dicesRow.visibility = View.VISIBLE
             binding.RollerAndChecker.isClickable = false
             binding.ComboReader.text = "..."
             binding.Combo.startAnimation(animation2)
