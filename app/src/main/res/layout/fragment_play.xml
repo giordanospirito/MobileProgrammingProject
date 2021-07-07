@@ -76,46 +76,46 @@
             </LinearLayout>
 
             <LinearLayout
-            android:id="@+id/dicesRow2"
-            android:layout_width="match_parent"
-            android:layout_height="120dp"
+                android:id="@+id/dicesRow2"
+                android:layout_width="match_parent"
+                android:layout_height="120dp"
                 app:layout_constraintVertical_bias="0"
-            app:layout_constraintTop_toBottomOf="@id/dicesRow1"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent">
-                <ImageView
-                    android:id="@+id/lastInvis1"
-                    android:src="@drawable/ic_dice"
-                    android:layout_height="wrap_content"
-                    android:layout_width="0dp"
-                    android:layout_weight="1.1"
-                    android:layout_marginHorizontal="4dp"
-                    android:visibility="invisible"/>
-                <ImageView
-                    android:id="@+id/FourthRoll"
-                    android:src="@drawable/ic_dice"
-                    android:layout_height="wrap_content"
-                    android:layout_width="0dp"
-                    android:layout_weight="1"
-                    android:layout_marginHorizontal="4dp"/>
-                <ImageView
-                    android:id="@+id/FifthRoll"
-                    android:src="@drawable/ic_dice"
-                    android:layout_height="wrap_content"
-                    android:layout_width="0dp"
-                    android:layout_weight="1"
-                    android:layout_marginHorizontal="4dp"/>
-                <ImageView
-                    android:id="@+id/lastInvis2"
-                    android:src="@drawable/ic_dice"
-                    android:layout_height="wrap_content"
-                    android:layout_width="0dp"
-                    android:layout_weight="1.1"
-                    android:layout_marginHorizontal="4dp"
-                    android:visibility="invisible"/>
+                app:layout_constraintTop_toBottomOf="@id/dicesRow1"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent">
+                    <ImageView
+                        android:id="@+id/lastInvis1"
+                        android:src="@drawable/ic_dice"
+                        android:layout_height="wrap_content"
+                        android:layout_width="0dp"
+                        android:layout_weight="1.1"
+                        android:layout_marginHorizontal="4dp"
+                        android:visibility="invisible"/>
+                    <ImageView
+                        android:id="@+id/FourthRoll"
+                        android:src="@drawable/ic_dice"
+                        android:layout_height="wrap_content"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_marginHorizontal="4dp"/>
+                    <ImageView
+                        android:id="@+id/FifthRoll"
+                        android:src="@drawable/ic_dice"
+                        android:layout_height="wrap_content"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_marginHorizontal="4dp"/>
+                    <ImageView
+                        android:id="@+id/lastInvis2"
+                        android:src="@drawable/ic_dice"
+                        android:layout_height="wrap_content"
+                        android:layout_width="0dp"
+                        android:layout_weight="1.1"
+                        android:layout_marginHorizontal="4dp"
+                        android:visibility="invisible"/>
 
-        </LinearLayout>
+            </LinearLayout>
 
             <Button
                 android:id="@+id/RollerAndChecker"
