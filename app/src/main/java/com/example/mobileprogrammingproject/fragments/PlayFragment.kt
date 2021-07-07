@@ -43,15 +43,18 @@ class PlayFragment : Fragment() {
         val rollResults = mutableListOf<Int>()
         val arrayDices = mutableListOf(binding.FirstRoll, binding.SecondRoll, binding.ThirdRoll, binding.FourthRoll, binding.FifthRoll)
         binding.seeResults.isClickable = false
-        binding.seeResults.setBackgroundColor(resources.getColor(R.color.grey)
 
         binding.RollerAndChecker.setOnClickListener {
             rollResults.removeAll(listOf(1, 2, 3, 4, 5, 6))
             binding.dicesRow.visibility = View.VISIBLE
+
             for (i in 0..4) {
                 getRandomValue(arrayDices[i], rollResults)
             }
+            binding.dicesRow.startAnimation(animation3)
+            binding.seeResults.setBackgroundColor(binding.seeResults.context.resources.getColor(R.color.bluchiaro))
             binding.RollerAndChecker.isClickable = false
+            binding.RollerAndChecker.setBackgroundColor(binding.RollerAndChecker.context.resources.getColor(R.color.grey))
             binding.ComboReader.text = "..."
             binding.Combo.startAnimation(animation2)
             binding.ComboReader.startAnimation(animation2)
@@ -86,7 +89,7 @@ class PlayFragment : Fragment() {
     //functions
     private fun getRandomValue(dice: ImageView?,list: MutableList<Int>){
         val random = Random().nextInt(6)
-        dice?.startAnimation(animation1_animation3)
+        dice?.startAnimation(animation1)
         dice?.setImageResource(diceImages.elementAt(random))
         list.add(random+1)
     } //get and add random value to rollResult. set right diceview
