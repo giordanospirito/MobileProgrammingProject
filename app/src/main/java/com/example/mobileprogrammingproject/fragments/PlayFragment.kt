@@ -39,6 +39,9 @@ class PlayFragment : Fragment() {
             findNavController().navigate(R.id.action_playFragment3_to_resultsFragment)
         }
 
+        var NumberOfRolls = 0
+        binding.NumberOfRolls.text = "Number of Rolls:$NumberOfRolls"
+
         //roll section
         val rollResults = mutableListOf<Int>()
         val arrayDices = mutableListOf(
@@ -50,6 +53,7 @@ class PlayFragment : Fragment() {
         )
         binding.seeResults.isClickable = false
         binding.RollerAndChecker.setOnClickListener {
+            NumberOfRolls += 1
             binding.RollerAndChecker.isClickable = false
             binding.ComboReader.text = "..."
             rollResults.removeAll(listOf(1, 2, 3, 4, 5, 6))

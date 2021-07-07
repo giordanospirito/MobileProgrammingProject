@@ -1,6 +1,7 @@
 package com.example.mobileprogrammingproject.data
 
 import android.app.Application
+import android.view.View
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.viewModelScope
@@ -31,6 +32,11 @@ class UserViewModel(application: Application): AndroidViewModel(application) {
     fun setFlag(user:User){
         viewModelScope.launch(Dispatchers.IO){
             repository.setFlag(user)
+        }
+    }
+    fun AddCombo(user: User,s:String){
+        viewModelScope.launch(Dispatchers.IO){
+            repository.addCombo(user,s)
         }
     }
 

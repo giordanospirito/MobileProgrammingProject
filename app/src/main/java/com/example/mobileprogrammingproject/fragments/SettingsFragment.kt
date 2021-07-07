@@ -19,6 +19,9 @@ class SettingsFragment : Fragment() {
 
         //logic...
 
+
+
+
         return view
     }
 }

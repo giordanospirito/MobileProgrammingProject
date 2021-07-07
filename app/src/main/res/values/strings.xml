@@ -30,4 +30,14 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="Roll">Roll!</string>
     <string name="seeResults">see Results</string>
+    <string name="coppia">Coppia:</string>
+    <string name="tris">Tris:</string>
+    <string name="quater">Quater:</string>
+    <string name="yahtzee">Yahtzee!:</string>
+    <string name="scala_da_4">Scala da 4:</string>
+    <string name="scala_da_5">Scala da 5:</string>
+    <string name="full">Full:</string>
+    <string name="bonus">Bonus:</string>
+    <string name="chance">Chance:</string>
+    <string name="next_roll">next Roll!</string>
 </resources>
