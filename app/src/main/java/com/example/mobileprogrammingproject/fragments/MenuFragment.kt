@@ -9,6 +9,7 @@ import androidx.navigation.fragment.findNavController
 import com.example.mobileprogrammingproject.R
 import com.example.mobileprogrammingproject.databinding.FragmentMenuBinding
 import com.example.mobileprogrammingproject.dialogs.RuleDialog
+import com.example.mobileprogrammingproject.dialogs.SettingsDialog
 
 
 class MenuFragment : Fragment() {
@@ -22,6 +23,8 @@ class MenuFragment : Fragment() {
 
         //start play button
         binding.playButton.setOnClickListener {
+            val GameSettingsDialog = SettingsDialog()
+            GameSettingsDialog.show(parentFragmentManager,"SettingsDialogTag")
             findNavController().navigate(R.id.action_menuFragment_to_playFragment3)
         }
         //end play button

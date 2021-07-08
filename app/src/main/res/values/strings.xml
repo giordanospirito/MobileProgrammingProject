@@ -40,4 +40,13 @@
     <string name="bonus">Bonus:</string>
     <string name="chance">Chance:</string>
     <string name="next_roll">next Roll!</string>
+    <string name="Cancel">Cancel</string>
+    <string name="Ok">ok</string>
+    <array name="SelectMatch">
+        <item>Singleplayer(training)</item>
+        <item>2 players(CPU)</item>
+        <item>3 players(CPU)</item>
+        <item>4 players(CPU)</item>
+    </array>
+
 </resources>

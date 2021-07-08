@@ -18,7 +18,5 @@ interface UserDao {
     @Update
     suspend fun setFlag(user: User)
 
-    @Update
-    suspend fun AddCombo(user:User)
 
 }

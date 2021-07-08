@@ -11,7 +11,10 @@ import android.view.animation.AnimationSet
 import android.view.animation.AnimationUtils
 import com.example.mobileprogrammingproject.R
 import android.widget.ImageView
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
+import com.example.mobileprogrammingproject.data.User
+import com.example.mobileprogrammingproject.data.UserViewModel
 import com.example.mobileprogrammingproject.databinding.FragmentPlayBinding
 import java.sql.RowIdLifetime
 import java.util.*
@@ -25,8 +28,13 @@ class PlayFragment : Fragment() {
     private lateinit var animation2: Animation
     private lateinit var animation3: Animation
     private lateinit var animation1_animation3: AnimationSet
+    private lateinit var myViewModel: UserViewModel
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+
+        //initializing linkage to database
+        myViewModel = ViewModelProvider(this).get(UserViewModel::class.java)
+        //end linkage to database
 
         //start binding section
         _binding = FragmentPlayBinding.inflate(inflater, container, false)
@@ -38,7 +46,6 @@ class PlayFragment : Fragment() {
             findNavController().navigate(R.id.action_playFragment3_to_resultsFragment)
         }
         //end see result button
-
         //start roll section
         val rollResults = mutableListOf<Int>()
         val arrayDices = mutableListOf(binding.FirstRoll, binding.SecondRoll, binding.ThirdRoll, binding.FourthRoll, binding.FifthRoll)
@@ -47,6 +54,7 @@ class PlayFragment : Fragment() {
         binding.RollerAndChecker.setOnClickListener {
             rollResults.removeAll(listOf(1, 2, 3, 4, 5, 6))
             binding.dicesRow.visibility = View.VISIBLE
+
 
             for (i in 0..4) {
                 getRandomValue(arrayDices[i], rollResults)
@@ -248,6 +256,14 @@ class PlayFragment : Fragment() {
             }
         }
         return false
+    }
+    private fun SendFlagToDatabase(user: User,List: MutableList<Int>){
+        var Verdict = getCombo(List)
+        if(Verdict=="Coppia" && user.numbersRepetition == false){
+            user.numbersRepetition == true
+            user.score += 5
+            myViewModel.setFlag(user)
+        }
     }
 }
 
