@@ -24,6 +24,9 @@
         <action
             android:id="@+id/action_playFragment_to_resultsFragment"
             app:destination="@id/resultsFragment" />
+        <action
+            android:id="@+id/action_playFragment_to_endGameFragment"
+            app:destination="@id/endGameFragment" />
     </fragment>
     <fragment
         android:id="@+id/settingsFragment"
@@ -40,7 +43,12 @@
         android:label="fragment_results"
         tools:layout="@layout/fragment_results" >
         <action
-            android:id="@+id/action_resultsFragment_to_playFragment3"
+            android:id="@+id/action_resultsFragment_to_playFragment"
             app:destination="@id/playFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/endGameFragment"
+        android:name="com.example.mobileprogrammingproject.fragments.EndGameFragment"
+        android:label="fragment_end_game"
+        tools:layout="@layout/fragment_end_game" />
 </navigation>

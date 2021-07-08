@@ -1,5 +1,4 @@
 package com.example.mobileprogrammingproject
-import android.app.Application
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -15,6 +14,7 @@ class ResultsFragment : Fragment() {
     private var _binding: FragmentResultsBinding? = null
     private val binding get() = _binding!!
     private lateinit var myViewModel: UserViewModel
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
 
         //binding section
@@ -24,13 +24,25 @@ class ResultsFragment : Fragment() {
         //logic...
 
         binding.GoToNextRollButton.setOnClickListener {
-            findNavController().navigate(R.id.action_resultsFragment_to_playFragment3)
+            val action1 = ResultsFragmentDirections.actionResultsFragmentToPlayFragment()
+            findNavController().navigate(action1)
             findNavController().popBackStack(R.id.resultsFragment, true)
         }
 
-
         myViewModel = ViewModelProvider(this).get(UserViewModel::class.java)
-        var myUser = User(0,"Federico",0,false,false,false,false,false,false,false,false,false)
+        var myUser = User(
+            0,
+            "Federico",
+            0,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false)
 
         return view
     }

@@ -13,6 +13,7 @@ import com.example.mobileprogrammingproject.dialogs.RuleDialog
 
 
 class MenuFragment : Fragment() {
+
     private var _binding: FragmentMenuBinding? = null
     private val binding get() = _binding!!
     //val args:PlayFragmentArgs by navArgs()

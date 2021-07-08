@@ -13,6 +13,7 @@ import com.example.mobileprogrammingproject.databinding.FragmentPlayBinding
 import com.example.mobileprogrammingproject.databinding.FragmentSettingsBinding
 
 class SettingsFragment : Fragment() {
+
     private var _binding: FragmentSettingsBinding? = null
     private val binding get() = _binding!!
 
