@@ -68,6 +68,7 @@ class MainMenuActivity : AppCompatActivity() {
 //todo i dadi escono dallo schermo
 //todo modifa colore button quando cliccato
 //todo tieni premuto per lancio truccato
+//todo vibrazione alla pressione
 
 /* cosa è stato fatto fin'ora
 *****UPDATE***** creato un tasto "RULES" che apre un dialog per mostrare sinteticamente le regole del gioco
