@@ -10,7 +10,7 @@ import com.example.mobileprogrammingproject.R
 class ExitGameDialog : DialogFragment() {
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
         return activity?.let {
-            val builder = AlertDialog.Builder(it)
+            val builder = AlertDialog.Builder(it, R.style.Theme_MyDialogs)
             builder.setMessage(R.string.leaving)
                 .setPositiveButton(R.string.yes) { _: DialogInterface, _: Int ->
                     it.finish()

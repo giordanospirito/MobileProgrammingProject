@@ -5,6 +5,7 @@ import android.app.Dialog
 import android.content.Context
 import android.content.DialogInterface
 import android.content.Intent
+import android.content.res.Resources
 import android.os.Bundle
 import android.widget.RadioGroup
 import android.widget.Toast
@@ -29,7 +30,7 @@ class SettingsDialog : DialogFragment(){
         return activity?.let {
             var position = 0
             val list: Array<out String> = it.resources.getStringArray(R.array.SelectMatch)
-            val builder = AlertDialog.Builder(it)
+            val builder = AlertDialog.Builder(it, R.style.Theme_MyDialogs)
             var selectedId = 0
             builder.setTitle("Choose the number of players that will play the game...")
             builder.setSingleChoiceItems(list,0) { _: DialogInterface, which: Int ->
@@ -42,6 +43,6 @@ class SettingsDialog : DialogFragment(){
                     Toast.makeText(this.context,selectedId.toString(),Toast.LENGTH_LONG).show()
                 }
             builder.create()
-        }?:throw IllegalStateException("ripijate")
+        }?:throw IllegalStateException("error")
     }
 }
