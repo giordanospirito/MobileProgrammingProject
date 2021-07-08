@@ -1,7 +1,10 @@
 package com.example.mobileprogrammingproject.fragments
 
+import android.content.Context
 import android.icu.text.RelativeDateTimeFormatter
 import android.os.Bundle
+import android.os.VibrationEffect
+import android.os.Vibrator
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -29,7 +32,10 @@ class PlayFragment : Fragment() {
     private lateinit var animation3: Animation
     private lateinit var myViewModel: UserViewModel
 
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+        val vibe = context?.getSystemService(Context.VIBRATOR_SERVICE) as Vibrator
+        val vibeEff = VibrationEffect.createOneShot(50, 100)
 
         //initializing linkage to database
         myViewModel = ViewModelProvider(this).get(UserViewModel::class.java)
@@ -57,6 +63,7 @@ class PlayFragment : Fragment() {
         animation3 = AnimationUtils.loadAnimation(this.context, R.anim.fade_in)
 
         binding.RollerAndChecker.setOnClickListener {
+            vibe.vibrate(vibeEff)
             rollResults.removeAll(listOf(1, 2, 3, 4, 5, 6))
             binding.dicesRow.visibility = View.VISIBLE
 
