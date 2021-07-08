@@ -18,8 +18,10 @@ class SettingsFragment : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
 
+        //binding
         _binding = FragmentSettingsBinding.inflate(inflater, container, false)
         val view = binding.root
+        //end binding
 
         //logic...
         val ApplyButton = binding.BackButton
@@ -48,7 +50,7 @@ class SettingsFragment : Fragment() {
             }
 
             if (SinglePlayerCheck.isChecked) {
-                val action = SettingsFragmentDirections.actionSettingsFragmentToMenuFragment(1)
+                val action = SettingsFragmentDirections.actionSettingsFragmentToMenuFragment()
                 findNavController().navigate(action)
             }
         }

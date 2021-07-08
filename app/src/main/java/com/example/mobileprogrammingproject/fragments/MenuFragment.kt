@@ -15,7 +15,7 @@ import com.example.mobileprogrammingproject.dialogs.RuleDialog
 class MenuFragment : Fragment() {
     private var _binding: FragmentMenuBinding? = null
     private val binding get() = _binding!!
-    val args:PlayFragmentArgs by navArgs()
+    //val args:PlayFragmentArgs by navArgs()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
 
@@ -26,10 +26,11 @@ class MenuFragment : Fragment() {
 
         //start play button
         binding.playButton.setOnClickListener {
-            val action = MenuFragmentDirections.actionMenuFragmentToPlayFragment(args.playerNumber)
+            val action = MenuFragmentDirections.actionMenuFragmentToPlayFragment()
             findNavController().navigate(action)
         }
         //end play button
+
         //start rules button
         binding.rulesButton.setOnClickListener {
             val rulesFile = RuleDialog()
@@ -39,7 +40,8 @@ class MenuFragment : Fragment() {
 
         //start settings button
         binding.settingsButton.setOnClickListener {
-            findNavController().navigate(R.id.action_menuFragment_to_settingsFragment)
+            val action = MenuFragmentDirections.actionMenuFragmentToSettingsFragment()
+            findNavController().navigate(action)
             }
 
         //end settings button

@@ -15,9 +15,6 @@
         <action
             android:id="@+id/action_menuFragment_to_settingsFragment"
             app:destination="@id/settingsFragment" />
-        <argument
-            android:name="playerNumber"
-            app:argType="integer" />
     </fragment>
     <fragment
         android:id="@+id/playFragment"
@@ -27,9 +24,6 @@
         <action
             android:id="@+id/action_playFragment_to_resultsFragment"
             app:destination="@id/resultsFragment" />
-        <argument
-            android:name="playerNumber"
-            app:argType="integer" />
     </fragment>
     <fragment
         android:id="@+id/settingsFragment"

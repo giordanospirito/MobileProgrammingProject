@@ -30,15 +30,10 @@ class PlayFragment : Fragment() {
     private lateinit var animation3: Animation
     private lateinit var myViewModel: UserViewModel
 
-    val args:PlayFragmentArgs by navArgs()
-
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val vibe = context?.getSystemService(Context.VIBRATOR_SERVICE) as Vibrator
         val vibeEff = VibrationEffect.createOneShot(50, 100)
-
-        //getting PlayerNumber from MenuFragment
-        val PlayerNumber = args.playerNumber
 
         //initializing linkage to database
         myViewModel = ViewModelProvider(this).get(UserViewModel::class.java)
@@ -51,7 +46,8 @@ class PlayFragment : Fragment() {
 
         //start see result button
         binding.seeResults.setOnClickListener {
-            findNavController().navigate(R.id.action_playFragment_to_resultsFragment)
+            val action = PlayFragmentDirections.actionPlayFragmentToResultsFragment()
+            findNavController().navigate(action)
         }
         //end see result button
 
