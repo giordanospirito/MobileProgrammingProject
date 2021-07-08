@@ -27,7 +27,7 @@ class MenuFragment : Fragment() {
 
         //start play button
         binding.playButton.setOnClickListener {
-            val action = MenuFragmentDirections.actionMenuFragmentToPlayFragment()
+            val action = MenuFragmentDirections.actionMenuFragmentToPlayFragment(0)
             findNavController().navigate(action)
         }
         //end play button

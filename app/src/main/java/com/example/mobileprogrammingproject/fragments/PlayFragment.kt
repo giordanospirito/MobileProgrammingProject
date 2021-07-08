@@ -29,11 +29,14 @@ class PlayFragment : Fragment() {
     private lateinit var animation2: Animation
     private lateinit var animation3: Animation
     private lateinit var myViewModel: UserViewModel
+    private val args:PlayFragmentArgs by navArgs()
 
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+        //val and var
         val vibe = context?.getSystemService(Context.VIBRATOR_SERVICE) as Vibrator
         val vibeEff = VibrationEffect.createOneShot(50, 100)
+        var numberRoll : Int = args.rollsNumberArg
 
         //initializing linkage to database
         myViewModel = ViewModelProvider(this).get(UserViewModel::class.java)
@@ -46,13 +49,12 @@ class PlayFragment : Fragment() {
 
         //start see result button
         binding.seeResults.setOnClickListener {
-            val action = PlayFragmentDirections.actionPlayFragmentToResultsFragment()
+            val action = PlayFragmentDirections.actionPlayFragmentToResultsFragment(numberRoll)
             findNavController().navigate(action)
         }
         //end see result button
 
         //start roll section
-        var numberRoll = 0
         val rollResults = mutableListOf<Int>()
         val arrayDices = mutableListOf(binding.FirstRoll, binding.SecondRoll, binding.ThirdRoll, binding.FourthRoll, binding.FifthRoll)
 

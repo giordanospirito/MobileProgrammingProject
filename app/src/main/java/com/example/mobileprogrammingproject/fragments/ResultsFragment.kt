@@ -6,14 +6,17 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 import com.example.mobileprogrammingproject.data.User
 import com.example.mobileprogrammingproject.data.UserViewModel
 import com.example.mobileprogrammingproject.databinding.FragmentResultsBinding
+import com.example.mobileprogrammingproject.fragments.PlayFragmentArgs
 
 class ResultsFragment : Fragment() {
     private var _binding: FragmentResultsBinding? = null
     private val binding get() = _binding!!
     private lateinit var myViewModel: UserViewModel
+    private val args: ResultsFragmentArgs by navArgs()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
 
@@ -24,8 +27,8 @@ class ResultsFragment : Fragment() {
         //logic...
 
         binding.GoToNextRollButton.setOnClickListener {
-            val action1 = ResultsFragmentDirections.actionResultsFragmentToPlayFragment()
-            findNavController().navigate(action1)
+            val action = ResultsFragmentDirections.actionResultsFragmentToPlayFragment(args.currentRollsNumberArg)
+            findNavController().navigate(action)
             findNavController().popBackStack(R.id.resultsFragment, true)
         }
 

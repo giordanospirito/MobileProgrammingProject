@@ -11,11 +11,16 @@
         tools:layout="@layout/fragment_menu" >
         <action
             android:id="@+id/action_menuFragment_to_playFragment"
-            app:destination="@id/playFragment" />
+            app:destination="@id/playFragment" >
+            <argument
+                android:name="rollsNumberArg"
+                app:argType="integer"/>
+        </action>
         <action
             android:id="@+id/action_menuFragment_to_settingsFragment"
             app:destination="@id/settingsFragment" />
     </fragment>
+
     <fragment
         android:id="@+id/playFragment"
         android:name="com.example.mobileprogrammingproject.fragments.PlayFragment"
@@ -23,11 +28,20 @@
         tools:layout="@layout/fragment_play">
         <action
             android:id="@+id/action_playFragment_to_resultsFragment"
-            app:destination="@id/resultsFragment" />
+            app:destination="@id/resultsFragment">
+            <argument
+                android:name="currentRollsNumberArg"
+                app:argType="integer"/>
+        </action>
         <action
             android:id="@+id/action_playFragment_to_endGameFragment"
             app:destination="@id/endGameFragment" />
+        <argument
+            android:name="rollsNumberArg"
+            app:argType="integer"
+            android:defaultValue="0" />
     </fragment>
+
     <fragment
         android:id="@+id/settingsFragment"
         android:name="com.example.mobileprogrammingproject.fragments.SettingsFragment"
@@ -40,6 +54,7 @@
             android:id="@+id/action_settingsFragment_to_endGameFragment"
             app:destination="@id/endGameFragment" />
     </fragment>
+
     <fragment
         android:id="@+id/resultsFragment"
         android:name="com.example.mobileprogrammingproject.ResultsFragment"
@@ -49,9 +64,14 @@
             android:id="@+id/action_resultsFragment_to_playFragment"
             app:destination="@id/playFragment" >
             <argument
-                android:name="rollsNumberArg" />
+                android:name="rollsNumberArg"
+                app:argType="integer"/>
         </action>
+        <argument
+            android:name="currentRollsNumberArg"
+            app:argType="integer" />
     </fragment>
+
     <fragment
         android:id="@+id/endGameFragment"
         android:name="com.example.mobileprogrammingproject.fragments.EndGameFragment"
