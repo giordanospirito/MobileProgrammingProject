@@ -1,19 +1,17 @@
 package com.example.mobileprogrammingproject.fragments
 
-import android.content.Intent
-import android.media.MediaPlayer
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.navigation.NavArgs
+import androidx.navigation.Navigation
 import androidx.navigation.fragment.findNavController
-import com.example.mobileprogrammingproject.MainMenuActivity
+import androidx.navigation.fragment.navArgs
 import com.example.mobileprogrammingproject.R
 import com.example.mobileprogrammingproject.databinding.FragmentMenuBinding
 import com.example.mobileprogrammingproject.dialogs.RuleDialog
-import com.example.mobileprogrammingproject.dialogs.SettingsDialog
 
 
 class MenuFragment : Fragment() {
@@ -24,6 +22,10 @@ class MenuFragment : Fragment() {
 
         _binding = FragmentMenuBinding.inflate(inflater, container, false)
         val view = binding.root
+
+
+        //receive data on playernumber from settingfragment...
+
 
         //start play button
         binding.playButton.setOnClickListener {
@@ -39,9 +41,7 @@ class MenuFragment : Fragment() {
 
         //start settings button
         binding.settingsButton.setOnClickListener {
-            val GameSettingsDialog = SettingsDialog()
-            GameSettingsDialog.show(parentFragmentManager,"SettingsDialogTag")
-            val PlayerNumber = activity?.intent?.getStringExtra("PlayerNumber")?.toInt()
+            findNavController().navigate(R.id.action_menuFragment_to_settingsFragment)
             }
 
         //end settings button
@@ -54,4 +54,5 @@ class MenuFragment : Fragment() {
 
         return view
     }
+
 }

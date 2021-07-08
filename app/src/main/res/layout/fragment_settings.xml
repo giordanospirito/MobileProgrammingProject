@@ -13,22 +13,54 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <TextView
-            android:id="@+id/titleTextView"
+        <RadioGroup
+            android:id="@+id/radioGroup"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="center_horizontal"
-            android:text="SettingsFragment"
-            android:textSize="30sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <RadioButton
+                android:id="@+id/SinglePlayerButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="SinglePlayer(training)"
+                android:textColor="@color/giallino"/>
+
+            <RadioButton
+                android:id="@+id/TwoPlayerButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="2 Players"
+                android:textColor="@color/giallino"/>
+
+            <RadioButton
+                android:id="@+id/ThreePlayerButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="3 Players"
+                android:textColor="@color/giallino"/>
+
+            <RadioButton
+                android:id="@+id/FourPlayerButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="4 Players"
+                android:textColor="@color/giallino"/>
+        </RadioGroup>
+
+        <Button
+            android:id="@+id/BackButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Apply"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.3"
-            android:textColor="#F6E362">
-
-        </TextView>
-
+            app:layout_constraintTop_toBottomOf="@+id/radioGroup" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </ScrollView>

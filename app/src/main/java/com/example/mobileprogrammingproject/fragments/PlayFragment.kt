@@ -5,6 +5,7 @@ import android.icu.text.RelativeDateTimeFormatter
 import android.os.Bundle
 import android.os.VibrationEffect
 import android.os.Vibrator
+import android.support.v4.media.session.MediaSessionCompat.Token.fromBundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -15,8 +16,11 @@ import android.view.animation.AnimationUtils
 import com.example.mobileprogrammingproject.R
 import android.widget.ImageView
 import android.widget.Toast
+import androidx.core.app.Person.fromBundle
 import androidx.lifecycle.ViewModelProvider
+import androidx.media.AudioAttributesCompat.fromBundle
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 import com.example.mobileprogrammingproject.data.User
 import com.example.mobileprogrammingproject.data.UserViewModel
 import com.example.mobileprogrammingproject.databinding.FragmentPlayBinding
@@ -33,11 +37,15 @@ class PlayFragment : Fragment() {
     private lateinit var animation3: Animation
     private lateinit var myViewModel: UserViewModel
 
+    val args:PlayFragmentArgs by navArgs()
+
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val vibe = context?.getSystemService(Context.VIBRATOR_SERVICE) as Vibrator
         val vibeEff = VibrationEffect.createOneShot(50, 100)
-        //Data arriving from dialog
+
+        //getting PlayerNumber from MenuFragment
+        val PlayerNumber = args.playerNumber
 
         //initializing linkage to database
         myViewModel = ViewModelProvider(this).get(UserViewModel::class.java)
@@ -85,6 +93,7 @@ class PlayFragment : Fragment() {
         //return section
         return view
     }
+
 
 
 
