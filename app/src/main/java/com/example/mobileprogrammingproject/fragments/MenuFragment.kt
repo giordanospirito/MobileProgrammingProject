@@ -5,8 +5,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.navigation.NavArgs
-import androidx.navigation.Navigation
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.example.mobileprogrammingproject.R
@@ -17,19 +15,19 @@ import com.example.mobileprogrammingproject.dialogs.RuleDialog
 class MenuFragment : Fragment() {
     private var _binding: FragmentMenuBinding? = null
     private val binding get() = _binding!!
+    val args:PlayFragmentArgs by navArgs()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
 
+        //binding
         _binding = FragmentMenuBinding.inflate(inflater, container, false)
         val view = binding.root
-
-
-        //receive data on playernumber from settingfragment...
-
+        //end binding
 
         //start play button
         binding.playButton.setOnClickListener {
-            findNavController().navigate(R.id.action_menuFragment_to_playFragment3)
+            val action = MenuFragmentDirections.actionMenuFragmentToPlayFragment(args.playerNumber)
+            findNavController().navigate(action)
         }
         //end play button
         //start rules button

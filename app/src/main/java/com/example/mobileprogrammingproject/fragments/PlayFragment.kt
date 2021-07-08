@@ -1,30 +1,23 @@
 package com.example.mobileprogrammingproject.fragments
 
 import android.content.Context
-import android.icu.text.RelativeDateTimeFormatter
 import android.os.Bundle
 import android.os.VibrationEffect
 import android.os.Vibrator
-import android.support.v4.media.session.MediaSessionCompat.Token.fromBundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.animation.Animation
-import android.view.animation.AnimationSet
 import android.view.animation.AnimationUtils
 import com.example.mobileprogrammingproject.R
 import android.widget.ImageView
-import android.widget.Toast
-import androidx.core.app.Person.fromBundle
 import androidx.lifecycle.ViewModelProvider
-import androidx.media.AudioAttributesCompat.fromBundle
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.example.mobileprogrammingproject.data.User
 import com.example.mobileprogrammingproject.data.UserViewModel
 import com.example.mobileprogrammingproject.databinding.FragmentPlayBinding
-import java.sql.RowIdLifetime
 import java.util.*
 
 class PlayFragment : Fragment() {
@@ -58,7 +51,7 @@ class PlayFragment : Fragment() {
 
         //start see result button
         binding.seeResults.setOnClickListener {
-            findNavController().navigate(R.id.action_playFragment3_to_resultsFragment)
+            findNavController().navigate(R.id.action_playFragment_to_resultsFragment)
         }
         //end see result button
 

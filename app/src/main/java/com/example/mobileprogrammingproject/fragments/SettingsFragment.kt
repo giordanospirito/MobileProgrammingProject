@@ -29,27 +29,29 @@ class SettingsFragment : Fragment() {
         val FourPlayersCheck = binding.FourPlayerButton
 
         ApplyButton.setOnClickListener {
-            if(SinglePlayerCheck.isChecked){
-                val action = SettingsFragmentDirections.actionSettingsFragmentToPlayFragment3(1)
-                findNavController().navigate(action)
+            var canContinue = 0
+            if (SinglePlayerCheck.isChecked) {
+                canContinue = 1
             }
-            if(TwoPlayersCheck.isChecked){
-                val action = SettingsFragmentDirections.actionSettingsFragmentToPlayFragment3(2)
-                findNavController().navigate(action)
+            if (TwoPlayersCheck.isChecked) {
+                canContinue = 1
             }
-            if(ThreePlayersCheck.isChecked){
-                val action = SettingsFragmentDirections.actionSettingsFragmentToPlayFragment3(3)
-                findNavController().navigate(action)
+            if (ThreePlayersCheck.isChecked) {
+                canContinue = 1
             }
-            if(FourPlayersCheck.isChecked){
-                val action = SettingsFragmentDirections.actionSettingsFragmentToPlayFragment3(4)
-                findNavController().navigate(action)
+            if (FourPlayersCheck.isChecked) {
+                canContinue = 1
             }
-            else{
-                Toast.makeText(this.context, "Select a game-mode first",Toast.LENGTH_SHORT).show()
+
+            if (canContinue == 0) {
+                Toast.makeText(this.context, "Select a game-mode first", Toast.LENGTH_SHORT).show()
+            }
+
+            if (SinglePlayerCheck.isChecked) {
+                val action = SettingsFragmentDirections.actionSettingsFragmentToMenuFragment(1)
+                findNavController().navigate(action)
             }
         }
-
 
 
         return view
