@@ -1,5 +1,6 @@
 package com.example.mobileprogrammingproject
 
+import android.media.MediaPlayer
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.animation.AlphaAnimation
@@ -14,11 +15,27 @@ import java.util.*
 
 class MainMenuActivity : AppCompatActivity() {
 
+
+    private lateinit var mediaPlayer : MediaPlayer
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.main_menu)
+
+        //music
+        mediaPlayer = MediaPlayer.create(this, R.raw.music)
+        //end music
+
     }
 
+    override fun onResume() {
+        super.onResume()
+        mediaPlayer.start()
+    }
+    override fun onStop() {
+        super.onStop()
+        mediaPlayer.pause()
+    }
 }
 
 
