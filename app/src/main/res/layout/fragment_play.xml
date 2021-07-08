@@ -16,7 +16,8 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent">
+            app:layout_constraintEnd_toEndOf="parent"
+            android:background="@color/black">
 
             <TextView
                 android:id="@+id/Combo"
@@ -25,7 +26,8 @@
                 android:text=""
                 android:textSize="30sp"
                 android:layout_weight="1"
-                android:gravity="center_vertical">
+                android:gravity="center_vertical"
+                android:textColor="#F6E362">
 
             </TextView>
 
@@ -36,7 +38,8 @@
                 android:text=""
                 android:textSize="30sp"
                 android:layout_weight="1"
-                android:gravity="center_vertical">
+                android:gravity="center_vertical"
+                android:textColor="#F6E362">
 
             </TextView>
 
@@ -47,7 +50,8 @@
                 android:text=""
                 android:textSize="30sp"
                 android:layout_weight="1"
-                android:gravity="center_vertical">
+                android:gravity="center_vertical"
+                android:textColor="#F6E362">
 
             </TextView>
 
@@ -115,8 +119,7 @@
                     android:layout_height="0dp"
                     android:layout_gravity="end"
                     android:layout_marginHorizontal="4dp"
-                    android:layout_weight="0.4"
-                    android:backgroundTint="@color/grey"/>
+                    android:layout_weight="0.4"/>
 
                 <Button
                     android:id="@+id/RollerAndChecker"

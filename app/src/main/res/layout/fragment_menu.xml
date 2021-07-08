@@ -1,79 +1,84 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+
+<ScrollView
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:fillViewport="true"
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".fragments.MenuFragment">
 
-    <ScrollView xmlns:app="http://schemas.android.com/apk/res-auto"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:fillViewport="true">
+        android:layout_height="wrap_content"
+        android:background="#FFA000">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/titleTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/aclonica"
+            android:gravity="center_horizontal"
+            android:shadowColor="#303030"
+            android:shadowDx="5"
+            android:shadowDy="5"
+            android:shadowRadius="5"
+            android:text="@string/app_name"
+            android:textColor="#F0FF68"
+            android:textSize="50sp"
+            android:typeface="normal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.20">
 
-            <TextView
-                android:id="@+id/titleTextView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center_horizontal"
-                android:text="@string/app_name"
-                android:textSize="50sp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.20">
-
-            </TextView>
-
-
-            <Button
-                android:id="@+id/playButton"
-                android:layout_width="160dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="100dp"
-                android:text="@string/Play"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/titleTextView"
-                />
-
-            <Button
-                android:id="@+id/rulesButton"
-                android:layout_width="160dp"
-                android:layout_height="wrap_content"
-                android:text="@string/Regolamento"
-                app:layout_constraintTop_toBottomOf="@id/playButton"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                />
-
-            <Button
-                android:id="@+id/settingsButton"
-                android:layout_width="160dp"
-                android:layout_height="wrap_content"
-                android:text="@string/settings"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/rulesButton"
-                />
-
-            <Button
-                android:id="@+id/exitButton"
-                android:layout_width="160dp"
-                android:layout_height="wrap_content"
-                android:text="@string/exitButton"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/settingsButton"
-                />
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-    </ScrollView>
+        </TextView>
 
 
-</FrameLayout>
+        <Button
+            android:id="@+id/playButton"
+            android:layout_width="160dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="100dp"
+            android:text="@string/Play"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/titleTextView"
+            />
+
+        <Button
+            android:id="@+id/rulesButton"
+            android:layout_width="160dp"
+            android:layout_height="wrap_content"
+            android:text="@string/Regolamento"
+            app:layout_constraintTop_toBottomOf="@id/playButton"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            />
+
+        <Button
+            android:id="@+id/settingsButton"
+            android:layout_width="160dp"
+            android:layout_height="wrap_content"
+            android:text="@string/settings"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/rulesButton"
+            />
+
+        <Button
+            android:id="@+id/exitButton"
+            android:layout_width="160dp"
+            android:layout_height="wrap_content"
+            android:text="@string/exitButton"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/settingsButton"
+            />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>
