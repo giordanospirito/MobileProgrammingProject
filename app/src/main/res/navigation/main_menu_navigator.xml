@@ -37,7 +37,10 @@
         </action>
         <action
             android:id="@+id/action_playFragment_to_endGameFragment"
-            app:destination="@id/endGameFragment" />
+            app:destination="@id/endGameFragment"
+            app:popUpTo="@id/playFragment"
+            app:popUpToInclusive="true">
+        </action>
         <argument
             android:name="rollsNumberArg"
             app:argType="integer"

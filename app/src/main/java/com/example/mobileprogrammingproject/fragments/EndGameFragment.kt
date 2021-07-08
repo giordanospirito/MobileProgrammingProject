@@ -5,6 +5,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.findNavController
+import com.example.mobileprogrammingproject.R
 import com.example.mobileprogrammingproject.databinding.FragmentEndGameBinding
 import com.example.mobileprogrammingproject.databinding.FragmentMenuBinding
 
@@ -13,7 +15,6 @@ class EndGameFragment : Fragment() {
 
     private var _binding: FragmentEndGameBinding? = null
     private val binding get() = _binding!!
-    //val args:PlayFragmentArgs by navArgs()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
 
@@ -21,6 +22,8 @@ class EndGameFragment : Fragment() {
         _binding = FragmentEndGameBinding.inflate(inflater, container, false)
         val view = binding.root
         //end binding
+
+
 
         return view
     }
