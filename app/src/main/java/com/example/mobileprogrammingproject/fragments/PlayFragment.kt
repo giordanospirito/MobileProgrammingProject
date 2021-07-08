@@ -27,7 +27,6 @@ class PlayFragment : Fragment() {
     private lateinit var animation1: Animation
     private lateinit var animation2: Animation
     private lateinit var animation3: Animation
-    private lateinit var animation1_animation3: AnimationSet
     private lateinit var myViewModel: UserViewModel
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -46,20 +45,25 @@ class PlayFragment : Fragment() {
             findNavController().navigate(R.id.action_playFragment3_to_resultsFragment)
         }
         //end see result button
+
         //start roll section
         val rollResults = mutableListOf<Int>()
         val arrayDices = mutableListOf(binding.FirstRoll, binding.SecondRoll, binding.ThirdRoll, binding.FourthRoll, binding.FifthRoll)
+
+        diceImagesAdder(diceImages)
+
+        animation1 = AnimationUtils.loadAnimation(this.context, R.anim.shake_animation)
+        animation2 = AnimationUtils.loadAnimation(this.context, R.anim.fade_in_delay)
+        animation3 = AnimationUtils.loadAnimation(this.context, R.anim.fade_in)
 
         binding.RollerAndChecker.setOnClickListener {
             rollResults.removeAll(listOf(1, 2, 3, 4, 5, 6))
             binding.dicesRow.visibility = View.VISIBLE
 
-
             for (i in 0..4) {
                 getRandomValue(arrayDices[i], rollResults)
             }
             binding.dicesRow.startAnimation(animation3)
-            binding.ComboReader.text = "..."
             binding.Combo.startAnimation(animation2)
             binding.ComboReader.startAnimation(animation2)
             binding.Score.startAnimation(animation2)
@@ -67,17 +71,7 @@ class PlayFragment : Fragment() {
             binding.ComboReader.text = getCombo(rollResults)
             binding.Score.text = getScore(getCombo(rollResults)).toString()
         }
-
-        diceImagesAdder(diceImages)
-
-        animation1 = AnimationUtils.loadAnimation(this.context, R.anim.shake_animation)
-        animation2 = AnimationUtils.loadAnimation(this.context, R.anim.fade_in_delay)
-        animation3 = AnimationUtils.loadAnimation(this.context, R.anim.fade_in)
-        animation1_animation3 = AnimationSet(false)
-        animation1_animation3.addAnimation(animation1)
-        animation1_animation3.addAnimation(animation3)
         //end roll section
-
 
         //return section
         return view
