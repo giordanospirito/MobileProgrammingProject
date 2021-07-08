@@ -58,6 +58,7 @@ class PlayFragment : Fragment() {
         //start roll section
         val rollResults = mutableListOf<Int>()
         val arrayDices = mutableListOf(binding.FirstRoll, binding.SecondRoll, binding.ThirdRoll, binding.FourthRoll, binding.FifthRoll)
+        binding.numberRolls.text = numberRoll.toString()
 
         diceImagesAdder(diceImages)
 
@@ -75,12 +76,12 @@ class PlayFragment : Fragment() {
                     getRandomValue(arrayDices[i], rollResults)
                 }
                 binding.dicesRow.startAnimation(animation3)
-                binding.numberRolls.startAnimation(animation2)
+                //binding.numberRolls.startAnimation(animation2)
                 binding.ComboReader.startAnimation(animation2)
                 binding.Score.startAnimation(animation2)
                 binding.numberRolls.text = numberRoll.toString()
                 binding.ComboReader.text = getCombo(rollResults)
-                binding.Score.text = getScore(getCombo(rollResults)).toString()
+                binding.Score.text = "${getScore(getCombo(rollResults)).toString()} points!"
                 if (numberRoll == 5) {
                     binding.RollerAndChecker.text = "End game"
                 }

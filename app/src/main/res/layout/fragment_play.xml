@@ -24,37 +24,46 @@
                 android:id="@+id/numberRolls"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text=""
-                android:textSize="30sp"
+                android:text="0"
+                android:textSize="40sp"
                 android:layout_weight="1"
-                android:gravity="center_vertical"
-                android:textColor="#F6E362">
+                android:gravity="right|center_vertical"
+                android:textColor="#F6E362"
+                android:layout_marginEnd="14dp">
 
             </TextView>
 
-            <TextView
-                android:id="@+id/ComboReader"
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text=""
-                android:textSize="30sp"
-                android:layout_weight="1"
-                android:gravity="center_vertical"
-                android:textColor="#F6E362">
+                android:layout_height="0dp"
+                android:layout_weight="2"
+                android:orientation="horizontal">
 
-            </TextView>
+                <TextView
+                    android:id="@+id/ComboReader"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:text=""
+                    android:textSize="30sp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:textColor="#F6E362">
 
-            <TextView
-                android:id="@+id/Score"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text=""
-                android:textSize="30sp"
-                android:layout_weight="1"
-                android:gravity="center_vertical"
-                android:textColor="#F6E362">
+                </TextView>
 
-            </TextView>
+                <TextView
+                    android:id="@+id/Score"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:text=""
+                    android:textSize="30sp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:textColor="#F6E362">
+
+                </TextView>
+            </LinearLayout>
+
 
             <LinearLayout
                 android:layout_width="match_parent"
