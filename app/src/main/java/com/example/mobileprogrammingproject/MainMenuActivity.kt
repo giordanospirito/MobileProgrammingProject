@@ -28,6 +28,7 @@ class MainMenuActivity : AppCompatActivity() {
 
         //music
         mediaPlayer = MediaPlayer.create(this, R.raw.music)
+        mediaPlayer.isLooping = true
         //end music
 
 
