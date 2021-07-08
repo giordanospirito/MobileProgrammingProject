@@ -19,8 +19,8 @@ import java.util.*
 
 class MainMenuActivity : AppCompatActivity() {
 
-
-    private lateinit var mediaPlayer : MediaPlayer
+    lateinit var mediaPlayer : MediaPlayer
+    var wantusic = true
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -37,11 +37,15 @@ class MainMenuActivity : AppCompatActivity() {
 
     override fun onResume() {
         super.onResume()
-        mediaPlayer.start()
+        if (wantusic) {
+            mediaPlayer.start()
+        }
     }
     override fun onStop() {
         super.onStop()
-        mediaPlayer.pause()
+        if (wantusic) {
+            mediaPlayer.pause()
+        }
     }
 }
 

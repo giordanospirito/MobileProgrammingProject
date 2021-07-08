@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
+import com.example.mobileprogrammingproject.MainMenuActivity
 import com.example.mobileprogrammingproject.R
 import com.example.mobileprogrammingproject.databinding.FragmentMenuBinding
 import com.example.mobileprogrammingproject.dialogs.RuleDialog
@@ -52,6 +53,25 @@ class MenuFragment : Fragment() {
             activity?.finish()
         }
         //end exit button
+
+        //volume button
+        if ((activity as MainMenuActivity).wantusic){
+            binding.volumeButton.setImageResource(R.drawable.ic_baseline_volume_up_24)
+        } else {
+            binding.volumeButton.setImageResource(R.drawable.ic_baseline_volume_off_24)
+        }
+        binding.volumeButton.setOnClickListener{
+            if ( (activity as MainMenuActivity).wantusic ) {
+                (activity as MainMenuActivity).wantusic = false
+                binding.volumeButton.setImageResource(R.drawable.ic_baseline_volume_off_24)
+                (activity as MainMenuActivity).mediaPlayer.pause()
+            } else{
+                (activity as MainMenuActivity).wantusic = true
+                binding.volumeButton.setImageResource(R.drawable.ic_baseline_volume_up_24)
+                (activity as MainMenuActivity).mediaPlayer.start()
+            }
+        }
+        //end volume button
 
         return view
     }
