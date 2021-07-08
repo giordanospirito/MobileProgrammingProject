@@ -25,13 +25,11 @@ class ResultsFragment : Fragment() {
         val view = binding.root
 
         //logic...
-
+        val info = args.currentRollsNumberArg
         binding.GoToNextRollButton.setOnClickListener {
-            val action = ResultsFragmentDirections.actionResultsFragmentToPlayFragment(args.currentRollsNumberArg)
+            val action = ResultsFragmentDirections.actionResultsFragmentToPlayFragment(info)
             findNavController().navigate(action)
-            findNavController().popBackStack(R.id.resultsFragment, true)
         }
-
         myViewModel = ViewModelProvider(this).get(UserViewModel::class.java)
         var myUser = User(
             0,
