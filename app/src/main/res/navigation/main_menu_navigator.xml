@@ -41,7 +41,7 @@
             android:id="@+id/action_settingsFragment_to_playFragment3"
             app:destination="@id/playFragment3" />
         <action
-            android:id="@+id/action_settingsFragment_to_menuFragment2"
+            android:id="@+id/action_settingsFragment_to_menuFragment3"
             app:destination="@id/menuFragment" />
     </fragment>
     <fragment

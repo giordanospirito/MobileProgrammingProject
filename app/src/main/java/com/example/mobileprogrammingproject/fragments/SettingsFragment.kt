@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.navigation.Navigation
+import androidx.navigation.fragment.findNavController
 import com.example.mobileprogrammingproject.R
 import com.example.mobileprogrammingproject.databinding.FragmentPlayBinding
 import com.example.mobileprogrammingproject.databinding.FragmentSettingsBinding
@@ -30,19 +31,19 @@ class SettingsFragment : Fragment() {
         ApplyButton.setOnClickListener {
             if(SinglePlayerCheck.isChecked){
                 val action = SettingsFragmentDirections.actionSettingsFragmentToPlayFragment3(1)
-                Navigation.findNavController(view).navigate(R.id.action_settingsFragment_to_menuFragment2)
+                findNavController().navigate(action)
             }
             if(TwoPlayersCheck.isChecked){
                 val action = SettingsFragmentDirections.actionSettingsFragmentToPlayFragment3(2)
-                Navigation.findNavController(view).navigate(R.id.action_settingsFragment_to_menuFragment2)
+                findNavController().navigate(action)
             }
             if(ThreePlayersCheck.isChecked){
                 val action = SettingsFragmentDirections.actionSettingsFragmentToPlayFragment3(3)
-                Navigation.findNavController(view).navigate(R.id.action_settingsFragment_to_menuFragment2)
+                findNavController().navigate(action)
             }
             if(FourPlayersCheck.isChecked){
                 val action = SettingsFragmentDirections.actionSettingsFragmentToPlayFragment3(4)
-                Navigation.findNavController(view).navigate(R.id.action_settingsFragment_to_menuFragment2)
+                findNavController().navigate(action)
             }
             else{
                 Toast.makeText(this.context, "Select a game-mode first",Toast.LENGTH_SHORT).show()
