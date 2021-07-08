@@ -93,6 +93,7 @@ class MainMenuActivity : AppCompatActivity() {
 //todo modifa colore button quando cliccato
 //todo tieni premuto per lancio truccato
 //todo vibrazione alla pressione
+//todo lo spostamento tra activity le killa
 
 /* cosa è stato fatto fin'ora
 *****UPDATE***** creato un tasto "RULES" che apre un dialog per mostrare sinteticamente le regole del gioco

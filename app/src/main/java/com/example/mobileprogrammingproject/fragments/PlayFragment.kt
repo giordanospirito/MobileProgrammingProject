@@ -52,6 +52,7 @@ class PlayFragment : Fragment() {
         //end see result button
 
         //start roll section
+        var numberRoll = 0
         val rollResults = mutableListOf<Int>()
         val arrayDices = mutableListOf(binding.FirstRoll, binding.SecondRoll, binding.ThirdRoll, binding.FourthRoll, binding.FifthRoll)
 
@@ -60,22 +61,31 @@ class PlayFragment : Fragment() {
         animation1 = AnimationUtils.loadAnimation(this.context, R.anim.shake_animation)
         animation2 = AnimationUtils.loadAnimation(this.context, R.anim.fade_in_delay)
         animation3 = AnimationUtils.loadAnimation(this.context, R.anim.fade_in)
-
         binding.RollerAndChecker.setOnClickListener {
-            vibe.vibrate(vibeEff)
-            rollResults.removeAll(listOf(1, 2, 3, 4, 5, 6))
-            binding.dicesRow.visibility = View.VISIBLE
+            if (numberRoll<5) {
+                numberRoll++
+                vibe.vibrate(vibeEff)
+                rollResults.removeAll(listOf(1, 2, 3, 4, 5, 6))
+                binding.dicesRow.visibility = View.VISIBLE
 
-            for (i in 0..4) {
-                getRandomValue(arrayDices[i], rollResults)
+                for (i in 0..4) {
+                    getRandomValue(arrayDices[i], rollResults)
+                }
+                binding.dicesRow.startAnimation(animation3)
+                binding.numberRolls.startAnimation(animation2)
+                binding.ComboReader.startAnimation(animation2)
+                binding.Score.startAnimation(animation2)
+                binding.numberRolls.text = numberRoll.toString()
+                binding.ComboReader.text = getCombo(rollResults)
+                binding.Score.text = getScore(getCombo(rollResults)).toString()
+                if (numberRoll == 5) {
+                    binding.RollerAndChecker.text = "End game"
+                }
+            } else {
+                val action = PlayFragmentDirections.actionPlayFragmentToEndGameFragment()
+                findNavController().navigate(action)
             }
-            binding.dicesRow.startAnimation(animation3)
-            binding.Combo.startAnimation(animation2)
-            binding.ComboReader.startAnimation(animation2)
-            binding.Score.startAnimation(animation2)
-            binding.Combo.text = rollResults.toString()
-            binding.ComboReader.text = getCombo(rollResults)
-            binding.Score.text = getScore(getCombo(rollResults)).toString()
+
         }
         //end roll section
 
