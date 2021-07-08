@@ -1,6 +1,7 @@
 package com.example.mobileprogrammingproject
 
 import android.media.MediaPlayer
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.animation.AlphaAnimation
@@ -8,9 +9,12 @@ import android.view.animation.Animation
 import android.view.animation.AnimationUtils
 import android.widget.Button
 import android.widget.ImageView
+import android.widget.Toast
 import androidx.lifecycle.LiveData
+import androidx.navigation.findNavController
 import com.example.mobileprogrammingproject.databinding.MainMenuBinding
 import com.example.mobileprogrammingproject.dialogs.RuleDialog
+import com.example.mobileprogrammingproject.fragments.MenuFragment
 import java.util.*
 
 class MainMenuActivity : AppCompatActivity() {
@@ -25,6 +29,8 @@ class MainMenuActivity : AppCompatActivity() {
         //music
         mediaPlayer = MediaPlayer.create(this, R.raw.music)
         //end music
+
+
 
     }
 

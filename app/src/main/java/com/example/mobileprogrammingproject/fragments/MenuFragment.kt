@@ -1,12 +1,15 @@
 package com.example.mobileprogrammingproject.fragments
 
+import android.content.Intent
 import android.media.MediaPlayer
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
+import com.example.mobileprogrammingproject.MainMenuActivity
 import com.example.mobileprogrammingproject.R
 import com.example.mobileprogrammingproject.databinding.FragmentMenuBinding
 import com.example.mobileprogrammingproject.dialogs.RuleDialog
@@ -24,12 +27,9 @@ class MenuFragment : Fragment() {
 
         //start play button
         binding.playButton.setOnClickListener {
-            val GameSettingsDialog = SettingsDialog()
-            GameSettingsDialog.show(parentFragmentManager,"SettingsDialogTag")
             findNavController().navigate(R.id.action_menuFragment_to_playFragment3)
         }
         //end play button
-
         //start rules button
         binding.rulesButton.setOnClickListener {
             val rulesFile = RuleDialog()
@@ -39,8 +39,11 @@ class MenuFragment : Fragment() {
 
         //start settings button
         binding.settingsButton.setOnClickListener {
-            findNavController().navigate(R.id.action_menuFragment_to_settingsFragment)
-        }
+            val GameSettingsDialog = SettingsDialog()
+            GameSettingsDialog.show(parentFragmentManager,"SettingsDialogTag")
+            val PlayerNumber = activity?.intent?.getStringExtra("PlayerNumber")?.toInt()
+            }
+
         //end settings button
 
         //start exit button

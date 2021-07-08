@@ -6,7 +6,8 @@
     android:fillViewport="true"
     tools:context=".fragments.PlayFragment"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:tag="FragmentPlay">
 
         <LinearLayout
             android:id="@+id/MainPanel"

@@ -42,6 +42,7 @@
     <string name="next_roll">next Roll!</string>
     <string name="Cancel">Cancel</string>
     <string name="Ok">ok</string>
+    <string name="select">select</string>
     <array name="SelectMatch">
         <item>Singleplayer(training)</item>
         <item>2 players(CPU)</item>

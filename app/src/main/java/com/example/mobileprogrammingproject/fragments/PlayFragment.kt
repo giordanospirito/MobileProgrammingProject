@@ -14,6 +14,7 @@ import android.view.animation.AnimationSet
 import android.view.animation.AnimationUtils
 import com.example.mobileprogrammingproject.R
 import android.widget.ImageView
+import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.example.mobileprogrammingproject.data.User
@@ -36,6 +37,7 @@ class PlayFragment : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val vibe = context?.getSystemService(Context.VIBRATOR_SERVICE) as Vibrator
         val vibeEff = VibrationEffect.createOneShot(50, 100)
+        //Data arriving from dialog
 
         //initializing linkage to database
         myViewModel = ViewModelProvider(this).get(UserViewModel::class.java)
