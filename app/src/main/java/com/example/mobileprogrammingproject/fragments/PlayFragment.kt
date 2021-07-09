@@ -410,25 +410,40 @@ class PlayFragment : Fragment() {
     }
 
     private fun FiveASCorder(list: MutableList<Int>): Boolean {
-        for(i in 0..4){
-            if(list[i]<=list[i+1]){
+        val numList = list.sorted()
+        var counter = 0
+        for(i in 0..3){
+            if(numList[i]+1==numList[i+1]){
+                counter += 1
+            }
+            else{
                 return false
             }
         }
-        return true
+        if(counter==4){
+            return true
+        }
+        return false
     }
 
     private fun FourASCorder(list: MutableList<Int>): Boolean {
-        for(i in 0..3){
-            if(list[i]<=list[i+1]) {
-                for (j in 1..4) {
-                    if (list[j] <= list[j + 1]) {
-                        return false
-                    }
+        val numList = list.sorted()
+        for(j in 0..1){
+            var counter = 0
+            for(i in j..j+3){
+                if (numList[i]+1 == numList[i+1]){
+                    counter += 1
                 }
+
+            }
+            if(counter == 3){
+                return true
+            }
+            else{
+                return false
             }
         }
-        return true
+        return false
     }
 
     private fun isYahtzee(List: MutableList<Int>, number: Int): Boolean {
