@@ -72,6 +72,11 @@ class PlayFragment : Fragment() {
         binding.AcceptBtn.isEnabled = false
         binding.AcceptBtn.setBackgroundColor(resources.getColor(R.color.grey))
         binding.AcceptBtn.setOnClickListener {
+            binding.ComboReader.text = ""
+            binding.Score.text = ""
+            binding.dicesRow.visibility = View.INVISIBLE
+            binding.seeResults.isEnabled = true
+            binding.seeResults.setBackgroundColor(resources.getColor(R.color.giallino))
             binding.RollerAndChecker.isEnabled = true
             binding.RollerAndChecker.setBackgroundColor(resources.getColor(R.color.giallino))
             binding.AcceptBtn.isEnabled = false
@@ -136,6 +141,9 @@ class PlayFragment : Fragment() {
 
         //setting up listeners
         binding.RollerAndChecker.setOnClickListener {
+
+            binding.seeResults.isEnabled = false
+            binding.seeResults.setBackgroundColor(resources.getColor(R.color.grey))
             binding.RollerAndChecker.isEnabled = false
             binding.RollerAndChecker.setBackgroundColor(resources.getColor(R.color.grey))
             binding.AcceptBtn.isEnabled = true
