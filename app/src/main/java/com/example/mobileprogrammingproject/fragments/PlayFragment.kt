@@ -19,6 +19,8 @@ import androidx.navigation.fragment.navArgs
 import com.example.mobileprogrammingproject.data.User
 import com.example.mobileprogrammingproject.data.UserViewModel
 import com.example.mobileprogrammingproject.databinding.FragmentPlayBinding
+import java.lang.Error
+import java.lang.Exception
 import java.util.*
 
 class PlayFragment : Fragment() {
@@ -38,6 +40,22 @@ class PlayFragment : Fragment() {
         val vibe = context?.getSystemService(Context.VIBRATOR_SERVICE) as Vibrator
         val vibeEff = VibrationEffect.createOneShot(50, 100)
         var numberRoll : Int = args.rollsNumberArg
+        var Score: Int = args.totalScore
+        var DoubleBool = args.doubleBool
+        var TrisBool = args.trisBool
+        var quaterBool = args.quaterBool
+        var yahtzeeBool = args.yahtzeeBool
+        var FourASCBool = args.fourASCBool
+        var FiveASCBool = args.fiveASCBool
+        var chanceBool = args.chanceBool
+        var BonusBool = args.bonusBool
+        var FullBool = args.fullBool
+        var lastCombo : String = args.lastCombo1
+        var x = args.noRoll
+
+
+
+        val rollResults = mutableListOf<Int>()
 
         //initializing linkage to database
         myViewModel = ViewModelProvider(this).get(UserViewModel::class.java)
@@ -50,13 +68,20 @@ class PlayFragment : Fragment() {
 
         //start see result button
         binding.seeResults.setOnClickListener {
-            val action = PlayFragmentDirections.actionPlayFragmentToResultsFragment(numberRoll)
-            findNavController().navigate(action)
+            if(!x){
+                //Score = ScoreUpdate(Score,rollResults)
+                if(lastCombo=="Coppia"){
+                    DoubleBool = true
+                }
+                val action = PlayFragmentDirections.actionPlayFragmentToResultsFragment(currentRollsNumberArg = numberRoll,totalScore = Score,doubleBool = DoubleBool, trisBool = TrisBool,quaterBool = quaterBool,yahtzeeBool = yahtzeeBool,fourASCBool = FourASCBool,fiveASCBool = FiveASCBool,fullBool = FullBool,chanceBool = chanceBool,bonusBool = BonusBool,lastCombo2 = lastCombo,noRoll = x)
+                findNavController().navigate(action)
+            }else{
+                Toast.makeText(this.context, "DO A ROLL FIRST", Toast.LENGTH_SHORT).show()
+            }
         }
         //end see result button
 
         //start roll section
-        val rollResults = mutableListOf<Int>()
         val arrayDices = mutableListOf(binding.FirstRoll, binding.SecondRoll, binding.ThirdRoll, binding.FourthRoll, binding.FifthRoll)
         binding.numberRolls.text = numberRoll.toString()
 
@@ -66,12 +91,12 @@ class PlayFragment : Fragment() {
         animation2 = AnimationUtils.loadAnimation(this.context, R.anim.fade_in_delay)
         animation3 = AnimationUtils.loadAnimation(this.context, R.anim.fade_in)
         binding.RollerAndChecker.setOnClickListener {
+            x = false
             if (numberRoll<5) {
                 numberRoll++
                 vibe.vibrate(vibeEff)
                 rollResults.removeAll(listOf(1, 2, 3, 4, 5, 6))
                 binding.dicesRow.visibility = View.VISIBLE
-
                 for (i in 0..4) {
                     getRandomValue(arrayDices[i], rollResults)
                 }
@@ -82,6 +107,7 @@ class PlayFragment : Fragment() {
                 binding.numberRolls.text = numberRoll.toString()
                 binding.ComboReader.text = getCombo(rollResults)
                 binding.Score.text = "${getScore(getCombo(rollResults)).toString()} points!"
+                lastCombo = getCombo(rollResults)
 
                 //user should want to change some dice results
                 binding.FirstRoll.isClickable = true
@@ -99,6 +125,7 @@ class PlayFragment : Fragment() {
                 findNavController().navigate(action)
             }
 
+
         }
 
         binding.FirstRoll.setOnClickListener {
@@ -110,6 +137,7 @@ class PlayFragment : Fragment() {
             binding.ComboReader.text = getCombo(rollResults)
             binding.Score.text = "${getScore(getCombo(rollResults)).toString()} points!"
             binding.FirstRoll.isClickable = false
+            lastCombo = getCombo(rollResults)
         }
         binding.SecondRoll.setOnClickListener {
             val random = Random().nextInt(6)
@@ -120,6 +148,7 @@ class PlayFragment : Fragment() {
             binding.ComboReader.text = getCombo(rollResults)
             binding.Score.text = "${getScore(getCombo(rollResults)).toString()} points!"
             binding.SecondRoll.isClickable = false
+            lastCombo = getCombo(rollResults)
         }
         binding.ThirdRoll.setOnClickListener {
             val random = Random().nextInt(6)
@@ -130,6 +159,7 @@ class PlayFragment : Fragment() {
             binding.ComboReader.text = getCombo(rollResults)
             binding.Score.text = "${getScore(getCombo(rollResults)).toString()} points!"
             binding.ThirdRoll.isClickable = false
+            lastCombo = getCombo(rollResults)
         }
         binding.FourthRoll.setOnClickListener {
             val random = Random().nextInt(6)
@@ -140,6 +170,7 @@ class PlayFragment : Fragment() {
             binding.ComboReader.text = getCombo(rollResults)
             binding.Score.text = "${getScore(getCombo(rollResults)).toString()} points!"
             binding.FourthRoll.isClickable = false
+            lastCombo = getCombo(rollResults)
         }
         binding.FifthRoll.setOnClickListener {
             val random = Random().nextInt(6)
@@ -150,6 +181,7 @@ class PlayFragment : Fragment() {
             binding.ComboReader.text = getCombo(rollResults)
             binding.Score.text = "${getScore(getCombo(rollResults)).toString()} points!"
             binding.FifthRoll.isClickable = false
+            lastCombo = getCombo(rollResults)
         }
 
 
@@ -161,10 +193,9 @@ class PlayFragment : Fragment() {
     }
 
 
-
-
-
-
+    private fun ScoreUpdate(score: Int, rollResults: MutableList<Int>): Int {
+        return score + getScore(getCombo(rollResults))
+    }
 
 
     //functions

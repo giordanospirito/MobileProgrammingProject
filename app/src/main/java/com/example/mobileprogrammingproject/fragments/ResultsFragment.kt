@@ -4,6 +4,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
@@ -26,8 +27,52 @@ class ResultsFragment : Fragment() {
 
         //logic...
         val info = args.currentRollsNumberArg
+        var Score = args.totalScore
+        var DoubleBool = args.doubleBool
+        var TrisBool = args.trisBool
+        var quaterBool = args.quaterBool
+        var yahtzeeBool = args.yahtzeeBool
+        var FourASCBool = args.fourASCBool
+        var FiveASCBool = args.fiveASCBool
+        var chanceBool = args.chanceBool
+        var BonusBool = args.bonusBool
+        var FullBool = args.fullBool
+        var lastcombo = args.lastCombo2
+        var x = args.noRoll
+        Toast.makeText(this.context,TrisBool.toString(),Toast.LENGTH_SHORT).show()
+
+        if(DoubleBool){
+            binding.CoppiaCheck.visibility = View.VISIBLE
+        }
+        if(TrisBool){
+            binding.TrisCheck.visibility = View.VISIBLE
+        }
+        if(quaterBool){
+            binding.QuaterCheck.visibility = View.VISIBLE
+        }
+        if(yahtzeeBool){
+            binding.YahtzeeCheck.visibility = View.VISIBLE
+        }
+        if(FourASCBool){
+            binding.ScalaDa4Check.visibility = View.VISIBLE
+        }
+        if(FiveASCBool){
+            binding.ScalaDa5Check.visibility = View.VISIBLE
+        }
+        if(chanceBool){
+            binding.ChanceCheck.visibility = View.VISIBLE
+        }
+        if(BonusBool){
+            binding.BonusCheck.visibility = View.VISIBLE
+        }
+        if(FullBool){
+            binding.FullCheck.visibility = View.VISIBLE
+        }
+
+
+
         binding.GoToNextRollButton.setOnClickListener {
-            val action = ResultsFragmentDirections.actionResultsFragmentToPlayFragment(info)
+            val action = ResultsFragmentDirections.actionResultsFragmentToPlayFragment(info,Score,DoubleBool,TrisBool,quaterBool,yahtzeeBool,FourASCBool,FiveASCBool,FullBool,chanceBool,BonusBool,lastCombo1 = lastcombo,noRoll = x)
             findNavController().navigate(action)
         }
         myViewModel = ViewModelProvider(this).get(UserViewModel::class.java)

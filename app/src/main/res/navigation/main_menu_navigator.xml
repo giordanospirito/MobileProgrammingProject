@@ -39,6 +39,46 @@
                 android:name="currentRollsNumberArg"
                 app:argType="integer" />
         </action>
+        <argument
+            android:name="totalScore"
+            app:argType="integer"
+            android:defaultValue="0" />
+        <argument
+            android:name="doubleBool"
+            app:argType="boolean"
+            android:defaultValue="false" />
+        <argument
+            android:name="trisBool"
+            app:argType="boolean"
+            android:defaultValue="false" />
+        <argument
+            android:name="quaterBool"
+            app:argType="boolean"
+            android:defaultValue="false" />
+        <argument
+            android:name="yahtzeeBool"
+            app:argType="boolean"
+            android:defaultValue="false" />
+        <argument
+            android:name="fourASCBool"
+            app:argType="boolean"
+            android:defaultValue="false" />
+        <argument
+            android:name="fiveASCBool"
+            app:argType="boolean"
+            android:defaultValue="false" />
+        <argument
+            android:name="fullBool"
+            app:argType="boolean"
+            android:defaultValue="false" />
+        <argument
+            android:name="chanceBool"
+            app:argType="boolean"
+            android:defaultValue="false" />
+        <argument
+            android:name="bonusBool"
+            app:argType="boolean"
+            android:defaultValue="false" />
         <action
             android:id="@+id/action_playFragment_to_endGameFragment"
             app:destination="@id/endGameFragment"
@@ -49,6 +89,14 @@
             android:name="rollsNumberArg"
             app:argType="integer"
             android:defaultValue="0"/>
+        <argument
+            android:name="lastCombo1"
+            app:argType="string"
+            android:defaultValue='""' />
+        <argument
+            android:name="noRoll"
+            app:argType="boolean"
+            android:defaultValue="true" />
     </fragment>
 
     <fragment
@@ -84,6 +132,54 @@
         <argument
             android:name="currentRollsNumberArg"
             app:argType="integer" />
+        <argument
+            android:name="totalScore"
+            app:argType="integer"
+            android:defaultValue="0" />
+        <argument
+            android:name="doubleBool"
+            app:argType="boolean"
+            android:defaultValue="false" />
+        <argument
+            android:name="trisBool"
+            app:argType="boolean"
+            android:defaultValue="false" />
+        <argument
+            android:name="quaterBool"
+            app:argType="boolean"
+            android:defaultValue="false" />
+        <argument
+            android:name="yahtzeeBool"
+            app:argType="boolean"
+            android:defaultValue="false" />
+        <argument
+            android:name="fourASCBool"
+            app:argType="boolean"
+            android:defaultValue="false" />
+        <argument
+            android:name="fiveASCBool"
+            app:argType="boolean"
+            android:defaultValue="false" />
+        <argument
+            android:name="fullBool"
+            app:argType="boolean"
+            android:defaultValue="false" />
+        <argument
+            android:name="chanceBool"
+            app:argType="boolean"
+            android:defaultValue="false" />
+        <argument
+            android:name="bonusBool"
+            app:argType="boolean"
+            android:defaultValue="false" />
+        <argument
+            android:name="lastCombo2"
+            app:argType="string"
+            android:defaultValue='""' />
+        <argument
+            android:name="noRoll"
+            app:argType="boolean"
+            android:defaultValue="true" />
     </fragment>
 
     <fragment
