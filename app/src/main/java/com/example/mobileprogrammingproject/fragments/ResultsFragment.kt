@@ -39,7 +39,6 @@ class ResultsFragment : Fragment() {
         var FullBool = args.fullBool
         var lastcombo = args.lastCombo2
         var x = args.noRoll
-        Toast.makeText(this.context,TrisBool.toString(),Toast.LENGTH_SHORT).show()
 
         if(DoubleBool){
             binding.CoppiaCheck.visibility = View.VISIBLE

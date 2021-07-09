@@ -63,11 +63,6 @@ class SettingsFragment : Fragment() {
             if (canContinue == 0) {
                 Toast.makeText(this.context, "Select a game-mode first", Toast.LENGTH_SHORT).show()
             }
-
-            if (SinglePlayerCheck.isChecked) {
-                val action = SettingsFragmentDirections.actionSettingsFragmentToMenuFragment()
-                findNavController().navigate(action)
-            }
         }
 
 

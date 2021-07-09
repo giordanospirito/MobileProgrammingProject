@@ -3,6 +3,8 @@ package com.example.mobileprogrammingproject
 import android.media.MediaPlayer
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.navigation.findNavController
+import com.example.mobileprogrammingproject.dialogs.ExitGameDialog
 
 class MainMenuActivity : AppCompatActivity() {
 
@@ -33,6 +35,15 @@ class MainMenuActivity : AppCompatActivity() {
         super.onStop()
         if (wantMusic) {
             mediaPlayer.pause()
+        }
+    }
+
+    override fun onBackPressed() {
+        if ( this.findNavController(R.id.fragmentContainerView).currentDestination?.id == R.id.settingsFragment ){
+            super.onBackPressed()}
+        else {
+            val exit = ExitGameDialog()
+            exit.show(supportFragmentManager, "exit_dialog_tag")
         }
     }
 }
