@@ -149,8 +149,9 @@ class PlayFragment : Fragment() {
         }
         binding.FirstRoll.setOnClickListener {
             val random = Random().nextInt(6)
-            arrayDices[0].startAnimation(animation1)
+
             arrayDices[0].setImageResource(diceImages.elementAt(random))
+            arrayDices[0].startAnimation(AnimationUtils.loadAnimation(this.context, R.anim.shake_animation))
             rollResults.removeAt(0)
             rollResults.add(0,random+1)
             binding.ComboReader.text = getCombo(rollResults)
@@ -181,8 +182,9 @@ class PlayFragment : Fragment() {
         }
         binding.SecondRoll.setOnClickListener {
             val random = Random().nextInt(6)
-            arrayDices[1].startAnimation(animation1)
+
             arrayDices[1].setImageResource(diceImages.elementAt(random))
+            arrayDices[1].startAnimation(AnimationUtils.loadAnimation(this.context, R.anim.shake_animation))
             rollResults.removeAt(1)
             rollResults.add(1,random+1)
             binding.ComboReader.text = getCombo(rollResults)
@@ -213,8 +215,9 @@ class PlayFragment : Fragment() {
         }
         binding.ThirdRoll.setOnClickListener {
             val random = Random().nextInt(6)
-            arrayDices[2].startAnimation(animation1)
+
             arrayDices[2].setImageResource(diceImages.elementAt(random))
+            arrayDices[2].startAnimation(AnimationUtils.loadAnimation(this.context, R.anim.shake_animation))
             rollResults.removeAt(2)
             rollResults.add(2,random+1)
             binding.ComboReader.text = getCombo(rollResults)
@@ -245,8 +248,9 @@ class PlayFragment : Fragment() {
         }
         binding.FourthRoll.setOnClickListener {
             val random = Random().nextInt(6)
-            arrayDices[3].startAnimation(animation1)
+
             arrayDices[3].setImageResource(diceImages.elementAt(random))
+            arrayDices[3].startAnimation(AnimationUtils.loadAnimation(this.context, R.anim.shake_animation))
             rollResults.removeAt(3)
             rollResults.add(3,random+1)
             binding.ComboReader.text = getCombo(rollResults)
@@ -277,8 +281,9 @@ class PlayFragment : Fragment() {
         }
         binding.FifthRoll.setOnClickListener {
             val random = Random().nextInt(6)
-            arrayDices[4].startAnimation(animation1)
+
             arrayDices[4].setImageResource(diceImages.elementAt(random))
+            arrayDices[4].startAnimation(AnimationUtils.loadAnimation(this.context, R.anim.shake_animation))
             rollResults.removeAt(4)
             rollResults.add(4,random+1)
             binding.ComboReader.text = getCombo(rollResults)
