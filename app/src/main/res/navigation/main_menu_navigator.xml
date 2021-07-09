@@ -33,7 +33,7 @@
             app:destination="@id/resultsFragment">
             <argument
                 android:name="currentRollsNumberArg"
-                app:argType="integer"/>
+                app:argType="integer" />
         </action>
         <action
             android:id="@+id/action_playFragment_to_endGameFragment"
@@ -74,7 +74,7 @@
             app:popUpToInclusive="true">
             <argument
                 android:name="rollsNumberArg"
-                app:argType="integer"/>
+                app:argType="integer" />
         </action>
         <argument
             android:name="currentRollsNumberArg"
