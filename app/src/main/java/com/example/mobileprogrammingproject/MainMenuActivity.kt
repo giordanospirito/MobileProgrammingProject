@@ -8,6 +8,7 @@ class MainMenuActivity : AppCompatActivity() {
 
     lateinit var mediaPlayer : MediaPlayer
     var wantMusic = true
+    var gameMode: Int = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

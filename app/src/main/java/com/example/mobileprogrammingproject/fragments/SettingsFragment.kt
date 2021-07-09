@@ -6,8 +6,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.core.view.get
 import androidx.navigation.Navigation
 import androidx.navigation.fragment.findNavController
+import com.example.mobileprogrammingproject.MainMenuActivity
 import com.example.mobileprogrammingproject.R
 import com.example.mobileprogrammingproject.databinding.FragmentPlayBinding
 import com.example.mobileprogrammingproject.databinding.FragmentSettingsBinding
@@ -18,6 +20,7 @@ class SettingsFragment : Fragment() {
     private val binding get() = _binding!!
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+        var settingsMode: Int = (activity as MainMenuActivity).gameMode
 
         //binding
         _binding = FragmentSettingsBinding.inflate(inflater, container, false)
@@ -31,18 +34,29 @@ class SettingsFragment : Fragment() {
         val ThreePlayersCheck = binding.ThreePlayerButton
         val FourPlayersCheck = binding.FourPlayerButton
 
+        when(settingsMode){
+            0 -> SinglePlayerCheck.isChecked = true
+            1 -> TwoPlayersCheck.isChecked = true
+            2 -> ThreePlayersCheck.isChecked = true
+            3 -> FourPlayersCheck.isChecked = true
+        }
+
         ApplyButton.setOnClickListener {
             var canContinue = 0
             if (SinglePlayerCheck.isChecked) {
+                (activity as MainMenuActivity).gameMode = 0
                 canContinue = 1
             }
             if (TwoPlayersCheck.isChecked) {
+                (activity as MainMenuActivity).gameMode = 1
                 canContinue = 1
             }
             if (ThreePlayersCheck.isChecked) {
+                (activity as MainMenuActivity).gameMode = 2
                 canContinue = 1
             }
             if (FourPlayersCheck.isChecked) {
+                (activity as MainMenuActivity).gameMode = 3
                 canContinue = 1
             }
 

@@ -19,7 +19,7 @@
             android:layout_height="wrap_content"
             android:text="Selezionare il numero dei giocatori"
             android:textColor="@color/giallino"
-            android:textSize="24dp"
+            android:textSize="24sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -39,7 +39,7 @@
                 android:id="@+id/SinglePlayerButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="SinglePlayer(training)"
+                android:text="SinglePlayer (training)"
                 android:textSize="20sp"
                 android:textColor="@color/giallino"/>
 
