@@ -181,11 +181,23 @@ class PlayFragment : Fragment() {
                 val action = PlayFragmentDirections.actionPlayFragmentToEndGameFragment()
                 findNavController().navigate(action)
             }
-
-
         }
+
+        val bludiceImages = mutableListOf<Int>()
+        bludiceImagesAdder(bludiceImages)
+        var dice1selected = false
+        var dice2selected = false
+        var dice3selected = false
+        var dice4selected = false
+        var dice5selected = false
         binding.FirstRoll.setOnClickListener {
-            val random = Random().nextInt(6)
+            if (!dice1selected){
+                dice1selected = true
+                binding.FirstRoll.setImageResource(bludiceImages[rollResults[0]-1])
+            } else {
+                dice1selected = false
+                binding.FirstRoll.setImageResource(diceImages[rollResults[0]-1])}
+            /*val random = Random().nextInt(6)
 
             arrayDices[0].setImageResource(diceImages.elementAt(random))
             arrayDices[0].startAnimation(AnimationUtils.loadAnimation(this.context, R.anim.shake_animation))
@@ -194,10 +206,16 @@ class PlayFragment : Fragment() {
             binding.ComboReader.text = getCombo(rollResults)
             binding.Score.text = "${getScore(getCombo(rollResults)).toString()} points!"
             binding.FirstRoll.isClickable = false
-            lastCombo = getCombo(rollResults)
+            lastCombo = getCombo(rollResults)*/
         }
         binding.SecondRoll.setOnClickListener {
-            val random = Random().nextInt(6)
+            if (!dice2selected){
+                dice2selected = true
+                binding.SecondRoll.setImageResource(bludiceImages[rollResults[1]-1])
+            } else {
+                dice2selected = false
+                binding.SecondRoll.setImageResource(diceImages[rollResults[1]-1])}
+            /*val random = Random().nextInt(6)
 
             arrayDices[1].setImageResource(diceImages.elementAt(random))
             arrayDices[1].startAnimation(AnimationUtils.loadAnimation(this.context, R.anim.shake_animation))
@@ -206,10 +224,16 @@ class PlayFragment : Fragment() {
             binding.ComboReader.text = getCombo(rollResults)
             binding.Score.text = "${getScore(getCombo(rollResults)).toString()} points!"
             binding.SecondRoll.isClickable = false
-            lastCombo = getCombo(rollResults)
+            lastCombo = getCombo(rollResults)*/
         }
         binding.ThirdRoll.setOnClickListener {
-            val random = Random().nextInt(6)
+            if (!dice3selected){
+                dice3selected = true
+                binding.ThirdRoll.setImageResource(bludiceImages[rollResults[2]-1])
+            } else {
+                dice3selected = false
+                binding.ThirdRoll.setImageResource(diceImages[rollResults[2]-1])}
+            /*val random = Random().nextInt(6)
 
             arrayDices[2].setImageResource(diceImages.elementAt(random))
             arrayDices[2].startAnimation(AnimationUtils.loadAnimation(this.context, R.anim.shake_animation))
@@ -218,10 +242,16 @@ class PlayFragment : Fragment() {
             binding.ComboReader.text = getCombo(rollResults)
             binding.Score.text = "${getScore(getCombo(rollResults)).toString()} points!"
             binding.ThirdRoll.isClickable = false
-            lastCombo = getCombo(rollResults)
+            lastCombo = getCombo(rollResults)*/
         }
         binding.FourthRoll.setOnClickListener {
-            val random = Random().nextInt(6)
+            if (!dice4selected){
+                dice4selected = true
+                binding.FourthRoll.setImageResource(bludiceImages[rollResults[3]-1])
+            } else {
+                dice4selected = false
+                binding.FourthRoll.setImageResource(diceImages[rollResults[3]-1])}
+            /*val random = Random().nextInt(6)
 
             arrayDices[3].setImageResource(diceImages.elementAt(random))
             arrayDices[3].startAnimation(AnimationUtils.loadAnimation(this.context, R.anim.shake_animation))
@@ -230,10 +260,16 @@ class PlayFragment : Fragment() {
             binding.ComboReader.text = getCombo(rollResults)
             binding.Score.text = "${getScore(getCombo(rollResults)).toString()} points!"
             binding.FourthRoll.isClickable = false
-            lastCombo = getCombo(rollResults)
+            lastCombo = getCombo(rollResults)*/
         }
         binding.FifthRoll.setOnClickListener {
-            val random = Random().nextInt(6)
+            if (!dice5selected){
+                dice5selected = true
+                binding.FifthRoll.setImageResource(bludiceImages[rollResults[4]-1])
+            } else {
+                dice5selected = false
+                binding.FifthRoll.setImageResource(diceImages[rollResults[4]-1])}
+            /*val random = Random().nextInt(6)
 
             arrayDices[4].setImageResource(diceImages.elementAt(random))
             arrayDices[4].startAnimation(AnimationUtils.loadAnimation(this.context, R.anim.shake_animation))
@@ -242,7 +278,7 @@ class PlayFragment : Fragment() {
             binding.ComboReader.text = getCombo(rollResults)
             binding.Score.text = "${getScore(getCombo(rollResults)).toString()} points!"
             binding.FifthRoll.isClickable = false
-            lastCombo = getCombo(rollResults)
+            lastCombo = getCombo(rollResults)*/
         }
 
 
@@ -274,6 +310,15 @@ class PlayFragment : Fragment() {
         diceImagesList.add(R.drawable.ic_dice_five)
         diceImagesList.add(R.drawable.ic_dice_six)
     } //given dicelist, adds to this the dices images of 1 to 6 dices
+
+    private fun bludiceImagesAdder(diceImagesList: MutableList<Int>){
+        diceImagesList.add(R.drawable.dice_one_blu)
+        diceImagesList.add(R.drawable.dice_two_blu)
+        diceImagesList.add(R.drawable.dice_three_blu)
+        diceImagesList.add(R.drawable.dice_four_blu)
+        diceImagesList.add(R.drawable.dice_five_blu)
+        diceImagesList.add(R.drawable.dice_six_blu)
+    }
     private fun getScore(s: String): Int {
         val value = when(s){
             "Coppia" -> 5
