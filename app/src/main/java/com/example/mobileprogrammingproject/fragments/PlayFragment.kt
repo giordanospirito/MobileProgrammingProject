@@ -65,10 +65,10 @@ class PlayFragment : Fragment() {
         //end binding section
 
         //accept
-        binding.acceptButton.isClickable = false
-        binding.acceptButton.setOnClickListener {
-            binding.acceptButton.isClickable = false
+
+        binding.AcceptBtn.setOnClickListener {
             binding.RollerAndChecker.isClickable = true
+            binding.AcceptBtn.isClickable = false
 
             if(lastCombo=="Coppia"){
                 DoubleBool = true
@@ -128,7 +128,7 @@ class PlayFragment : Fragment() {
         //setting up listeners
         binding.RollerAndChecker.setOnClickListener {
             binding.RollerAndChecker.isClickable = false
-            binding.acceptButton.isClickable = true
+            binding.AcceptBtn.isClickable = true
             x = false
             if (numberRoll<13) {
                 numberRoll++
