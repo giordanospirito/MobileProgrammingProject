@@ -57,6 +57,11 @@ class PlayFragment : Fragment() {
         var FullBool = args.fullBool
         var lastCombo : String = args.lastCombo1
         var x = args.noRoll
+        var dice1selected = false
+        var dice2selected = false
+        var dice3selected = false
+        var dice4selected = false
+        var dice5selected = false
 
 
         //where our scoring array will be saved
@@ -185,11 +190,7 @@ class PlayFragment : Fragment() {
 
         val bludiceImages = mutableListOf<Int>()
         bludiceImagesAdder(bludiceImages)
-        var dice1selected = false
-        var dice2selected = false
-        var dice3selected = false
-        var dice4selected = false
-        var dice5selected = false
+
         binding.FirstRoll.setOnClickListener {
             if (!dice1selected){
                 dice1selected = true
