@@ -20,7 +20,7 @@ class SettingsFragment : Fragment() {
     private val binding get() = _binding!!
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        var settingsMode: Int = (activity as MainMenuActivity).gameMode
+        val settingsMode: Int = (activity as MainMenuActivity).gameMode
 
         //binding
         _binding = FragmentSettingsBinding.inflate(inflater, container, false)
