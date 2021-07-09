@@ -101,6 +101,9 @@ class MainMenuActivity : AppCompatActivity() {
 //todo animazione roll singoli accavallati
 //todo check che si ricordano tutto
 //todo roll diventa grigio e accept non cliccabile e grigio
+//todo girare il cel resetta la muisica
+//todo fai un roll , non accetti, vai a results frag, torni e il roll è andato perso e vai avanti anche di un roll
+
 
 /* cosa è stato fatto fin'ora
 *****UPDATE***** creato un tasto "RULES" che apre un dialog per mostrare sinteticamente le regole del gioco
