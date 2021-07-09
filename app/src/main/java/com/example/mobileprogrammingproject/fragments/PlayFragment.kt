@@ -6,6 +6,7 @@ import android.graphics.Color
 import android.os.Bundle
 import android.os.VibrationEffect
 import android.os.Vibrator
+import android.view.Gravity
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -116,7 +117,9 @@ class PlayFragment : Fragment() {
                 val action = PlayFragmentDirections.actionPlayFragmentToResultsFragment(currentRollsNumberArg = numberRoll,totalScore = Score,doubleBool = DoubleBool, trisBool = TrisBool,quaterBool = quaterBool,yahtzeeBool = yahtzeeBool,fourASCBool = FourASCBool,fiveASCBool = FiveASCBool,fullBool = FullBool,chanceBool = chanceBool,bonusBool = BonusBool,lastCombo2 = lastCombo,noRoll = x)
                 findNavController().navigate(action)
             }else{
-                Toast.makeText(this.context, "DO A ROLL FIRST", Toast.LENGTH_SHORT).show()
+                val myT = Toast.makeText(this.context, "DO A ROLL FIRST", Toast.LENGTH_SHORT)
+                myT.setGravity(Gravity.TOP,0,0)
+                myT.show()
             }
         }
         //end see result button
