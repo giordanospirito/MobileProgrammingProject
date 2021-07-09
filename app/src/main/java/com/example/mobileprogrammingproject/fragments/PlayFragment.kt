@@ -82,6 +82,15 @@ class PlayFragment : Fragment() {
                 binding.numberRolls.text = numberRoll.toString()
                 binding.ComboReader.text = getCombo(rollResults)
                 binding.Score.text = "${getScore(getCombo(rollResults)).toString()} points!"
+
+                //user should want to change some dice results
+                binding.FirstRoll.isClickable = true
+                binding.SecondRoll.isClickable = true
+                binding.ThirdRoll.isClickable = true
+                binding.FourthRoll.isClickable = true
+                binding.FifthRoll.isClickable = true
+
+
                 if (numberRoll == 5) {
                     binding.RollerAndChecker.text = "End game"
                 }
@@ -91,6 +100,60 @@ class PlayFragment : Fragment() {
             }
 
         }
+
+        binding.FirstRoll.setOnClickListener {
+            val random = Random().nextInt(6)
+            arrayDices[0].startAnimation(animation1)
+            arrayDices[0].setImageResource(diceImages.elementAt(random))
+            rollResults.removeAt(0)
+            rollResults.add(0,random+1)
+            binding.ComboReader.text = getCombo(rollResults)
+            binding.Score.text = "${getScore(getCombo(rollResults)).toString()} points!"
+            binding.FirstRoll.isClickable = false
+        }
+        binding.SecondRoll.setOnClickListener {
+            val random = Random().nextInt(6)
+            arrayDices[1].startAnimation(animation1)
+            arrayDices[1].setImageResource(diceImages.elementAt(random))
+            rollResults.removeAt(1)
+            rollResults.add(1,random+1)
+            binding.ComboReader.text = getCombo(rollResults)
+            binding.Score.text = "${getScore(getCombo(rollResults)).toString()} points!"
+            binding.SecondRoll.isClickable = false
+        }
+        binding.ThirdRoll.setOnClickListener {
+            val random = Random().nextInt(6)
+            arrayDices[2].startAnimation(animation1)
+            arrayDices[2].setImageResource(diceImages.elementAt(random))
+            rollResults.removeAt(2)
+            rollResults.add(2,random+1)
+            binding.ComboReader.text = getCombo(rollResults)
+            binding.Score.text = "${getScore(getCombo(rollResults)).toString()} points!"
+            binding.ThirdRoll.isClickable = false
+        }
+        binding.FourthRoll.setOnClickListener {
+            val random = Random().nextInt(6)
+            arrayDices[3].startAnimation(animation1)
+            arrayDices[3].setImageResource(diceImages.elementAt(random))
+            rollResults.removeAt(3)
+            rollResults.add(3,random+1)
+            binding.ComboReader.text = getCombo(rollResults)
+            binding.Score.text = "${getScore(getCombo(rollResults)).toString()} points!"
+            binding.FourthRoll.isClickable = false
+        }
+        binding.FifthRoll.setOnClickListener {
+            val random = Random().nextInt(6)
+            arrayDices[4].startAnimation(animation1)
+            arrayDices[4].setImageResource(diceImages.elementAt(random))
+            rollResults.removeAt(4)
+            rollResults.add(4,random+1)
+            binding.ComboReader.text = getCombo(rollResults)
+            binding.Score.text = "${getScore(getCombo(rollResults)).toString()} points!"
+            binding.FifthRoll.isClickable = false
+        }
+
+
+
         //end roll section
 
         //return section
