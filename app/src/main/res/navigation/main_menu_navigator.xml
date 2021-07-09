@@ -54,7 +54,9 @@
         tools:layout="@layout/fragment_settings" >
         <action
             android:id="@+id/action_settingsFragment_to_menuFragment"
-            app:destination="@id/menuFragment" />
+            app:destination="@id/menuFragment"
+            app:popUpTo="@id/menuFragment"
+            app:popUpToInclusive="true"/>
         <action
             android:id="@+id/action_settingsFragment_to_endGameFragment"
             app:destination="@id/endGameFragment" />
