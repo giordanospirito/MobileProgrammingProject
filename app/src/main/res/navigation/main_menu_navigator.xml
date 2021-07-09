@@ -32,7 +32,9 @@
             android:id="@+id/action_playFragment_to_resultsFragment"
             app:destination="@id/resultsFragment"
             app:enterAnim="@anim/my_slide_in_right"
-            app:exitAnim="@anim/my_slide_out_left">
+            app:exitAnim="@android:anim/fade_out"
+            app:popEnterAnim="@anim/my_slide_in_left"
+            app:popExitAnim="@android:anim/fade_out">
             <argument
                 android:name="currentRollsNumberArg"
                 app:argType="integer" />
@@ -72,6 +74,7 @@
         <action
             android:id="@+id/action_resultsFragment_to_playFragment"
             app:destination="@id/playFragment"
+            app:enterAnim="@anim/my_slide_in_left"
             app:popUpTo="@id/playFragment"
             app:popUpToInclusive="true">
             <argument
