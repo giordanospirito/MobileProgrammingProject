@@ -379,13 +379,6 @@ class PlayFragment : Fragment() {
         }
         return false
     }
-    private fun SendFlagToDatabase(user: User,List: MutableList<Int>){
-        var Verdict = getCombo(List)
-        if(Verdict=="Coppia" && user.numbersRepetition == false){
-            user.numbersRepetition == true
-            user.score += 5
-            myViewModel.setFlag(user)
-        }
-    }
+
 }
 
