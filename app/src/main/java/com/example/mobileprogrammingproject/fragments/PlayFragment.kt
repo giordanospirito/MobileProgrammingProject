@@ -64,6 +64,44 @@ class PlayFragment : Fragment() {
         val view = binding.root
         //end binding section
 
+        //accept
+        binding.acceptButton.isClickable = false
+        binding.acceptButton.setOnClickListener {
+            binding.acceptButton.isClickable = false
+            binding.RollerAndChecker.isClickable = true
+
+            if(lastCombo=="Coppia"){
+                DoubleBool = true
+            }
+            if(lastCombo=="Tris"){
+                TrisBool = true
+            }
+            if(lastCombo=="Quater"){
+                quaterBool = true
+            }
+            if(lastCombo=="Yahtzee"){
+                yahtzeeBool = true
+            }
+            if(lastCombo=="Full"){
+                FullBool=true
+            }
+            if(lastCombo=="Scala da 4"){
+                FourASCBool=true
+            }
+            if(lastCombo=="Scala da 5"){
+                FiveASCBool=true
+            }
+            if(Score>62){
+                BonusBool=true
+                Score+=25
+            }
+            if((lastCombo=="Coppia" && args.doubleBool==true)or(lastCombo=="Tris" && args.trisBool == true)or(lastCombo=="Quater" && args.quaterBool == true)or(lastCombo=="Full" && args.fullBool == true)or(lastCombo=="Scala da 4" && args.fourASCBool == true)or(lastCombo=="Scala da 5" && args.fiveASCBool == true)){
+                chanceBool=true
+            }
+
+        }
+        //end accept
+
         //start see result button
         binding.seeResults.setOnClickListener {
             if(!x){
@@ -89,7 +127,8 @@ class PlayFragment : Fragment() {
 
         //setting up listeners
         binding.RollerAndChecker.setOnClickListener {
-            //binding.RollerAndChecker.isClickable = false
+            binding.RollerAndChecker.isClickable = false
+            binding.acceptButton.isClickable = true
             x = false
             if (numberRoll<13) {
                 numberRoll++
@@ -115,35 +154,6 @@ class PlayFragment : Fragment() {
                 binding.FourthRoll.isClickable = true
                 binding.FifthRoll.isClickable = true
 
-                if(lastCombo=="Coppia"){
-                    DoubleBool = true
-                }
-                if(lastCombo=="Tris"){
-                    TrisBool = true
-                }
-                if(lastCombo=="Quater"){
-                    quaterBool = true
-                }
-                if(lastCombo=="Yahtzee"){
-                    yahtzeeBool = true
-                }
-                if(lastCombo=="Full"){
-                    FullBool=true
-                }
-                if(lastCombo=="Scala da 4"){
-                    FourASCBool=true
-                }
-                if(lastCombo=="Scala da 5"){
-                    FiveASCBool=true
-                }
-                if(Score>62){
-                    BonusBool=true
-                    Score+=25
-                }
-                if((lastCombo=="Coppia" && args.doubleBool==true)or(lastCombo=="Tris" && args.trisBool == true)or(lastCombo=="Quater" && args.quaterBool == true)or(lastCombo=="Full" && args.fullBool == true)or(lastCombo=="Scala da 4" && args.fourASCBool == true)or(lastCombo=="Scala da 5" && args.fiveASCBool == true)){
-                    chanceBool=true
-                }
-
 
                 if (numberRoll == 13) {
                     binding.RollerAndChecker.text = "End game"
@@ -166,34 +176,6 @@ class PlayFragment : Fragment() {
             binding.Score.text = "${getScore(getCombo(rollResults)).toString()} points!"
             binding.FirstRoll.isClickable = false
             lastCombo = getCombo(rollResults)
-            if(lastCombo=="Coppia"){
-                DoubleBool = true
-            }
-            if(lastCombo=="Tris"){
-                TrisBool = true
-            }
-            if(lastCombo=="Quater"){
-                quaterBool = true
-            }
-            if(lastCombo=="Yahtzee"){
-                yahtzeeBool = true
-            }
-            if(lastCombo=="Full"){
-                FullBool=true
-            }
-            if(lastCombo=="Scala da 4"){
-                FourASCBool=true
-            }
-            if(lastCombo=="Scala da 5"){
-                FiveASCBool=true
-            }
-            if(Score>62){
-                BonusBool=true
-                Score+=25
-            }
-            if((lastCombo=="Coppia" && args.doubleBool==true)or(lastCombo=="Tris" && args.trisBool == true)or(lastCombo=="Quater" && args.quaterBool == true)or(lastCombo=="Full" && args.fullBool == true)or(lastCombo=="Scala da 4" && args.fourASCBool == true)or(lastCombo=="Scala da 5" && args.fiveASCBool == true)){
-                chanceBool=true
-            }
         }
         binding.SecondRoll.setOnClickListener {
             val random = Random().nextInt(6)
@@ -206,34 +188,6 @@ class PlayFragment : Fragment() {
             binding.Score.text = "${getScore(getCombo(rollResults)).toString()} points!"
             binding.SecondRoll.isClickable = false
             lastCombo = getCombo(rollResults)
-            if(lastCombo=="Coppia"){
-                DoubleBool = true
-            }
-            if(lastCombo=="Tris"){
-                TrisBool = true
-            }
-            if(lastCombo=="Quater"){
-                quaterBool = true
-            }
-            if(lastCombo=="Yahtzee"){
-                yahtzeeBool = true
-            }
-            if(lastCombo=="Full"){
-                FullBool=true
-            }
-            if(lastCombo=="Scala da 4"){
-                FourASCBool=true
-            }
-            if(lastCombo=="Scala da 5"){
-                FiveASCBool=true
-            }
-            if(Score>62){
-                BonusBool=true
-                Score+=25
-            }
-            if((lastCombo=="Coppia" && args.doubleBool==true)or(lastCombo=="Tris" && args.trisBool == true)or(lastCombo=="Quater" && args.quaterBool == true)or(lastCombo=="Full" && args.fullBool == true)or(lastCombo=="Scala da 4" && args.fourASCBool == true)or(lastCombo=="Scala da 5" && args.fiveASCBool == true)){
-                chanceBool=true
-            }
         }
         binding.ThirdRoll.setOnClickListener {
             val random = Random().nextInt(6)
@@ -246,34 +200,6 @@ class PlayFragment : Fragment() {
             binding.Score.text = "${getScore(getCombo(rollResults)).toString()} points!"
             binding.ThirdRoll.isClickable = false
             lastCombo = getCombo(rollResults)
-            if(lastCombo=="Coppia"){
-                DoubleBool = true
-            }
-            if(lastCombo=="Tris"){
-                TrisBool = true
-            }
-            if(lastCombo=="Quater"){
-                quaterBool = true
-            }
-            if(lastCombo=="Yahtzee"){
-                yahtzeeBool = true
-            }
-            if(lastCombo=="Full"){
-                FullBool=true
-            }
-            if(lastCombo=="Scala da 4"){
-                FourASCBool=true
-            }
-            if(lastCombo=="Scala da 5"){
-                FiveASCBool=true
-            }
-            if(Score>62){
-                BonusBool=true
-                Score+=25
-            }
-            if((lastCombo=="Coppia" && args.doubleBool==true)or(lastCombo=="Tris" && args.trisBool == true)or(lastCombo=="Quater" && args.quaterBool == true)or(lastCombo=="Full" && args.fullBool == true)or(lastCombo=="Scala da 4" && args.fourASCBool == true)or(lastCombo=="Scala da 5" && args.fiveASCBool == true)){
-                chanceBool=true
-            }
         }
         binding.FourthRoll.setOnClickListener {
             val random = Random().nextInt(6)
@@ -286,34 +212,6 @@ class PlayFragment : Fragment() {
             binding.Score.text = "${getScore(getCombo(rollResults)).toString()} points!"
             binding.FourthRoll.isClickable = false
             lastCombo = getCombo(rollResults)
-            if(lastCombo=="Coppia"){
-                DoubleBool = true
-            }
-            if(lastCombo=="Tris"){
-                TrisBool = true
-            }
-            if(lastCombo=="Quater"){
-                quaterBool = true
-            }
-            if(lastCombo=="Yahtzee"){
-                yahtzeeBool = true
-            }
-            if(lastCombo=="Full"){
-                FullBool=true
-            }
-            if(lastCombo=="Scala da 4"){
-                FourASCBool=true
-            }
-            if(lastCombo=="Scala da 5"){
-                FiveASCBool=true
-            }
-            if(Score>62){
-                BonusBool=true
-                Score+=25
-            }
-            if((lastCombo=="Coppia" && args.doubleBool==true)or(lastCombo=="Tris" && args.trisBool == true)or(lastCombo=="Quater" && args.quaterBool == true)or(lastCombo=="Full" && args.fullBool == true)or(lastCombo=="Scala da 4" && args.fourASCBool == true)or(lastCombo=="Scala da 5" && args.fiveASCBool == true)){
-                chanceBool=true
-            }
         }
         binding.FifthRoll.setOnClickListener {
             val random = Random().nextInt(6)
@@ -326,33 +224,6 @@ class PlayFragment : Fragment() {
             binding.Score.text = "${getScore(getCombo(rollResults)).toString()} points!"
             binding.FifthRoll.isClickable = false
             lastCombo = getCombo(rollResults)
-            if(lastCombo=="Coppia"){
-                DoubleBool = true
-            }
-            if(lastCombo=="Tris"){
-                TrisBool = true
-            }
-            if(lastCombo=="Quater"){
-                quaterBool = true
-            }
-            if(lastCombo=="Yahtzee"){
-                yahtzeeBool = true
-            }
-            if(lastCombo=="Full"){
-                FullBool=true
-            }
-            if(lastCombo=="Scala da 4"){
-                FourASCBool=true
-            }
-            if(lastCombo=="Scala da 5"){
-                FiveASCBool=true
-            }
-            if(Score>62){
-                BonusBool=true
-            }
-            if((lastCombo=="Coppia" && args.doubleBool==true)or(lastCombo=="Tris" && args.trisBool == true)or(lastCombo=="Quater" && args.quaterBool == true)or(lastCombo=="Full" && args.fullBool == true)or(lastCombo=="Scala da 4" && args.fourASCBool == true)or(lastCombo=="Scala da 5" && args.fiveASCBool == true)){
-                chanceBool=true
-            }
         }
 
 

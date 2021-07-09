@@ -122,7 +122,6 @@
                 </LinearLayout>
 
                 <Button
-                    android:clickable="false"
                     android:id="@+id/acceptButton"
                     android:text="accept"
                     android:textSize="10sp"
