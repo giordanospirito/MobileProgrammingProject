@@ -30,7 +30,9 @@
         tools:layout="@layout/fragment_play">
         <action
             android:id="@+id/action_playFragment_to_resultsFragment"
-            app:destination="@id/resultsFragment">
+            app:destination="@id/resultsFragment"
+            app:enterAnim="@anim/my_slide_in_right"
+            app:exitAnim="@anim/my_slide_out_left">
             <argument
                 android:name="currentRollsNumberArg"
                 app:argType="integer" />
