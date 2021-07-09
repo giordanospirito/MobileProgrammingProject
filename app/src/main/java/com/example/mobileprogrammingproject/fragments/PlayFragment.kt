@@ -136,6 +136,10 @@ class PlayFragment : Fragment() {
                 if(lastCombo=="Scala da 5"){
                     FiveASCBool=true
                 }
+                if(Score>62){
+                    BonusBool=true
+                    Score+=25
+                }
 
                 if (numberRoll == 13) {
                     binding.RollerAndChecker.text = "End game"
@@ -179,6 +183,10 @@ class PlayFragment : Fragment() {
             if(lastCombo=="Scala da 5"){
                 FiveASCBool=true
             }
+            if(Score>62){
+                BonusBool=true
+                Score+=25
+            }
         }
         binding.SecondRoll.setOnClickListener {
             val random = Random().nextInt(6)
@@ -211,6 +219,10 @@ class PlayFragment : Fragment() {
             }
             if(lastCombo=="Scala da 5"){
                 FiveASCBool=true
+            }
+            if(Score>62){
+                BonusBool=true
+                Score+=25
             }
         }
         binding.ThirdRoll.setOnClickListener {
@@ -245,6 +257,10 @@ class PlayFragment : Fragment() {
             if(lastCombo=="Scala da 5"){
                 FiveASCBool=true
             }
+            if(Score>62){
+                BonusBool=true
+                Score+=25
+            }
         }
         binding.FourthRoll.setOnClickListener {
             val random = Random().nextInt(6)
@@ -278,6 +294,10 @@ class PlayFragment : Fragment() {
             if(lastCombo=="Scala da 5"){
                 FiveASCBool=true
             }
+            if(Score>62){
+                BonusBool=true
+                Score+=25
+            }
         }
         binding.FifthRoll.setOnClickListener {
             val random = Random().nextInt(6)
@@ -310,6 +330,9 @@ class PlayFragment : Fragment() {
             }
             if(lastCombo=="Scala da 5"){
                 FiveASCBool=true
+            }
+            if(Score>62){
+                BonusBool=true
             }
         }
 
@@ -390,6 +413,7 @@ class PlayFragment : Fragment() {
             }
         }
         return "NO combo"
+
     }
 
     private fun isFull(list: MutableList<Int>): Boolean {
@@ -405,9 +429,6 @@ class PlayFragment : Fragment() {
         return false
     }
 
-    private fun BonusUsed(list: MutableList<Int>): Boolean {
-        return false
-    }
 
     private fun FiveASCorder(list: MutableList<Int>): Boolean {
         val numList = list.sorted()
