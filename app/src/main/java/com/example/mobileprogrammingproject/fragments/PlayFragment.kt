@@ -140,6 +140,10 @@ class PlayFragment : Fragment() {
                     BonusBool=true
                     Score+=25
                 }
+                if((lastCombo=="Coppia" && args.doubleBool==true)or(lastCombo=="Tris" && args.trisBool == true)or(lastCombo=="Quater" && args.quaterBool == true)or(lastCombo=="Full" && args.fullBool == true)or(lastCombo=="Scala da 4" && args.fourASCBool == true)or(lastCombo=="Scala da 5" && args.fiveASCBool == true)){
+                    chanceBool=true
+                }
+
 
                 if (numberRoll == 13) {
                     binding.RollerAndChecker.text = "End game"
@@ -187,6 +191,9 @@ class PlayFragment : Fragment() {
                 BonusBool=true
                 Score+=25
             }
+            if((lastCombo=="Coppia" && args.doubleBool==true)or(lastCombo=="Tris" && args.trisBool == true)or(lastCombo=="Quater" && args.quaterBool == true)or(lastCombo=="Full" && args.fullBool == true)or(lastCombo=="Scala da 4" && args.fourASCBool == true)or(lastCombo=="Scala da 5" && args.fiveASCBool == true)){
+                chanceBool=true
+            }
         }
         binding.SecondRoll.setOnClickListener {
             val random = Random().nextInt(6)
@@ -223,6 +230,9 @@ class PlayFragment : Fragment() {
             if(Score>62){
                 BonusBool=true
                 Score+=25
+            }
+            if((lastCombo=="Coppia" && args.doubleBool==true)or(lastCombo=="Tris" && args.trisBool == true)or(lastCombo=="Quater" && args.quaterBool == true)or(lastCombo=="Full" && args.fullBool == true)or(lastCombo=="Scala da 4" && args.fourASCBool == true)or(lastCombo=="Scala da 5" && args.fiveASCBool == true)){
+                chanceBool=true
             }
         }
         binding.ThirdRoll.setOnClickListener {
@@ -261,6 +271,9 @@ class PlayFragment : Fragment() {
                 BonusBool=true
                 Score+=25
             }
+            if((lastCombo=="Coppia" && args.doubleBool==true)or(lastCombo=="Tris" && args.trisBool == true)or(lastCombo=="Quater" && args.quaterBool == true)or(lastCombo=="Full" && args.fullBool == true)or(lastCombo=="Scala da 4" && args.fourASCBool == true)or(lastCombo=="Scala da 5" && args.fiveASCBool == true)){
+                chanceBool=true
+            }
         }
         binding.FourthRoll.setOnClickListener {
             val random = Random().nextInt(6)
@@ -298,6 +311,9 @@ class PlayFragment : Fragment() {
                 BonusBool=true
                 Score+=25
             }
+            if((lastCombo=="Coppia" && args.doubleBool==true)or(lastCombo=="Tris" && args.trisBool == true)or(lastCombo=="Quater" && args.quaterBool == true)or(lastCombo=="Full" && args.fullBool == true)or(lastCombo=="Scala da 4" && args.fourASCBool == true)or(lastCombo=="Scala da 5" && args.fiveASCBool == true)){
+                chanceBool=true
+            }
         }
         binding.FifthRoll.setOnClickListener {
             val random = Random().nextInt(6)
@@ -333,6 +349,9 @@ class PlayFragment : Fragment() {
             }
             if(Score>62){
                 BonusBool=true
+            }
+            if((lastCombo=="Coppia" && args.doubleBool==true)or(lastCombo=="Tris" && args.trisBool == true)or(lastCombo=="Quater" && args.quaterBool == true)or(lastCombo=="Full" && args.fullBool == true)or(lastCombo=="Scala da 4" && args.fourASCBool == true)or(lastCombo=="Scala da 5" && args.fiveASCBool == true)){
+                chanceBool=true
             }
         }
 
