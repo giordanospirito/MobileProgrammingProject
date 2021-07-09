@@ -146,6 +146,8 @@ class PlayFragment : Fragment() {
 
         //setting up listeners
         binding.RollerAndChecker.setOnClickListener {
+            it.visibility = View.GONE
+            binding.RollerAndChecker2.visibility = View.VISIBLE
 
             binding.seeResults.isEnabled = false
             binding.seeResults.setBackgroundColor(resources.getColor(R.color.grey))
@@ -186,6 +188,11 @@ class PlayFragment : Fragment() {
                 val action = PlayFragmentDirections.actionPlayFragmentToEndGameFragment()
                 findNavController().navigate(action)
             }
+        }
+
+        binding.RollerAndChecker2.setOnClickListener {
+            it.visibility = View.GONE
+            binding.RollerAndChecker.visibility = View.VISIBLE
         }
 
         val bludiceImages = mutableListOf<Int>()
