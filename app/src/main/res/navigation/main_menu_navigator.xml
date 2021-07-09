@@ -32,9 +32,7 @@
             android:id="@+id/action_playFragment_to_resultsFragment"
             app:destination="@id/resultsFragment"
             app:enterAnim="@anim/my_slide_in_right"
-            app:exitAnim="@android:anim/fade_out"
-            app:popEnterAnim="@anim/my_slide_in_left"
-            app:popExitAnim="@android:anim/fade_out">
+            app:exitAnim="@android:anim/fade_out">
             <argument
                 android:name="currentRollsNumberArg"
                 app:argType="integer" />
