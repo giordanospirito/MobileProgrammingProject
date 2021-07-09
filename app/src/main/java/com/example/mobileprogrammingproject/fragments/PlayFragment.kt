@@ -31,14 +31,15 @@ class PlayFragment : Fragment() {
     private lateinit var animation1: Animation
     private lateinit var animation2: Animation
     private lateinit var animation3: Animation
-    private lateinit var myViewModel: UserViewModel
     private val args:PlayFragmentArgs by navArgs()
 
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        //val and var
+        //vibration effect
         val vibe = context?.getSystemService(Context.VIBRATOR_SERVICE) as Vibrator
         val vibeEff = VibrationEffect.createOneShot(50, 100)
+
+        //values that will be passed during play
         var numberRoll : Int = args.rollsNumberArg
         var Score: Int = args.totalScore
         var DoubleBool = args.doubleBool
@@ -54,12 +55,9 @@ class PlayFragment : Fragment() {
         var x = args.noRoll
 
 
-
+        //where our scoring array will be saved
         val rollResults = mutableListOf<Int>()
 
-        //initializing linkage to database
-        myViewModel = ViewModelProvider(this).get(UserViewModel::class.java)
-        //end linkage to database
 
         //start binding section
         _binding = FragmentPlayBinding.inflate(inflater, container, false)
@@ -72,6 +70,24 @@ class PlayFragment : Fragment() {
                 //Score = ScoreUpdate(Score,rollResults)
                 if(lastCombo=="Coppia"){
                     DoubleBool = true
+                }
+                if(lastCombo=="Tris"){
+                    TrisBool = true
+                }
+                if(lastCombo=="Quater"){
+                    quaterBool = true
+                }
+                if(lastCombo=="Yahtzee"){
+                    yahtzeeBool = true
+                }
+                if(lastCombo=="Full"){
+                    FullBool=true
+                }
+                if(lastCombo=="Scala da 4"){
+                    FourASCBool=true
+                }
+                if(lastCombo=="Scala da 5"){
+                    FiveASCBool=true
                 }
                 val action = PlayFragmentDirections.actionPlayFragmentToResultsFragment(currentRollsNumberArg = numberRoll,totalScore = Score,doubleBool = DoubleBool, trisBool = TrisBool,quaterBool = quaterBool,yahtzeeBool = yahtzeeBool,fourASCBool = FourASCBool,fiveASCBool = FiveASCBool,fullBool = FullBool,chanceBool = chanceBool,bonusBool = BonusBool,lastCombo2 = lastCombo,noRoll = x)
                 findNavController().navigate(action)
@@ -90,9 +106,12 @@ class PlayFragment : Fragment() {
         animation1 = AnimationUtils.loadAnimation(this.context, R.anim.shake_animation)
         animation2 = AnimationUtils.loadAnimation(this.context, R.anim.fade_in_delay)
         animation3 = AnimationUtils.loadAnimation(this.context, R.anim.fade_in)
+
+        //setting up listeners
         binding.RollerAndChecker.setOnClickListener {
+            binding.RollerAndChecker.isClickable = false
             x = false
-            if (numberRoll<5) {
+            if (numberRoll<13) {
                 numberRoll++
                 vibe.vibrate(vibeEff)
                 rollResults.removeAll(listOf(1, 2, 3, 4, 5, 6))
@@ -117,7 +136,7 @@ class PlayFragment : Fragment() {
                 binding.FifthRoll.isClickable = true
 
 
-                if (numberRoll == 5) {
+                if (numberRoll == 13) {
                     binding.RollerAndChecker.text = "End game"
                 }
             } else {
@@ -127,7 +146,6 @@ class PlayFragment : Fragment() {
 
 
         }
-
         binding.FirstRoll.setOnClickListener {
             val random = Random().nextInt(6)
             arrayDices[0].startAnimation(animation1)
