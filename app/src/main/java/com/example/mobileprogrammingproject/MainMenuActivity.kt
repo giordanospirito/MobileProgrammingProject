@@ -11,6 +11,7 @@ class MainMenuActivity : AppCompatActivity() {
     lateinit var mediaPlayer : MediaPlayer
     var wantMusic = true
     var gameMode: Int = 0
+    var userName : String = "Guest"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -99,6 +100,7 @@ class MainMenuActivity : AppCompatActivity() {
 //todo lo spostamento tra activity le killa
 //todo animazione roll singoli accavallati
 //todo check che si ricordano tutto
+//todo roll diventa grigio e accept non cliccabile e grigio
 
 /* cosa è stato fatto fin'ora
 *****UPDATE***** creato un tasto "RULES" che apre un dialog per mostrare sinteticamente le regole del gioco

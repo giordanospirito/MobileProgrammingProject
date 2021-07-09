@@ -122,8 +122,20 @@
                 </LinearLayout>
 
                 <Button
+                    android:clickable="false"
+                    android:id="@+id/acceptButton"
+                    android:text="accept"
+                    android:textSize="10sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_gravity="end"
+                    android:layout_marginHorizontal="4dp"
+                    android:layout_weight="0.25"
+                    tools:ignore="SmallSp" />
+
+                <Button
                     android:id="@+id/seeResults"
-                    android:text="Submit"
+                    android:text="score"
                     android:textSize="10sp"
                     android:layout_width="wrap_content"
                     android:layout_height="0dp"
