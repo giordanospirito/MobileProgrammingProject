@@ -68,7 +68,7 @@
             android:id="@+id/rulesButton"
             android:layout_width="160dp"
             android:layout_height="wrap_content"
-            android:text="@string/Regolamento"
+            android:text="how to play"
             app:layout_constraintTop_toBottomOf="@id/playButton"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

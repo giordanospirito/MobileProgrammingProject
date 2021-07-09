@@ -103,6 +103,8 @@ class MainMenuActivity : AppCompatActivity() {
 //todo roll diventa grigio e accept non cliccabile e grigio
 //todo girare il cel resetta la muisica
 //todo fai un roll , non accetti, vai a results frag, torni e il roll è andato perso e vai avanti anche di un roll
+//todo fare lo yahtzee piu di una volta e altri punteggi simili
+//todo riguarda le regole
 
 
 /* cosa è stato fatto fin'ora
