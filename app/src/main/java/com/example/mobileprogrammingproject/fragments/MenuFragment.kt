@@ -6,7 +6,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
-import androidx.navigation.fragment.navArgs
 import com.example.mobileprogrammingproject.MainMenuActivity
 import com.example.mobileprogrammingproject.R
 import com.example.mobileprogrammingproject.databinding.FragmentMenuBinding
@@ -17,7 +16,6 @@ class MenuFragment : Fragment() {
 
     private var _binding: FragmentMenuBinding? = null
     private val binding get() = _binding!!
-    //val args:PlayFragmentArgs by navArgs()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
 
@@ -55,18 +53,18 @@ class MenuFragment : Fragment() {
         //end exit button
 
         //volume button
-        if ((activity as MainMenuActivity).wantusic){
+        if ((activity as MainMenuActivity).wantMusic){
             binding.volumeButton.setImageResource(R.drawable.ic_baseline_volume_up_24)
         } else {
             binding.volumeButton.setImageResource(R.drawable.ic_baseline_volume_off_24)
         }
         binding.volumeButton.setOnClickListener{
-            if ( (activity as MainMenuActivity).wantusic ) {
-                (activity as MainMenuActivity).wantusic = false
+            if ( (activity as MainMenuActivity).wantMusic ) {
+                (activity as MainMenuActivity).wantMusic = false
                 binding.volumeButton.setImageResource(R.drawable.ic_baseline_volume_off_24)
                 (activity as MainMenuActivity).mediaPlayer.pause()
             } else{
-                (activity as MainMenuActivity).wantusic = true
+                (activity as MainMenuActivity).wantMusic = true
                 binding.volumeButton.setImageResource(R.drawable.ic_baseline_volume_up_24)
                 (activity as MainMenuActivity).mediaPlayer.start()
             }
