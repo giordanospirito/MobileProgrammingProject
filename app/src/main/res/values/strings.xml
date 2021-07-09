@@ -43,6 +43,7 @@
     <string name="Cancel">Cancel</string>
     <string name="Ok">ok</string>
     <string name="select">select</string>
+    <string name="insert_your_username">Insert your Username</string>
     <array name="SelectMatch">
         <item>Singleplayer(training)</item>
         <item>2 players(CPU)</item>

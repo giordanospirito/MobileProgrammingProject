@@ -91,6 +91,20 @@
             android:background="@color/black"
             />
 
+        <EditText
+            android:id="@+id/UsernameEditText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:hint="@string/insert_your_username"
+            app:layout_constraintBottom_toTopOf="@+id/playButton"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/titleTextView"
+            android:textColorHint="@color/giallino"
+            android:textColor="@color/giallino"/>
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </ScrollView>

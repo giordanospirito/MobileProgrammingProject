@@ -31,19 +31,6 @@ class ResultsFragment : Fragment() {
             findNavController().navigate(action)
         }
         myViewModel = ViewModelProvider(this).get(UserViewModel::class.java)
-        var myUser = User(
-            0,
-            "Federico",
-            0,
-            false,
-            false,
-            false,
-            false,
-            false,
-            false,
-            false,
-            false,
-            false)
 
         return view
     }
