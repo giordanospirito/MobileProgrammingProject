@@ -1,6 +1,7 @@
 package com.example.mobileprogrammingproject.fragments
 
 import android.os.Bundle
+import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -34,15 +35,16 @@ class MenuFragment : Fragment() {
 
         //start play button
         binding.playButton.setOnClickListener {
-            if(binding.UsernameEditText.text.toString() != ""){
-                val action = MenuFragmentDirections.actionMenuFragmentToPlayFragment(0)
-                val newUser = User(0,binding.UsernameEditText.text.toString(),0,numbersRepetition = false,bonus = false,scale4 = false,scale5 = false,tris = false,quater = false,full = false,yahtzee = false,false)
-                myViewModel.addUser(newUser)
-                findNavController().navigate(action)
+            val action = MenuFragmentDirections.actionMenuFragmentToPlayFragment(0)
+            val newUser = User(0,binding.UsernameEditText.text.toString(),0,numbersRepetition = false,bonus = false,scale4 = false,scale5 = false,tris = false,quater = false,full = false,yahtzee = false,false)
+            myViewModel.addUser(newUser)
+            if (binding.UsernameEditText.text.toString() != ""){
+                (activity as MainMenuActivity).userName = binding.UsernameEditText.text.toString()
             }
-            else{
-                Toast.makeText(this.context, "Insert your username before playing", Toast.LENGTH_SHORT).show()
-            }
+            var myToast = Toast.makeText(this.context,"Log in as ${(activity as MainMenuActivity).userName}" , Toast.LENGTH_SHORT)
+            myToast.setGravity(Gravity.TOP,0,0)
+            myToast.show()
+            findNavController().navigate(action)
 
         }
         //end play button

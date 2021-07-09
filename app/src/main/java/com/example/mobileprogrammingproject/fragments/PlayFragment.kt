@@ -1,6 +1,8 @@
 package com.example.mobileprogrammingproject.fragments
 
+import android.annotation.SuppressLint
 import android.content.Context
+import android.graphics.Color
 import android.os.Bundle
 import android.os.VibrationEffect
 import android.os.Vibrator
@@ -34,6 +36,7 @@ class PlayFragment : Fragment() {
     private val args:PlayFragmentArgs by navArgs()
 
 
+    @SuppressLint("ResourceAsColor")
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         //vibration effect
         val vibe = context?.getSystemService(Context.VIBRATOR_SERVICE) as Vibrator
@@ -65,10 +68,13 @@ class PlayFragment : Fragment() {
         //end binding section
 
         //accept
-
+        binding.AcceptBtn.isEnabled = false
+        binding.AcceptBtn.setBackgroundColor(resources.getColor(R.color.grey))
         binding.AcceptBtn.setOnClickListener {
-            binding.RollerAndChecker.isClickable = true
-            binding.AcceptBtn.isClickable = false
+            binding.RollerAndChecker.isEnabled = true
+            binding.RollerAndChecker.setBackgroundColor(resources.getColor(R.color.giallino))
+            binding.AcceptBtn.isEnabled = false
+            binding.AcceptBtn.setBackgroundColor(resources.getColor(R.color.grey))
 
             if(lastCombo=="Coppia"){
                 DoubleBool = true
@@ -127,8 +133,10 @@ class PlayFragment : Fragment() {
 
         //setting up listeners
         binding.RollerAndChecker.setOnClickListener {
-            binding.RollerAndChecker.isClickable = false
-            binding.AcceptBtn.isClickable = true
+            binding.RollerAndChecker.isEnabled = false
+            binding.RollerAndChecker.setBackgroundColor(resources.getColor(R.color.grey))
+            binding.AcceptBtn.isEnabled = true
+            binding.AcceptBtn.setBackgroundColor(resources.getColor(R.color.giallino))
             x = false
             if (numberRoll<13) {
                 numberRoll++

@@ -130,7 +130,8 @@
                     android:layout_gravity="end"
                     android:layout_marginHorizontal="4dp"
                     android:layout_weight="0.25"
-                    tools:ignore="SmallSp"/>
+                    tools:ignore="SmallSp"
+                    />
 
                 <Button
                     android:id="@+id/seeResults"
