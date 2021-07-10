@@ -65,8 +65,6 @@ class SettingsFragment : Fragment() {
             if (canContinue == 0) {
                 Toast.makeText(this.context, getString(R.string.Select_gamemode), Toast.LENGTH_SHORT).show()
             }
-            val action = SettingsFragmentDirections.actionSettingsFragmentToEndGameFragment()
-            findNavController().navigate(action)
         }
 
 
