@@ -31,13 +31,22 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:orientation="horizontal"
-            android:layout_weight="1">
+            android:layout_weight="1"
+            android:background="#FFEB69"
+            android:layout_marginHorizontal="10dp"
+            android:layout_marginVertical="4dp">
 
             <TextView
                 android:id="@+id/firstPlaceUsarname"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="2">
+                android:layout_weight="2"
+                android:text="name"
+                android:gravity="center"
+                android:textColor="@color/black"
+                android:autoSizeTextType="uniform"
+                android:autoSizeMaxTextSize="28sp"
+                android:maxLines="1">
 
             </TextView>
 
@@ -67,7 +76,8 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:orientation="horizontal"
-            android:layout_weight="1">
+            android:layout_weight="1"
+            android:background="#EAEAEA">
 
             <TextView
                 android:id="@+id/secondPlaceUsarname"
@@ -97,6 +107,7 @@
         </LinearLayout>
 
         <LinearLayout
+            android:background="#CF826A"
             android:id="@+id/thirdPlace"
             android:layout_width="match_parent"
             android:layout_height="0dp"
