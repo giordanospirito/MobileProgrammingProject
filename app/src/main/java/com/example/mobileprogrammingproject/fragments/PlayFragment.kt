@@ -111,12 +111,13 @@ class PlayFragment : Fragment() {
             if(lastCombo==resources.getString(R.string.scala_da_5)){
                 FiveASCBool=true
             }
-            if(Score>62){
+            if((Score>62) and !BonusBool){
                 BonusBool=true
                 Score+=25
             }
-            if((lastCombo==resources.getString(R.string.coppia) && args.doubleBool==true)or(lastCombo==resources.getString(R.string.tris) && args.trisBool == true)or(lastCombo==resources.getString(R.string.quater) && args.quaterBool == true)or(lastCombo==resources.getString(R.string.full) && args.fullBool == true)or(lastCombo==resources.getString(R.string.scala_da_4) && args.fourASCBool == true)or(lastCombo==resources.getString(R.string.scala_da_5) && args.fiveASCBool == true)){
+            if(((lastCombo==resources.getString(R.string.coppia) && args.doubleBool==true)or(lastCombo==resources.getString(R.string.tris) && args.trisBool == true)or(lastCombo==resources.getString(R.string.quater) && args.quaterBool == true)or(lastCombo==resources.getString(R.string.full) && args.fullBool == true)or(lastCombo==resources.getString(R.string.scala_da_4) && args.fourASCBool == true)or(lastCombo==resources.getString(R.string.scala_da_5) && args.fiveASCBool == true))and !chanceBool){
                 chanceBool=true
+                Score+=25
             }
 
             if(numberRoll == 13){
