@@ -366,17 +366,13 @@ class PlayFragment : Fragment() {
         val numList = list.sorted()
         for(j in 0..1){
             var counter = 0
-            for(i in j..j+3){
+            for(i in j..j+2){
                 if (numList[i]+1 == numList[i+1]){
                     counter += 1
                 }
-
             }
             if(counter == 3){
                 return true
-            }
-            else{
-                return false
             }
         }
         return false
