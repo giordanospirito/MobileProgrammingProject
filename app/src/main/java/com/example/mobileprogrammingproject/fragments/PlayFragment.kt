@@ -33,6 +33,8 @@ class PlayFragment : Fragment() {
 
     @SuppressLint("ResourceAsColor")
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+
+        val username = (activity as MainMenuActivity).userName
         //vibration effect
         val vibe = context?.getSystemService(Context.VIBRATOR_SERVICE) as Vibrator
         val vibeEff = VibrationEffect.createOneShot(50, 100)
@@ -81,6 +83,9 @@ class PlayFragment : Fragment() {
             binding.AcceptBtn.isEnabled = false
             binding.AcceptBtn.setBackgroundColor(resources.getColor(R.color.grey))
 
+            if((lastCombo==resources.getString(R.string.coppia) && DoubleBool==false) or (lastCombo==resources.getString(R.string.tris) && TrisBool == false) or (lastCombo==resources.getString(R.string.quater) && quaterBool == false) or (lastCombo==resources.getString(R.string.full) && FullBool == false) or (lastCombo==resources.getString(R.string.scala_da_4) && FourASCBool == false) or (lastCombo==resources.getString(R.string.scala_da_5) && FiveASCBool == false)){
+                Score = ScoreUpdate(Score,rollResults)
+            }
             if(lastCombo==resources.getString(R.string.coppia)){
                 DoubleBool = true
             }
@@ -107,9 +112,9 @@ class PlayFragment : Fragment() {
             }
             if((Score>100) and !BonusBool){
                 BonusBool=true
-                Score+=25
+                Score+=35
             }
-            if(((lastCombo==resources.getString(R.string.coppia) && args.doubleBool==true)or(lastCombo==resources.getString(R.string.tris) && args.trisBool == true)or(lastCombo==resources.getString(R.string.quater) && args.quaterBool == true)or(lastCombo==resources.getString(R.string.full) && args.fullBool == true)or(lastCombo==resources.getString(R.string.scala_da_4) && args.fourASCBool == true)or(lastCombo==resources.getString(R.string.scala_da_5) && args.fiveASCBool == true))and !chanceBool){
+            if(((lastCombo==resources.getString(R.string.coppia) && DoubleBool==true)or(lastCombo==resources.getString(R.string.tris) && TrisBool == true)or(lastCombo==resources.getString(R.string.quater) && quaterBool == true)or(lastCombo==resources.getString(R.string.full) && FullBool == true)or(lastCombo==resources.getString(R.string.scala_da_4) && FourASCBool == true)or(lastCombo==resources.getString(R.string.scala_da_5) && FiveASCBool == true))and !chanceBool){
                 chanceBool=true
                 Score+=25
             }
@@ -118,16 +123,12 @@ class PlayFragment : Fragment() {
                 binding.seeResults.isEnabled = false
                 binding.seeResults.setBackgroundColor(resources.getColor(R.color.grey))
             }
-
         }
         //end accept
 
         //start see result button
         binding.seeResults.setOnClickListener {
             if(!x){
-                if((!(lastCombo==resources.getString(R.string.coppia) && args.doubleBool==true)and!(lastCombo==resources.getString(R.string.tris) && args.trisBool == true)and!(lastCombo==resources.getString(R.string.quater) && args.quaterBool == true)and!(lastCombo==resources.getString(R.string.full) && args.fullBool == true)and!(lastCombo==resources.getString(R.string.scala_da_4) && args.fourASCBool == true)and!(lastCombo==resources.getString(R.string.scala_da_5) && args.fiveASCBool == true))){
-                    Score = ScoreUpdate(Score,rollResults)
-                }
                 val action = PlayFragmentDirections.actionPlayFragmentToResultsFragment(currentRollsNumberArg = numberRoll,totalScore = Score,doubleBool = DoubleBool, trisBool = TrisBool,quaterBool = quaterBool,yahtzeeBool = yahtzeeBool,fourASCBool = FourASCBool,fiveASCBool = FiveASCBool,fullBool = FullBool,chanceBool = chanceBool,bonusBool = BonusBool,lastCombo2 = lastCombo,noRoll = x)
                 findNavController().navigate(action)
             }else{
@@ -186,7 +187,7 @@ class PlayFragment : Fragment() {
                     binding.seeResults.isClickable= false
                 }
             } else {
-                val action = PlayFragmentDirections.actionPlayFragmentToEndGameFragment(Score)
+                val action = PlayFragmentDirections.actionPlayFragmentToEndGameFragment(myScoreArg2 = Score,username = username)
                 findNavController().navigate(action)
             }
 

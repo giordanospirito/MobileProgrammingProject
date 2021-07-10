@@ -71,6 +71,9 @@
     <string name="_3_players">3 Players</string>
     <string name="_4_players">4 Players</string>
     <string name="apply">Apply</string>
+    <string name="Player_2">Player 2</string>
+    <string name="Player_3">Player 3</string>
+    <string name="player_4">Player 4</string>
 
 
 </resources>

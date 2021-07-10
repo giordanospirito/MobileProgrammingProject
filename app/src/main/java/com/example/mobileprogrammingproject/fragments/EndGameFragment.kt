@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
+import com.example.mobileprogrammingproject.MainMenuActivity
 import com.example.mobileprogrammingproject.R
 import com.example.mobileprogrammingproject.databinding.FragmentEndGameBinding
 import com.example.mobileprogrammingproject.databinding.FragmentMenuBinding
@@ -30,18 +31,20 @@ class EndGameFragment : Fragment() {
         val scorePlayer3 = getRandomScore()
         val scorePlayer4 = getRandomScore()
 
-
-        val FirstPlaceName : String = ""
-        val SecondPlaceName : String = ""
-        val ThirdPlaceName : String = ""
-        val FourthPlaceName : String = ""
-
-        var list = listOf<String>(FirstPlaceName,SecondPlaceName,ThirdPlaceName,FourthPlaceName)
-
-
-
+        val FirstPlaceName : String = ReturnPlace(1,args.myScoreArg2,scorePlayer2,scorePlayer3,scorePlayer4,args.username)
+        val SecondPlaceName : String = ReturnPlace(2,args.myScoreArg2,scorePlayer2,scorePlayer3,scorePlayer4,args.username)
+        val ThirdPlaceName : String = ReturnPlace(3,args.myScoreArg2,scorePlayer2,scorePlayer3,scorePlayer4,args.username)
+        val FourthPlaceName : String = ReturnPlace(4,args.myScoreArg2,scorePlayer2,scorePlayer3,scorePlayer4,args.username)
 
         binding.firstPlaceUsarname.text = FirstPlaceName
+        binding.secondPlaceUsarname.text = SecondPlaceName
+        binding.thirdPlaceUsarname.text = ThirdPlaceName
+        binding.fourthPlaceUsarname.text = FourthPlaceName
+
+        binding.firstPlaceScore.text = getScoreRelatedTo(1,args.myScoreArg2,scorePlayer2,scorePlayer3,scorePlayer4).toString()
+        binding.secondPlaceScore.text = getScoreRelatedTo(2,args.myScoreArg2,scorePlayer2,scorePlayer3,scorePlayer4).toString()
+        binding.thirdPlaceScore.text = getScoreRelatedTo(3,args.myScoreArg2,scorePlayer2,scorePlayer3,scorePlayer4).toString()
+        binding.fourthPlaceScore.text = getScoreRelatedTo(4,args.myScoreArg2,scorePlayer2,scorePlayer3,scorePlayer4).toString()
 
         binding.back.setOnClickListener {
             val action = EndGameFragmentDirections.actionEndGameFragmentToMenuFragment()
@@ -49,6 +52,24 @@ class EndGameFragment : Fragment() {
         }
 
         return view
+    }
+
+    private fun getScoreRelatedTo(i: Int, myScoreArg2: Int, scorePlayer2: Int, scorePlayer3: Int, scorePlayer4: Int): Int {
+        var Classific = listOf<Int>(myScoreArg2,scorePlayer2,scorePlayer3,scorePlayer4)
+        var SortedClassific = Classific.sortedDescending()
+        return SortedClassific[i-1]
+    }
+
+    private fun ReturnPlace(value: Int,myScore:Int,ScoreP2:Int,ScoreP3:Int,ScoreP4:Int,username:String): String {
+        var Classific = listOf<Int>(myScore,ScoreP2,ScoreP3,ScoreP4)
+        var SortedClassific = Classific.sortedDescending()
+        var ClassifiedMember = when(SortedClassific[value-1]){
+            myScore->username
+            ScoreP2->getString(R.string.Player_2)
+            ScoreP3->getString(R.string.Player_3)
+            else->getString(R.string.player_4)
+        }
+        return ClassifiedMember
     }
 
     fun getRandomScore():Int{

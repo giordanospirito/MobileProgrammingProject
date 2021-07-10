@@ -190,5 +190,10 @@
             android:name="myScoreArg2"
             app:argType="integer"
             android:defaultValue="0" />
+        <argument
+            android:name="username"
+            app:argType="string"
+            android:defaultValue="Guest" />
+
     </fragment>
 </navigation>

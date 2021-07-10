@@ -73,6 +73,9 @@
     <string name="apply">Apply</string>
     <string name="tabella_punteggi">Scoreboard</string>
     <string name="back_to_menu">back to menu</string>
+    <string name="Player_2">Player 2</string>
+    <string name="Player_3">Player 3</string>
+    <string name="player_4">Player 4</string>
 
 
 </resources>

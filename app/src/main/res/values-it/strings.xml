@@ -6,10 +6,11 @@
         L\'obiettivo è quello di totalizzare più punti possibili eseguendo le combinazioni possibili una volta soltanto.
         Queste sono:
         \n\n
-        • Ripetizioni di più numeri(punteggio pari al numero per quante volte è uscito)\n\n
+        • Coppia: (5 punti)\n\n
+        • Tris: (10 punti)\n\n
         • Bonus: si ottiene quando il punteggio totale supera 100(35 punti)\n\n
         • Scala con 4 o 5 dadi: si ottiene quando 4 o 5 dadi sono ordinati in modo crescente(30 e 40 punti rispettivamente)\n\n
-        • Tre o quattro dadi uguali(il punteggio è la somma dei cinque dadi)\n\n
+        • Quattro dadi uguali(20 punti)\n\n
         • Full: come nel poker, un tris e una coppia(25 punti)\n\n
         • Yahtzee!: 5 dadi uguali(50 punti); dalla seconda volta in poi vale 100 punti.\n\n
         • Chance: Utilizzabile quando si è ottenuta una combinazione già usata o non si hanno combinazioni disponibili(25 punti)\n
@@ -72,4 +73,7 @@
     <string name="apply">Applica</string>
     <string name="tabella_punteggi">Punteggi</string>
     <string name="back_to_menu">torna al menu</string>
+    <string name="Player_2">Giocatore 2</string>
+    <string name="Player_3">Giocatore 3</string>
+    <string name="player_4">Giocatore 4</string>
 </resources>
