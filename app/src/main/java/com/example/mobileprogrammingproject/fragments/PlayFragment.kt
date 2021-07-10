@@ -205,7 +205,7 @@ class PlayFragment : Fragment() {
             arrayDices[0].startAnimation(AnimationUtils.loadAnimation(this.context, R.anim.shake_animation))
             rollResults.removeAt(0)
             rollResults.add(0,random+1)
-            binding.ComboReader.text = getCombo(rollResults)
+            binding.ComboReader.text = getCombo(rollResults) .substring(0..(getCombo(rollResults).lastIndex)-1)  //[0..getCombo(rollResults).lastIndex]
             binding.Score.text = "${getScore(getCombo(rollResults)).toString()} "+ getString(R.string.Points)
             binding.FirstRoll.isClickable = false
             lastCombo = getCombo(rollResults)
@@ -217,8 +217,7 @@ class PlayFragment : Fragment() {
             arrayDices[1].startAnimation(AnimationUtils.loadAnimation(this.context, R.anim.shake_animation))
             rollResults.removeAt(1)
             rollResults.add(1,random+1)
-            binding.ComboReader.text = getCombo(rollResults)
-            binding.Score.text = "${getScore(getCombo(rollResults)).toString()} "+ getString(R.string.Points)
+            binding.ComboReader.text = getCombo(rollResults) .substring(0..(getCombo(rollResults).lastIndex)-1)  //[0..getCombo(rollResults).lastIndex]            binding.Score.text = "${getScore(getCombo(rollResults)).toString()} "+ getString(R.string.Points)
             binding.SecondRoll.isClickable = false
             lastCombo = getCombo(rollResults)
         }
@@ -229,8 +228,7 @@ class PlayFragment : Fragment() {
             arrayDices[2].startAnimation(AnimationUtils.loadAnimation(this.context, R.anim.shake_animation))
             rollResults.removeAt(2)
             rollResults.add(2,random+1)
-            binding.ComboReader.text = getCombo(rollResults)
-            binding.Score.text ="${getScore(getCombo(rollResults)).toString()} "+ getString(R.string.Points)
+            binding.ComboReader.text = getCombo(rollResults) .substring(0..(getCombo(rollResults).lastIndex)-1)  //[0..getCombo(rollResults).lastIndex]            binding.Score.text ="${getScore(getCombo(rollResults)).toString()} "+ getString(R.string.Points)
             binding.ThirdRoll.isClickable = false
             lastCombo = getCombo(rollResults)
         }
@@ -241,8 +239,7 @@ class PlayFragment : Fragment() {
             arrayDices[3].startAnimation(AnimationUtils.loadAnimation(this.context, R.anim.shake_animation))
             rollResults.removeAt(3)
             rollResults.add(3,random+1)
-            binding.ComboReader.text = getCombo(rollResults)
-            binding.Score.text = "${getScore(getCombo(rollResults)).toString()} "+ getString(R.string.Points)
+            binding.ComboReader.text = getCombo(rollResults) .substring(0..(getCombo(rollResults).lastIndex)-1)  //[0..getCombo(rollResults).lastIndex]            binding.Score.text = "${getScore(getCombo(rollResults)).toString()} "+ getString(R.string.Points)
             binding.FourthRoll.isClickable = false
             lastCombo = getCombo(rollResults)
         }
@@ -253,8 +250,7 @@ class PlayFragment : Fragment() {
             arrayDices[4].startAnimation(AnimationUtils.loadAnimation(this.context, R.anim.shake_animation))
             rollResults.removeAt(4)
             rollResults.add(4,random+1)
-            binding.ComboReader.text = getCombo(rollResults)
-            binding.Score.text = "${getScore(getCombo(rollResults)).toString()} "+ getString(R.string.Points)
+            binding.ComboReader.text = getCombo(rollResults) .substring(0..(getCombo(rollResults).lastIndex)-1)  //[0..getCombo(rollResults).lastIndex]            binding.Score.text = "${getScore(getCombo(rollResults)).toString()} "+ getString(R.string.Points)
             binding.FifthRoll.isClickable = false
             lastCombo = getCombo(rollResults)
         }
