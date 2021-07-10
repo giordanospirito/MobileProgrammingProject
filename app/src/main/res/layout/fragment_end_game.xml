@@ -55,7 +55,13 @@
                 android:id="@+id/firstPlaceScore"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="2">
+                android:layout_weight="2"
+                android:text="score"
+                android:gravity="center"
+                android:textColor="@color/black"
+                android:autoSizeTextType="uniform"
+                android:autoSizeMaxTextSize="28sp"
+                android:maxLines="1">
 
             </TextView>
 
@@ -86,7 +92,13 @@
                 android:id="@+id/secondPlaceUsarname"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="2">
+                android:layout_weight="2"
+                android:text="name"
+                android:gravity="center"
+                android:textColor="@color/black"
+                android:autoSizeTextType="uniform"
+                android:autoSizeMaxTextSize="22sp"
+                android:maxLines="1">
 
             </TextView>
 
@@ -94,7 +106,13 @@
                 android:id="@+id/secondPlaceScore"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="2">
+                android:layout_weight="2"
+                android:text="score"
+                android:gravity="center"
+                android:textColor="@color/black"
+                android:autoSizeTextType="uniform"
+                android:autoSizeMaxTextSize="22sp"
+                android:maxLines="1">
 
             </TextView>
 
@@ -123,7 +141,13 @@
                 android:id="@+id/thirdPlaceUsarname"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="2">
+                android:layout_weight="2"
+                android:text="name"
+                android:gravity="center"
+                android:textColor="@color/black"
+                android:autoSizeTextType="uniform"
+                android:autoSizeMaxTextSize="22sp"
+                android:maxLines="1">
 
             </TextView>
 
@@ -131,7 +155,13 @@
                 android:id="@+id/thirdPlaceScore"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="2">
+                android:layout_weight="2"
+                android:text="score"
+                android:gravity="center"
+                android:textColor="@color/black"
+                android:autoSizeTextType="uniform"
+                android:autoSizeMaxTextSize="22sp"
+                android:maxLines="1">
 
             </TextView>
 
