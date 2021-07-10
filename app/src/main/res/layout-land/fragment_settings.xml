@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:fillViewport="true"
+    android:background="@color/black"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragments.SettingsFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/titolo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Selezionare il numero dei giocatori"
+            android:textColor="@color/giallino"
+            android:textSize="24sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/radioGroup"/>
+
+        <RadioGroup
+            android:id="@+id/radioGroup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toTopOf="@id/BackButton"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/titolo"
+            app:layout_constraintVertical_bias="0.5">
+
+            <RadioButton
+                android:id="@+id/SinglePlayerButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="SinglePlayer (training)"
+                android:textSize="20sp"
+                android:textColor="@color/giallino"/>
+
+            <RadioButton
+                android:id="@+id/TwoPlayerButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="2 Players"
+                android:textSize="20sp"
+                android:textColor="@color/giallino"/>
+
+            <RadioButton
+                android:id="@+id/ThreePlayerButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="3 Players"
+                android:textSize="20sp"
+                android:textColor="@color/giallino"/>
+
+            <RadioButton
+                android:id="@+id/FourPlayerButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="4 Players"
+                android:textSize="20sp"
+                android:textColor="@color/giallino"/>
+        </RadioGroup>
+
+        <Button
+            android:id="@+id/BackButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="10dp"
+            android:text="Apply"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:backgroundTint="@color/giallino"
+            app:layout_constraintTop_toBottomOf="@id/radioGroup"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>
