@@ -53,7 +53,9 @@
                 android:id="@+id/coppaFirstPlace"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="1.5">
+                android:layout_weight="1.5"
+                android:src="@drawable/cup"
+                android:padding="10dp">
 
             </ImageView>
 
@@ -87,7 +89,9 @@
                 android:id="@+id/coppaSecondPlace"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="1.5">
+                android:layout_weight="1.5"
+                android:src="@drawable/cup2"
+                android:padding="10dp">
 
             </ImageView>
         </LinearLayout>
@@ -119,7 +123,9 @@
                 android:id="@+id/coppaThirdPlace"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="1.5">
+                android:layout_weight="1.5"
+                android:src="@drawable/cup3"
+                android:padding="10dp">
 
             </ImageView>
         </LinearLayout>
