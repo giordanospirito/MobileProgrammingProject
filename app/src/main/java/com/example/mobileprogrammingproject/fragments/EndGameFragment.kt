@@ -31,6 +31,17 @@ class EndGameFragment : Fragment() {
         val scorePlayer4 = getRandomScore()
 
 
+        val FirstPlaceName : String = ""
+        val SecondPlaceName : String = ""
+        val ThirdPlaceName : String = ""
+        val FourthPlaceName : String = ""
+
+        var list = listOf<String>(FirstPlaceName,SecondPlaceName,ThirdPlaceName,FourthPlaceName)
+
+
+
+
+        binding.firstPlaceUsarname.text = FirstPlaceName
 
         binding.back.setOnClickListener {
             val action = EndGameFragmentDirections.actionEndGameFragmentToMenuFragment()
