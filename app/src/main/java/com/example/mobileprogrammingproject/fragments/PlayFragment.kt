@@ -15,10 +15,12 @@ import android.view.animation.Animation
 import android.view.animation.AnimationUtils
 import com.example.mobileprogrammingproject.R
 import android.widget.ImageView
+import android.widget.TextView
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
+import com.example.mobileprogrammingproject.MainMenuActivity
 import com.example.mobileprogrammingproject.data.User
 import com.example.mobileprogrammingproject.data.UserViewModel
 import com.example.mobileprogrammingproject.databinding.FragmentPlayBinding
@@ -34,6 +36,7 @@ class PlayFragment : Fragment() {
     private lateinit var animation1: Animation
     private lateinit var animation2: Animation
     private lateinit var animation3: Animation
+    private lateinit var animation4: Animation
     private val args:PlayFragmentArgs by navArgs()
 
 
@@ -67,6 +70,11 @@ class PlayFragment : Fragment() {
         _binding = FragmentPlayBinding.inflate(inflater, container, false)
         val view = binding.root
         //end binding section
+
+        //some init
+        binding.username.text = (activity as MainMenuActivity).userName
+        binding.numberRolls.text = "rolls remaining: ${13-numberRoll}"
+        //end init
 
         //accept
         binding.AcceptBtn.isEnabled = false
@@ -122,22 +130,20 @@ class PlayFragment : Fragment() {
                 val action = PlayFragmentDirections.actionPlayFragmentToResultsFragment(currentRollsNumberArg = numberRoll,totalScore = Score,doubleBool = DoubleBool, trisBool = TrisBool,quaterBool = quaterBool,yahtzeeBool = yahtzeeBool,fourASCBool = FourASCBool,fiveASCBool = FiveASCBool,fullBool = FullBool,chanceBool = chanceBool,bonusBool = BonusBool,lastCombo2 = lastCombo,noRoll = x)
                 findNavController().navigate(action)
             }else{
-                val myT = Toast.makeText(this.context, "DO A ROLL FIRST", Toast.LENGTH_SHORT)
-                myT.setGravity(Gravity.TOP,0,0)
-                myT.show()
+                binding.numberRolls.startAnimation(animation4)
             }
         }
         //end see result button
 
         //start roll section
         val arrayDices = mutableListOf(binding.FirstRoll, binding.SecondRoll, binding.ThirdRoll, binding.FourthRoll, binding.FifthRoll)
-        binding.numberRolls.text = numberRoll.toString()
 
         diceImagesAdder(diceImages)
 
         animation1 = AnimationUtils.loadAnimation(this.context, R.anim.shake_animation)
         animation2 = AnimationUtils.loadAnimation(this.context, R.anim.fade_in_delay)
         animation3 = AnimationUtils.loadAnimation(this.context, R.anim.fade_in)
+        animation4 = AnimationUtils.loadAnimation(this.context, R.anim.norollanimation)
 
         //setting up listeners
         binding.RollerAndChecker.setOnClickListener {
@@ -161,7 +167,7 @@ class PlayFragment : Fragment() {
                 //binding.numberRolls.startAnimation(animation2)
                 binding.ComboReader.startAnimation(animation2)
                 binding.Score.startAnimation(animation2)
-                binding.numberRolls.text = numberRoll.toString()
+                binding.numberRolls.text = "rolls remaining: ${13-numberRoll}"
                 binding.ComboReader.text = getCombo(rollResults)
                 binding.Score.text = "${getScore(getCombo(rollResults)).toString()} points!"
                 lastCombo = getCombo(rollResults)

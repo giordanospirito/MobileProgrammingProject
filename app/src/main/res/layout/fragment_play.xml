@@ -20,18 +20,42 @@
             app:layout_constraintEnd_toEndOf="parent"
             android:background="@color/black">
 
-            <TextView
-                android:id="@+id/numberRolls"
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="0"
-                android:textSize="40sp"
+                android:layout_height="0dp"
                 android:layout_weight="1"
-                android:gravity="right|center_vertical"
-                android:textColor="#F6E362"
-                android:layout_marginEnd="14dp">
+                android:orientation="horizontal">
 
-            </TextView>
+                <TextView
+
+                    android:id="@+id/username"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:text="user"
+                    android:textSize="23sp"
+                    android:textColor="#F6E362"
+                    android:layout_weight="1"
+                    android:gravity="start|center_vertical"
+                    tools:ignore="NestedWeights">
+
+                </TextView>
+
+                <TextView
+                    android:id="@+id/numberRolls"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:text="rolls remaining:"
+                    android:textSize="22sp"
+                    android:layout_weight="1"
+                    android:textColor="#F6E362"
+                    android:gravity="end|center_vertical"
+                    tools:ignore="NestedWeights">
+
+                </TextView>
+
+
+            </LinearLayout>
+
 
             <LinearLayout
                 android:layout_width="match_parent"

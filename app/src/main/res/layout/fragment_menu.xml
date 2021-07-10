@@ -50,7 +50,7 @@
             android:textColor="@color/giallino"
             android:backgroundTint="@color/giallino"
             android:layout_marginTop="30dp"
-            android:maxLength="20"/>
+            android:maxLength="10"/>
 
 
         <Button

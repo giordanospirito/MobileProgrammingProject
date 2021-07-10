@@ -41,9 +41,6 @@ class MenuFragment : Fragment() {
             if (binding.UsernameEditText.text.toString() != ""){
                 (activity as MainMenuActivity).userName = binding.UsernameEditText.text.toString()
             }
-            var myToast = Toast.makeText(this.context,"Log in as ${(activity as MainMenuActivity).userName}" , Toast.LENGTH_SHORT)
-            myToast.setGravity(Gravity.CENTER,0,0)
-            myToast.show()
             findNavController().navigate(action)
 
         }
