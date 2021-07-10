@@ -80,10 +80,6 @@ class PlayFragment : Fragment() {
         binding.AcceptBtn.isEnabled = false
         binding.AcceptBtn.setBackgroundColor(resources.getColor(R.color.grey))
         binding.AcceptBtn.setOnClickListener {
-            if(binding.RollerAndChecker.text=="End game"){
-                binding.seeResults.isClickable=false
-                binding.seeResults.setBackgroundColor(resources.getColor(R.color.grey))
-            }
             binding.ComboReader.text = ""
             binding.Score.text = ""
             binding.dicesRow.visibility = View.INVISIBLE
@@ -121,6 +117,11 @@ class PlayFragment : Fragment() {
             }
             if((lastCombo=="Coppia" && args.doubleBool==true)or(lastCombo=="Tris" && args.trisBool == true)or(lastCombo=="Quater" && args.quaterBool == true)or(lastCombo=="Full" && args.fullBool == true)or(lastCombo=="Scala da 4" && args.fourASCBool == true)or(lastCombo=="Scala da 5" && args.fiveASCBool == true)){
                 chanceBool=true
+            }
+
+            if(numberRoll == 13){
+                binding.seeResults.isEnabled = false
+                binding.seeResults.setBackgroundColor(resources.getColor(R.color.grey))
             }
 
         }
