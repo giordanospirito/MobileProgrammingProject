@@ -86,6 +86,10 @@ class PlayFragment : Fragment() {
             if((lastCombo==resources.getString(R.string.coppia) && DoubleBool==false) or (lastCombo==resources.getString(R.string.tris) && TrisBool == false) or (lastCombo==resources.getString(R.string.quater) && quaterBool == false) or (lastCombo==resources.getString(R.string.full) && FullBool == false) or (lastCombo==resources.getString(R.string.scala_da_4) && FourASCBool == false) or (lastCombo==resources.getString(R.string.scala_da_5) && FiveASCBool == false)){
                 Score = ScoreUpdate(Score,rollResults)
             }
+            if(((lastCombo==resources.getString(R.string.coppia) && DoubleBool==true)or(lastCombo==resources.getString(R.string.tris) && TrisBool == true)or(lastCombo==resources.getString(R.string.quater) && quaterBool == true)or(lastCombo==resources.getString(R.string.full) && FullBool == true)or(lastCombo==resources.getString(R.string.scala_da_4) && FourASCBool == true)or(lastCombo==resources.getString(R.string.scala_da_5) && FiveASCBool == true))and !chanceBool){
+                chanceBool=true
+                Score+=25
+            }
             if(lastCombo==resources.getString(R.string.coppia)){
                 DoubleBool = true
             }
@@ -114,10 +118,7 @@ class PlayFragment : Fragment() {
                 BonusBool=true
                 Score+=35
             }
-            if(((lastCombo==resources.getString(R.string.coppia) && DoubleBool==true)or(lastCombo==resources.getString(R.string.tris) && TrisBool == true)or(lastCombo==resources.getString(R.string.quater) && quaterBool == true)or(lastCombo==resources.getString(R.string.full) && FullBool == true)or(lastCombo==resources.getString(R.string.scala_da_4) && FourASCBool == true)or(lastCombo==resources.getString(R.string.scala_da_5) && FiveASCBool == true))and !chanceBool){
-                chanceBool=true
-                Score+=25
-            }
+
 
             if(numberRoll == 13){
                 binding.seeResults.isEnabled = false
