@@ -46,7 +46,7 @@ class MenuFragment : Fragment() {
                 if (binding.UsernameEditText.text.toString() != "") {
                     (activity as MainMenuActivity).editUserName(binding.UsernameEditText.text.toString())
                     //(activity as MainMenuActivity).userName = binding.UsernameEditText.text.toString()
-                }
+                } else {(activity as MainMenuActivity).editUserName("Guest")}
                 findNavController().navigate(action)
 
             }
