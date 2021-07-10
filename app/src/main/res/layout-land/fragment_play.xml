@@ -102,7 +102,7 @@
                     android:orientation="horizontal"
                     android:layout_weight="2"
                     tools:ignore="NestedWeights"
-                    android:visibility="visible">
+                    android:visibility="invisible">
 
 
 
