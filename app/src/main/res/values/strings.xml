@@ -61,7 +61,7 @@
     <string name="rolls_remaining">rolls left:</string>
     <string name="noCombo">no combo</string>
     <string name="back">back</string>
-    <string name="End_game">End game</string>
+    <string name="End_game">end</string>
     <string name="Points">points!</string>
     <string name="warning">WARNING!</string>
     <string name="Select_gamemode">Select a game-mode first</string>
