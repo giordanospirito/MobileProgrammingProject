@@ -1,21 +1,21 @@
 <resources>
     <string name="app_name">YAHTZEE!</string>
     <string name="RulesLong">
-        Yahtzee is a game based on rolling five dices.
+        Yahtzee! is a game based on rolling five dices.
         Players aim to obtain the highest score possible making as much combination as possible, but each one can be made once only.
         These are:
         \n\n
         • Pair(5 points)\n\n
         • Tris(10 points)\n\n
-        • Bonus: Achieved whenever during a game your score is greater than 62(35 points)\n\n
+        • Bonus: Achieved whenever during a game your score is greater than 100(35 points)\n\n
         • 4 or 5 straight: Achieved whenever your dice are sortable in ascending order in a group of four or five consecutive numbers(30 and 40 points respectively)\n\n
         • Four dices with same value(20 points)\n\n
         • Full: come nel poker, un tris e una coppia(25 punti)\n\n
         • Yahtzee!: All dices with same value(50 points)\n\n
         • Chance: Achieved the first time you get a combination you just got on a previous roll(25 points)\n
-        \nEvery turn, players roll dices up to three times. On second and third roll, it is possible to select the dices you want to roll, to try to achieve a certain combination.
-        If there are no available combination at the end of the three rolls, no points are given.
-        Wins whoever has the highest total score after 13 turns.\n\nGOOD LUCK!
+        \nEvery turn, players roll dices. It is possible to click on a single dice if you want to change its value,but once only, to try to achieve a certain combination.
+        If there are no available combination at the end of this phase, no points are given.
+        Wins whoever has the highest total score after 13 rolls.\n\nGOOD LUCK!
     </string>
     <string name="close">close</string>
     <string name="Regolamento">Rules</string>

@@ -2,11 +2,9 @@ package com.example.mobileprogrammingproject.fragments
 
 import android.annotation.SuppressLint
 import android.content.Context
-import android.graphics.Color
 import android.os.Bundle
 import android.os.VibrationEffect
 import android.os.Vibrator
-import android.view.Gravity
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -15,17 +13,10 @@ import android.view.animation.Animation
 import android.view.animation.AnimationUtils
 import com.example.mobileprogrammingproject.R
 import android.widget.ImageView
-import android.widget.TextView
-import android.widget.Toast
-import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.example.mobileprogrammingproject.MainMenuActivity
-import com.example.mobileprogrammingproject.data.User
-import com.example.mobileprogrammingproject.data.UserViewModel
 import com.example.mobileprogrammingproject.databinding.FragmentPlayBinding
-import java.lang.Error
-import java.lang.Exception
 import java.util.*
 
 class PlayFragment : Fragment() {
@@ -102,6 +93,9 @@ class PlayFragment : Fragment() {
             if(lastCombo==resources.getString(R.string.yahtzee)){
                 yahtzeeBool = true
             }
+            if((lastCombo==resources.getString(R.string.yahtzee))and yahtzeeBool){
+                Score+=50
+            }
             if(lastCombo==resources.getString(R.string.full)){
                 FullBool=true
             }
@@ -111,7 +105,7 @@ class PlayFragment : Fragment() {
             if(lastCombo==resources.getString(R.string.scala_da_5)){
                 FiveASCBool=true
             }
-            if((Score>62) and !BonusBool){
+            if((Score>100) and !BonusBool){
                 BonusBool=true
                 Score+=25
             }

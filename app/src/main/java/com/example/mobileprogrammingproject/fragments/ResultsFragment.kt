@@ -4,19 +4,13 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
-import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
-import com.example.mobileprogrammingproject.data.User
-import com.example.mobileprogrammingproject.data.UserViewModel
 import com.example.mobileprogrammingproject.databinding.FragmentResultsBinding
-import com.example.mobileprogrammingproject.fragments.PlayFragmentArgs
 
 class ResultsFragment : Fragment() {
     private var _binding: FragmentResultsBinding? = null
     private val binding get() = _binding!!
-    private lateinit var myViewModel: UserViewModel
     private val args: ResultsFragmentArgs by navArgs()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -75,7 +69,6 @@ class ResultsFragment : Fragment() {
             val action = ResultsFragmentDirections.actionResultsFragmentToPlayFragment(info,Score,DoubleBool,TrisBool,quaterBool,yahtzeeBool,FourASCBool,FiveASCBool,FullBool,chanceBool,BonusBool,lastCombo1 = lastcombo,noRoll = x)
             findNavController().navigate(action)
         }
-        myViewModel = ViewModelProvider(this).get(UserViewModel::class.java)
 
         return view
     }
