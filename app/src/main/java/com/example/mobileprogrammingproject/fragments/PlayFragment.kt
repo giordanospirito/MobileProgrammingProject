@@ -174,7 +174,7 @@ class PlayFragment : Fragment() {
                 //binding.numberRolls.startAnimation(animation2)
                 binding.ComboReader.startAnimation(animation2)
                 binding.Score.startAnimation(animation2)
-                binding.numberRolls.text = resources.getString(R.string.rolls_remaining)+": ${13-numberRoll}"
+                binding.numberRolls.text = resources.getString(R.string.rolls_remaining)+" ${13-numberRoll}"
                 binding.ComboReader.text = getCombo(rollResults)
                 binding.Score.text = "${getScore(getCombo(rollResults)).toString()} "+ getString(R.string.Points)
                 lastCombo = getCombo(rollResults)
