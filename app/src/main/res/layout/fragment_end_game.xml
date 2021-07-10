@@ -55,7 +55,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1.5"
                 android:src="@drawable/cup"
-                android:padding="10dp">
+                android:padding="15dp">
 
             </ImageView>
 
@@ -91,7 +91,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1.5"
                 android:src="@drawable/cup2"
-                android:padding="10dp">
+                android:padding="15dp">
 
             </ImageView>
         </LinearLayout>
@@ -125,7 +125,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1.5"
                 android:src="@drawable/cup3"
-                android:padding="10dp">
+                android:padding="15dp">
 
             </ImageView>
         </LinearLayout>
@@ -172,6 +172,15 @@
         android:layout_height="0dp"
         android:orientation="horizontal"
         android:layout_weight="1">
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="@string/back_to_menu"
+            android:textSize="30sp"
+            android:layout_margin="45dp">
+
+        </Button>
 
     </LinearLayout>
 </LinearLayout>
