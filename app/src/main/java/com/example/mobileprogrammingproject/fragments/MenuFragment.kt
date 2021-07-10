@@ -37,13 +37,10 @@ class MenuFragment : Fragment() {
         //end binding
 
         //init
-
         fragmentWantMusic = (activity as MainMenuActivity).wantMusic
-
 
         if (savedInstanceState != null) {
             fragmentWantMusic = savedInstanceState.getBoolean("savedfragmentwantMusic")
-            Toast.makeText(this.context, fragmentWantMusic.toString(), Toast.LENGTH_LONG).show()
         }
         //end init
 
@@ -111,7 +108,7 @@ class MenuFragment : Fragment() {
                     (activity as MainMenuActivity).mediaPlayer.pause()
                 } else {
                     (activity as MainMenuActivity).wantMusic = true
-                    fragmentWantMusic = false
+                    fragmentWantMusic = true
                     binding.volumeButton.setImageResource(R.drawable.ic_baseline_volume_up_24)
                     (activity as MainMenuActivity).mediaPlayer.start()
                 }
@@ -131,7 +128,6 @@ class MenuFragment : Fragment() {
             super.onSaveInstanceState(outState)
 
             outState.putBoolean("savedfragmentwantMusic", fragmentWantMusic)
-            Toast.makeText(this.context, fragmentWantMusic.toString(), Toast.LENGTH_SHORT).show()
         }
 
     }
