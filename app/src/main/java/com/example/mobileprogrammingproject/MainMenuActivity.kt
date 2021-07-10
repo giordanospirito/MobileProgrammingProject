@@ -3,6 +3,7 @@ package com.example.mobileprogrammingproject
 import android.media.MediaPlayer
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.navigation.findNavController
 import com.example.mobileprogrammingproject.dialogs.ExitGameDialog
@@ -20,6 +21,7 @@ class MainMenuActivity : AppCompatActivity() {
         setContentView(R.layout.main_menu)
 
         //music
+        //Toast.makeText(this, wantMusic.toString(), Toast.LENGTH_SHORT).show()
         mediaPlayer = MediaPlayer.create(this, R.raw.music)
         mediaPlayer.isLooping = true
         //end music
@@ -49,6 +51,19 @@ class MainMenuActivity : AppCompatActivity() {
             exit.show(supportFragmentManager, "exit_dialog_tag")
         }
     }
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+        outState.putBoolean("savedwantMusic", wantMusic)
+        //Toast.makeText(this, wantMusic.toString(), Toast.LENGTH_LONG).show()
+    }
+
+    override fun onRestoreInstanceState(savedInstanceState: Bundle) {
+        super.onRestoreInstanceState(savedInstanceState)
+        wantMusic=savedInstanceState.getBoolean("savedwantMusic")
+        //Toast.makeText(this, wantMusic.toString(), Toast.LENGTH_SHORT).show()
+    }
+
 }
 
 
