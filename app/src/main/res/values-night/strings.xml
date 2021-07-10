@@ -57,6 +57,7 @@
     <string name="how_to_play">how to play</string>
     <string name="accept">accept</string>
     <string name="score">score:</string>
+    <string name="punteggio">score</string>
     <string name="rolls_remaining">rolls remaining:</string>
     <string name="noCombo">no combo</string>
     <string name="back">back</string>
