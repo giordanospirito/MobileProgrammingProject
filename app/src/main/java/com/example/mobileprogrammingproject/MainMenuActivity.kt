@@ -15,6 +15,8 @@ class MainMenuActivity : AppCompatActivity() {
     var gameMode: Int = 0
     var userName : String = "Guest"
 
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);

@@ -192,7 +192,7 @@ class PlayFragment : Fragment() {
                     binding.seeResults.isClickable= false
                 }
             } else {
-                val action = PlayFragmentDirections.actionPlayFragmentToEndGameFragment()
+                val action = PlayFragmentDirections.actionPlayFragmentToEndGameFragment(Score)
                 findNavController().navigate(action)
             }
 

@@ -235,6 +235,7 @@
         android:layout_weight="1">
 
         <Button
+            android:id="@+id/back"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:text="@string/back_to_menu"

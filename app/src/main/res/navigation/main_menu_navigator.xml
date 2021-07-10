@@ -182,5 +182,13 @@
         android:id="@+id/endGameFragment"
         android:name="com.example.mobileprogrammingproject.fragments.EndGameFragment"
         android:label="fragment_end_game"
-        tools:layout="@layout/fragment_end_game" />
+        tools:layout="@layout/fragment_end_game" >
+        <action
+            android:id="@+id/action_endGameFragment_to_menuFragment"
+            app:destination="@id/menuFragment" />
+        <argument
+            android:name="myScoreArg2"
+            app:argType="integer"
+            android:defaultValue="0" />
+    </fragment>
 </navigation>
