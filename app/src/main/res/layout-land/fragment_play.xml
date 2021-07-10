@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:fillViewport="true"
+    tools:context=".fragments.PlayFragment"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:tag="FragmentPlay">
+
+        <LinearLayout
+            android:id="@+id/MainPanel"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:background="@color/black">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+
+                    android:id="@+id/username"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:text="user"
+                    android:textSize="23sp"
+                    android:textColor="#F6E362"
+                    android:layout_weight="1"
+                    android:gravity="start|center_vertical"
+                    tools:ignore="NestedWeights">
+
+                </TextView>
+
+                <TextView
+                    android:id="@+id/numberRolls"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:text="@string/rolls_remaining"
+                    android:textSize="22sp"
+                    android:layout_weight="1"
+                    android:textColor="#F6E362"
+                    android:gravity="end|center_vertical"
+                    tools:ignore="NestedWeights">
+
+                </TextView>
+
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="2"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/ComboReader"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:text=""
+                    android:textSize="30sp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:textColor="#F6E362">
+
+                </TextView>
+
+                <TextView
+                    android:id="@+id/Score"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:text=""
+                    android:textSize="30sp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:textColor="#F6E362">
+
+                </TextView>
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:layout_weight="4">
+
+                <LinearLayout
+                    android:id="@+id/dicesRow"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_weight="2"
+                    tools:ignore="NestedWeights"
+                    android:visibility="invisible">
+
+                    <ImageView
+                        android:id="@+id/FirstRoll"
+                        android:src="@drawable/ic_dice"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:layout_marginEnd="2dp"
+                        android:layout_marginStart="4dp"
+                        tools:ignore="NestedWeights" />
+                    <ImageView
+                        android:id="@+id/SecondRoll"
+                        android:src="@drawable/ic_dice"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:layout_marginHorizontal="2dp"/>
+                    <ImageView
+                        android:id="@+id/ThirdRoll"
+                        android:src="@drawable/ic_dice"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:layout_marginHorizontal="2dp"/>
+                    <ImageView
+                        android:id="@+id/FourthRoll"
+                        android:src="@drawable/ic_dice"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:layout_marginHorizontal="2dp"/>
+                    <ImageView
+                        android:id="@+id/FifthRoll"
+                        android:src="@drawable/ic_dice"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:layout_marginStart="2dp"
+                        android:layout_marginEnd="4dp"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <Button
+                        android:id="@+id/AcceptBtn"
+                        android:text="@string/accept"
+                        android:textSize="10sp"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_gravity="end"
+                        android:layout_marginHorizontal="4dp"
+                        android:layout_weight="0.25"
+                        tools:ignore="SmallSp"
+                        android:backgroundTint="@color/giallino"
+                        />
+
+                    <Button
+                        android:id="@+id/seeResults"
+                        android:text="@string/punteggio"
+                        android:textSize="10sp"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_gravity="end"
+                        android:layout_marginHorizontal="4dp"
+                        android:layout_weight="0.25"
+                        tools:ignore="SmallSp"
+                        android:backgroundTint="@color/giallino"/>
+
+                    <Button
+                        android:id="@+id/RollerAndChecker"
+                        android:layout_width="wrap_content"
+                        android:layout_height="0dp"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginHorizontal="4dp"
+                        android:layout_weight="1"
+                        android:backgroundTint="@color/giallino"
+                        android:text="r
+                        o
+                        l
+                        l"
+                        android:textSize="40sp" />
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

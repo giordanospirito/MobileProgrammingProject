@@ -93,6 +93,9 @@
             android:name="noRoll"
             app:argType="boolean"
             android:defaultValue="true" />
+        <action
+            android:id="@+id/action_playFragment_self"
+            app:destination="@id/playFragment" />
     </fragment>
 
     <fragment
