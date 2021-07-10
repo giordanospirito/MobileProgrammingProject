@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">YAHTZEE!</string>
+    <string name="RulesLong">
+        Yahtzee è un gioco basato sul lancio di cinque dadi.
+        L\'obiettivo è quello di totalizzare più punti possibili eseguendo le combinazioni possibili una volta soltanto.
+        Queste sono:
+        \n\n
+        • Ripetizioni di più numeri(punteggio pari al numero per quante volte è uscito)\n\n
+        • Bonus: si ottiene quando la somma delle combinazioni precedenti supera 62(35 punti)\n\n
+        • Scala con 4 o 5 dadi: si ottiene quando 4 o 5 dadi sono ordinati in modo crescente(30 e 40 punti rispettivamente)\n\n
+        • Tre o quattro dadi uguali(il punteggio è la somma dei cinque dadi)\n\n
+        • Full: come nel poker, un tris e una coppia(25 punti)\n\n
+        • Yahtzee!: 5 dadi uguali(50 punti), è ripetibile al posto di altre combinazioni con un bonus di 100 punti\n\n
+        • Chance: Utilizzabile quando si è ottenuta una combinazione già usata o non si hanno combinazioni disponibili(25 punti)\n
+        \nA ogni turno, il giocatore lancia i dadi fino a tre volte. Negli ultimi due può trattenere dei dadi per cercare una combinazione
+        desiderata.Se al termine dei tre lanci, non vi sono combinazioni il punteggio è 0.
+        Chi ha il punteggio più alto dopo 13 lanci eseguiti vince la partita.\n\nBUONA FORTUNA!
+    </string>
+    <string name="close">chiudi</string>
+    <string name="Regolamento">regolamento</string>
+    <string name="Play">gioca</string>
+    <string name="settings">impostazioni</string>
+    <string name="exitButton">esci dal gioco</string>
+    <string name="leaving">"Sei sicuro di uscire dalla partita?  Eventuali progressi non verranno salvati     "</string>
+    <string name="yes">si</string>
+    <string name="no">no</string>
+    <string name="helloplayfragment">helloplayfragment</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="Roll">Roll!</string>
+    <string name="seeResults">risultati</string>
+    <string name="coppia">Coppia:</string>
+    <string name="tris">Tris:</string>
+    <string name="quater">Quater:</string>
+    <string name="yahtzee">Yahtzee!:</string>
+    <string name="scala_da_4">Scala da 4:</string>
+    <string name="scala_da_5">Scala da 5:</string>
+    <string name="full">Full:</string>
+    <string name="bonus">Bonus:</string>
+    <string name="chance">Chance:</string>
+    <string name="next_roll">next Roll!</string>
+    <string name="Cancel">cancella</string>
+    <string name="Ok">ok</string>
+    <string name="select">seleziona</string>
+    <string name="insert_your_username">inserisci il tuo username</string>
+    <string name="credits">"Sviluppato da:      \n\nFederico Cappellini and Giordano Spirito     "</string>
+    <string name="credit" >CREDITI</string>
+    <string name="ok">ok</string>
+    <array name="SelectMatch">
+        <item>Giocatore singolo(allenamento)</item>
+        <item>2 giocatori(vs CPU)</item>
+        <item>3 giocatori(vs CPU)</item>
+        <item>4 giocatori(vs CPU)</item>
+    </array>
+    <string name="how_to_play">come si gioca</string>
+    <string name="accept">accetta</string>
+    <string name="score">punteggio</string>
+    <string name="rolls_remaining">turni rimanenti:</string>
+    <string name="noCombo">nessuna combo</string>
+    <string name="back">indietro</string>
+    <string name="End_game">fine partita</string>
+    <string name="Points">punti!</string>
+    <string name="warning">ATTENZIONE!</string>
+    <string name="Select_gamemode">Seleziona prima una modalità di gioco</string>
+    <string name="selezionare_il_numero_dei_giocatori">Selezionare il numero dei giocatori</string>
+    <string name="singleplayer_training">Giocatore singolo(allenamento)</string>
+    <string name="_2_players">2 giocatori(vs CPU)</string>
+    <string name="_3_players">3 giocatori(vs CPU)</string>
+    <string name="_4_players">4 giocatori(vs CPU)</string>
+    <string name="apply">Applica</string>
+</resources>

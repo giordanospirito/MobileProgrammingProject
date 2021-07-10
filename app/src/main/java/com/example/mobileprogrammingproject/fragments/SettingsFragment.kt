@@ -34,6 +34,7 @@ class SettingsFragment : Fragment() {
         val ThreePlayersCheck = binding.ThreePlayerButton
         val FourPlayersCheck = binding.FourPlayerButton
 
+
         when(settingsMode){
             0 -> SinglePlayerCheck.isChecked = true
             1 -> TwoPlayersCheck.isChecked = true
@@ -61,7 +62,7 @@ class SettingsFragment : Fragment() {
             }
 
             if (canContinue == 0) {
-                Toast.makeText(this.context, "Select a game-mode first", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this.context, getString(R.string.Select_gamemode), Toast.LENGTH_SHORT).show()
             }
         }
 
