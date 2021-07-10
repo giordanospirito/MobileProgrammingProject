@@ -130,7 +130,9 @@ class PlayFragment : Fragment() {
         //start see result button
         binding.seeResults.setOnClickListener {
             if(!x){
-                Score = ScoreUpdate(Score,rollResults)
+                if((!(lastCombo==resources.getString(R.string.coppia) && args.doubleBool==true)and!(lastCombo==resources.getString(R.string.tris) && args.trisBool == true)and!(lastCombo==resources.getString(R.string.quater) && args.quaterBool == true)and!(lastCombo==resources.getString(R.string.full) && args.fullBool == true)and!(lastCombo==resources.getString(R.string.scala_da_4) && args.fourASCBool == true)and!(lastCombo==resources.getString(R.string.scala_da_5) && args.fiveASCBool == true))){
+                    Score = ScoreUpdate(Score,rollResults)
+                }
                 val action = PlayFragmentDirections.actionPlayFragmentToResultsFragment(currentRollsNumberArg = numberRoll,totalScore = Score,doubleBool = DoubleBool, trisBool = TrisBool,quaterBool = quaterBool,yahtzeeBool = yahtzeeBool,fourASCBool = FourASCBool,fiveASCBool = FiveASCBool,fullBool = FullBool,chanceBool = chanceBool,bonusBool = BonusBool,lastCombo2 = lastCombo,noRoll = x)
                 findNavController().navigate(action)
             }else{

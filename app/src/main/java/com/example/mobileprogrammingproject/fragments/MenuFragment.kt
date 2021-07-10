@@ -22,7 +22,6 @@ class MenuFragment : Fragment() {
 
     private var _binding: FragmentMenuBinding? = null
     private val binding get() = _binding!!
-    private lateinit var myViewModel: UserViewModel
     var fragmentWantMusic: Boolean = false
 
     override fun onCreateView(
@@ -63,7 +62,6 @@ class MenuFragment : Fragment() {
                     yahtzee = false,
                     false
                 )
-                myViewModel.addUser(newUser)
                 if (binding.UsernameEditText.text.toString() != "") {
                     (activity as MainMenuActivity).userName =
                         binding.UsernameEditText.text.toString()
@@ -121,8 +119,10 @@ class MenuFragment : Fragment() {
                 CreditDialog.show(parentFragmentManager, "CreditsDialog")
             }
 
-            return view
-        }
+
+        return view
+    }
+
 
         override fun onSaveInstanceState(outState: Bundle) {
             super.onSaveInstanceState(outState)

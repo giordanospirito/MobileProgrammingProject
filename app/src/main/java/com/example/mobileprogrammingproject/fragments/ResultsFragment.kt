@@ -67,6 +67,7 @@ class ResultsFragment : Fragment() {
         if(FullBool){
             binding.FullCheck.visibility = View.VISIBLE
         }
+        binding.RealScore.text = Score.toString()
 
 
 

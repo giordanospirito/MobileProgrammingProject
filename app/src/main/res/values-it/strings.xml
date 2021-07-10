@@ -55,7 +55,7 @@
     </array>
     <string name="how_to_play">come si gioca</string>
     <string name="accept">accetta</string>
-    <string name="score">punteggio</string>
+    <string name="score">punteggio:</string>
     <string name="rolls_remaining">turni rimanenti:</string>
     <string name="noCombo">nessuna combo</string>
     <string name="back">indietro</string>
