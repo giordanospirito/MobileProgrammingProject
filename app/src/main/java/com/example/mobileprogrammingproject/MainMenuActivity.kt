@@ -3,6 +3,7 @@ package com.example.mobileprogrammingproject
 import android.media.MediaPlayer
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatDelegate
 import androidx.navigation.findNavController
 import com.example.mobileprogrammingproject.dialogs.ExitGameDialog
 
@@ -15,6 +16,7 @@ class MainMenuActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
         setContentView(R.layout.main_menu)
 
         //music
