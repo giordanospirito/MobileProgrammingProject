@@ -62,7 +62,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/titleTextView"
-            />
+            android:backgroundTint="@color/giallino"/>
 
         <Button
             android:id="@+id/rulesButton"
@@ -72,6 +72,7 @@
             app:layout_constraintTop_toBottomOf="@id/playButton"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
+            android:backgroundTint="@color/giallino"
             />
 
         <Button
@@ -82,6 +83,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/rulesButton"
+            android:backgroundTint="@color/giallino"
             />
 
         <Button
@@ -92,6 +94,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/settingsButton"
+            android:backgroundTint="@color/giallino"
             />
 
         <ImageButton
