@@ -20,7 +20,9 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".MainMenuActivity">
+        <activity android:name=".MainMenuActivity"
+            android:theme="@style/Theme.MobileProgrammingProject"
+            >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.DEFAULT" />

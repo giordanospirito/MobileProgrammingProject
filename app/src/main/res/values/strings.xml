@@ -16,20 +16,19 @@
         desiderata.Se al termine dei tre lanci, non vi sono combinazioni il punteggio è 0.
         Chi ha il punteggio più alto dopo 13 lanci eseguiti vince la partita.\n\nBUONA FORTUNA!
     </string>
-    <string name="close">CLOSE</string>
+    <string name="close">chiudi</string>
     <string name="Regolamento">Rules</string>
-    <string name="Play">Play</string>
-    <string name="settings">Settings</string>
-    <string name="exitButton">exit game</string>
-    <string name="leaving">Are you sure about leaving?\n\nAll progress will be lost forever
-    </string>
-    <string name="yes">yes</string>
+    <string name="Play">Gioca</string>
+    <string name="settings">Impostazioni</string>
+    <string name="exitButton">esci dal gioco</string>
+    <string name="leaving">"S?  All progress will be lost forever     "</string>
+    <string name="yes">Si</string>
     <string name="no">no</string>
     <string name="helloplayfragment">helloplayfragment</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="Roll">Roll!</string>
-    <string name="seeResults">see Results</string>
+    <string name="seeResults">Risultati</string>
     <string name="coppia">Coppia:</string>
     <string name="tris">Tris:</string>
     <string name="quater">Quater:</string>
@@ -40,15 +39,20 @@
     <string name="bonus">Bonus:</string>
     <string name="chance">Chance:</string>
     <string name="next_roll">next Roll!</string>
-    <string name="Cancel">Cancel</string>
+    <string name="Cancel">cancella</string>
     <string name="Ok">ok</string>
-    <string name="select">select</string>
-    <string name="insert_your_username">Insert your Username</string>
+    <string name="select">seleziona</string>
+    <string name="insert_your_username">inserisci il tuo username</string>
+    <string name="credits">"Developed by:            Federico Cappellini and Giordano Spirito     "</string>
+    <string name="credit" translatable="false">CREDITI</string>
+    <string name="ok">ok</string>
     <array name="SelectMatch">
         <item>Singleplayer(training)</item>
         <item>2 players(CPU)</item>
         <item>3 players(CPU)</item>
         <item>4 players(CPU)</item>
     </array>
+    <string name="how_to_play">regolamento</string>
+
 
 </resources>

@@ -80,6 +80,10 @@ class PlayFragment : Fragment() {
         binding.AcceptBtn.isEnabled = false
         binding.AcceptBtn.setBackgroundColor(resources.getColor(R.color.grey))
         binding.AcceptBtn.setOnClickListener {
+            if(binding.RollerAndChecker.text=="End game"){
+                binding.seeResults.isClickable=false
+                binding.seeResults.setBackgroundColor(resources.getColor(R.color.grey))
+            }
             binding.ComboReader.text = ""
             binding.Score.text = ""
             binding.dicesRow.visibility = View.INVISIBLE
@@ -125,8 +129,7 @@ class PlayFragment : Fragment() {
         //start see result button
         binding.seeResults.setOnClickListener {
             if(!x){
-                //Score = ScoreUpdate(Score,rollResults)
-
+                Score = ScoreUpdate(Score,rollResults)
                 val action = PlayFragmentDirections.actionPlayFragmentToResultsFragment(currentRollsNumberArg = numberRoll,totalScore = Score,doubleBool = DoubleBool, trisBool = TrisBool,quaterBool = quaterBool,yahtzeeBool = yahtzeeBool,fourASCBool = FourASCBool,fiveASCBool = FiveASCBool,fullBool = FullBool,chanceBool = chanceBool,bonusBool = BonusBool,lastCombo2 = lastCombo,noRoll = x)
                 findNavController().navigate(action)
             }else{
@@ -182,6 +185,7 @@ class PlayFragment : Fragment() {
 
                 if (numberRoll == 13) {
                     binding.RollerAndChecker.text = "End game"
+                    binding.seeResults.isClickable= false
                 }
             } else {
                 val action = PlayFragmentDirections.actionPlayFragmentToEndGameFragment()

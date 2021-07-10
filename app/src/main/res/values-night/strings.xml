@@ -16,20 +16,18 @@
         desiderata.Se al termine dei tre lanci, non vi sono combinazioni il punteggio è 0.
         Chi ha il punteggio più alto dopo 13 lanci eseguiti vince la partita.\n\nBUONA FORTUNA!
     </string>
-    <string name="close">CLOSE</string>
+    <string name="close" translatable="false">chiudi</string>
     <string name="Regolamento">Rules</string>
-    <string name="Play">Play</string>
-    <string name="settings">Settings</string>
-    <string name="exitButton">exit game</string>
-    <string name="leaving">Are you sure about leaving?\n\nAll progress will be lost forever
-    </string>
-    <string name="yes">yes</string>
+    <string name="Play" translatable="false">Gioca</string>
+    <string name="settings" translatable="false">Impostazioni</string>
+    <string name="leaving">"Sei sicuro di uscire?  I progressi della partita non verranno salvati     "</string>
+    <string name="yes" translatable="false">Si</string>
     <string name="no">no</string>
     <string name="helloplayfragment">helloplayfragment</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="Roll">Roll!</string>
-    <string name="seeResults">see Results</string>
+    <string name="seeResults">Risultati</string>
     <string name="coppia">Coppia:</string>
     <string name="tris">Tris:</string>
     <string name="quater">Quater:</string>
@@ -40,10 +38,10 @@
     <string name="bonus">Bonus:</string>
     <string name="chance">Chance:</string>
     <string name="next_roll">next Roll!</string>
-    <string name="Cancel">Cancel</string>
+    <string name="Cancel">cancella</string>
     <string name="Ok">ok</string>
-    <string name="select">select</string>
-    <string name="insert_your_username">Insert your Username</string>
+    <string name="select" translatable="false">s</string>
+    <string name="insert_your_username" translatable="false">i</string>
     <array name="SelectMatch">
         <item>Singleplayer(training)</item>
         <item>2 players(CPU)</item>

@@ -14,6 +14,7 @@ import com.example.mobileprogrammingproject.R
 import com.example.mobileprogrammingproject.data.User
 import com.example.mobileprogrammingproject.data.UserViewModel
 import com.example.mobileprogrammingproject.databinding.FragmentMenuBinding
+import com.example.mobileprogrammingproject.dialogs.CreditsDialog
 import com.example.mobileprogrammingproject.dialogs.RuleDialog
 
 
@@ -85,6 +86,12 @@ class MenuFragment : Fragment() {
             }
         }
         //end volume button
+
+        //start credits button
+        binding.CreditsButton.setOnClickListener {
+            val CreditDialog = CreditsDialog()
+            CreditDialog.show(parentFragmentManager,"CreditsDialog")
+        }
 
         return view
     }
