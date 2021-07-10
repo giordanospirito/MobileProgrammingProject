@@ -73,7 +73,7 @@ class PlayFragment : Fragment() {
 
         //some init
         binding.username.text = (activity as MainMenuActivity).userName
-        binding.numberRolls.text = "rolls remaining: ${13-numberRoll}"
+        binding.numberRolls.text = resources.getString(R.string.rolls_remaining)+" ${13-numberRoll}"
         //end init
 
         //accept
@@ -90,32 +90,32 @@ class PlayFragment : Fragment() {
             binding.AcceptBtn.isEnabled = false
             binding.AcceptBtn.setBackgroundColor(resources.getColor(R.color.grey))
 
-            if(lastCombo=="Coppia"){
+            if(lastCombo==resources.getString(R.string.coppia)){
                 DoubleBool = true
             }
-            if(lastCombo=="Tris"){
+            if(lastCombo==resources.getString(R.string.tris)){
                 TrisBool = true
             }
-            if(lastCombo=="Quater"){
+            if(lastCombo==resources.getString(R.string.quater)){
                 quaterBool = true
             }
-            if(lastCombo=="Yahtzee"){
+            if(lastCombo==resources.getString(R.string.yahtzee)){
                 yahtzeeBool = true
             }
-            if(lastCombo=="Full"){
+            if(lastCombo==resources.getString(R.string.full)){
                 FullBool=true
             }
-            if(lastCombo=="Scala da 4"){
+            if(lastCombo==resources.getString(R.string.scala_da_4)){
                 FourASCBool=true
             }
-            if(lastCombo=="Scala da 5"){
+            if(lastCombo==resources.getString(R.string.scala_da_5)){
                 FiveASCBool=true
             }
             if(Score>62){
                 BonusBool=true
                 Score+=25
             }
-            if((lastCombo=="Coppia" && args.doubleBool==true)or(lastCombo=="Tris" && args.trisBool == true)or(lastCombo=="Quater" && args.quaterBool == true)or(lastCombo=="Full" && args.fullBool == true)or(lastCombo=="Scala da 4" && args.fourASCBool == true)or(lastCombo=="Scala da 5" && args.fiveASCBool == true)){
+            if((lastCombo==resources.getString(R.string.coppia) && args.doubleBool==true)or(lastCombo==resources.getString(R.string.tris) && args.trisBool == true)or(lastCombo==resources.getString(R.string.quater) && args.quaterBool == true)or(lastCombo==resources.getString(R.string.full) && args.fullBool == true)or(lastCombo==resources.getString(R.string.scala_da_4) && args.fourASCBool == true)or(lastCombo==resources.getString(R.string.scala_da_5) && args.fiveASCBool == true)){
                 chanceBool=true
             }
 
@@ -171,9 +171,9 @@ class PlayFragment : Fragment() {
                 //binding.numberRolls.startAnimation(animation2)
                 binding.ComboReader.startAnimation(animation2)
                 binding.Score.startAnimation(animation2)
-                binding.numberRolls.text = "rolls remaining: ${13-numberRoll}"
+                binding.numberRolls.text = resources.getString(R.string.rolls_remaining)+": ${13-numberRoll}"
                 binding.ComboReader.text = getCombo(rollResults)
-                binding.Score.text = "${getScore(getCombo(rollResults)).toString()} points!"
+                binding.Score.text = "${getScore(getCombo(rollResults)).toString()} "+ getString(R.string.Points)
                 lastCombo = getCombo(rollResults)
 
                 //user should want to change some dice results
@@ -185,7 +185,7 @@ class PlayFragment : Fragment() {
 
 
                 if (numberRoll == 13) {
-                    binding.RollerAndChecker.text = "End game"
+                    binding.RollerAndChecker.text = getString(R.string.End_game)
                     binding.seeResults.isClickable= false
                 }
             } else {
@@ -203,7 +203,7 @@ class PlayFragment : Fragment() {
             rollResults.removeAt(0)
             rollResults.add(0,random+1)
             binding.ComboReader.text = getCombo(rollResults)
-            binding.Score.text = "${getScore(getCombo(rollResults)).toString()} points!"
+            binding.Score.text = "${getScore(getCombo(rollResults)).toString()} "+ getString(R.string.Points)
             binding.FirstRoll.isClickable = false
             lastCombo = getCombo(rollResults)
         }
@@ -215,7 +215,7 @@ class PlayFragment : Fragment() {
             rollResults.removeAt(1)
             rollResults.add(1,random+1)
             binding.ComboReader.text = getCombo(rollResults)
-            binding.Score.text = "${getScore(getCombo(rollResults)).toString()} points!"
+            binding.Score.text = "${getScore(getCombo(rollResults)).toString()} "+ getString(R.string.Points)
             binding.SecondRoll.isClickable = false
             lastCombo = getCombo(rollResults)
         }
@@ -227,7 +227,7 @@ class PlayFragment : Fragment() {
             rollResults.removeAt(2)
             rollResults.add(2,random+1)
             binding.ComboReader.text = getCombo(rollResults)
-            binding.Score.text = "${getScore(getCombo(rollResults)).toString()} points!"
+            binding.Score.text ="${getScore(getCombo(rollResults)).toString()} "+ getString(R.string.Points)
             binding.ThirdRoll.isClickable = false
             lastCombo = getCombo(rollResults)
         }
@@ -239,7 +239,7 @@ class PlayFragment : Fragment() {
             rollResults.removeAt(3)
             rollResults.add(3,random+1)
             binding.ComboReader.text = getCombo(rollResults)
-            binding.Score.text = "${getScore(getCombo(rollResults)).toString()} points!"
+            binding.Score.text = "${getScore(getCombo(rollResults)).toString()} "+ getString(R.string.Points)
             binding.FourthRoll.isClickable = false
             lastCombo = getCombo(rollResults)
         }
@@ -251,7 +251,7 @@ class PlayFragment : Fragment() {
             rollResults.removeAt(4)
             rollResults.add(4,random+1)
             binding.ComboReader.text = getCombo(rollResults)
-            binding.Score.text = "${getScore(getCombo(rollResults)).toString()} points!"
+            binding.Score.text = "${getScore(getCombo(rollResults)).toString()} "+ getString(R.string.Points)
             binding.FifthRoll.isClickable = false
             lastCombo = getCombo(rollResults)
         }
@@ -287,13 +287,13 @@ class PlayFragment : Fragment() {
     } //given dicelist, adds to this the dices images of 1 to 6 dices
     private fun getScore(s: String): Int {
         val value = when(s){
-            "Coppia" -> 5
-            "Tris"->10
-            "Quater" -> 20
-            "Yahtzee" ->50
-            "Scala da 4" ->30
-            "Scala da 5" -> 40
-            "Full" ->25
+            resources.getString(R.string.coppia) -> 5
+            resources.getString(R.string.tris)->10
+            resources.getString(R.string.quater) -> 20
+            resources.getString(R.string.yahtzee) ->50
+            resources.getString(R.string.scala_da_4) ->30
+            resources.getString(R.string.scala_da_5) -> 40
+            resources.getString(R.string.full) ->25
             else -> 0
         }
         return value
@@ -302,27 +302,27 @@ class PlayFragment : Fragment() {
     // Combo algorithm fun section
     private fun getCombo(List: MutableList<Int>): String {
         if (FiveASCorder(List)) {
-            return "Scala da 5"
+            return resources.getString(R.string.scala_da_5)
         } else {
             if (FourASCorder(List)) {
-                return "Scala da 4"
+                return resources.getString(R.string.scala_da_4)
             } else {
                 for (i in 1..6) {
                     for (j in 1..6) {
                         if (isYahtzee(List,i)) {
-                            return "Yahtzee"
+                            return resources.getString(R.string.yahtzee)
                         } else {
                             if (isQuater(List,i)) {
-                                return "Quater"
+                                return resources.getString(R.string.quater)
                             } else {
                                 if (isFull(List)) {
-                                    return "Full"
+                                    return resources.getString(R.string.full)
                                 } else {
                                     if (isTriple(List, i)) {
-                                        return "Tris"
+                                        return resources.getString(R.string.tris)
                                     } else {
                                         if (isDouble(List, i)) {
-                                            return "Coppia"
+                                            return resources.getString(R.string.coppia)
                                         }
                                     }
                                 }
@@ -332,7 +332,7 @@ class PlayFragment : Fragment() {
                 }
             }
         }
-        return "NO combo"
+        return resources.getString(R.string.noCombo)
 
     }
 

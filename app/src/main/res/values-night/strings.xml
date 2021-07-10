@@ -1,52 +1,75 @@
 <resources>
     <string name="app_name">YAHTZEE!</string>
     <string name="RulesLong">
-        Yahtzee è un gioco basato sul lancio di cinque dadi.
-        L\'obiettivo è quello di totalizzare più punti possibili eseguendo le combinazioni possibili una volta soltanto.
-        Queste sono:
+        Yahtzee is a game based on rolling five dices.
+        Players aim to obtain the highest score possible making as much combination as possible, but each one can be made once only.
+        These are:
         \n\n
-        • Ripetizioni di più numeri(punteggio pari al numero per quante volte è uscito)\n\n
-        • Bonus: si ottiene quando la somma delle combinazioni precedenti supera 62(35 punti)\n\n
-        • Scala con 4 o 5 dadi: si ottiene quando 4 o 5 dadi sono ordinati in modo crescente(30 e 40 punti rispettivamente)\n\n
-        • Tre o quattro dadi uguali(il punteggio è la somma dei cinque dadi)\n\n
+        • Pair(5 points)\n\n
+        • Tris(10 points)\n\n
+        • Bonus: Achieved whenever during a game your score is greater than 62(35 points)\n\n
+        • 4 or 5 straight: Achieved whenever your dice are sortable in ascending order in a group of four or five consecutive numbers(30 and 40 points respectively)\n\n
+        • Four dices with same value(20 points)\n\n
         • Full: come nel poker, un tris e una coppia(25 punti)\n\n
-        • Yahtzee!: 5 dadi uguali(50 punti), è ripetibile al posto di altre combinazioni con un bonus di 100 punti\n\n
-        • Chance: Utilizzabile quando si è ottenuta una combinazione già usata o non si hanno combinazioni disponibili(25 punti)\n
-        \nA ogni turno, il giocatore lancia i dadi fino a tre volte. Negli ultimi due può trattenere dei dadi per cercare una combinazione
-        desiderata.Se al termine dei tre lanci, non vi sono combinazioni il punteggio è 0.
-        Chi ha il punteggio più alto dopo 13 lanci eseguiti vince la partita.\n\nBUONA FORTUNA!
+        • Yahtzee!: All dices with same value(50 points)\n\n
+        • Chance: Achieved the first time you get a combination you just got on a previous roll(25 points)\n
+        \nEvery turn, players roll dices up to three times. On second and third roll, it is possible to select the dices you want to roll, to try to achieve a certain combination.
+        If there are no available combination at the end of the three rolls, no points are given.
+        Wins whoever has the highest total score after 13 turns.\n\nGOOD LUCK!
     </string>
-    <string name="close" translatable="false">chiudi</string>
+    <string name="close">close</string>
     <string name="Regolamento">Rules</string>
-    <string name="Play" translatable="false">Gioca</string>
-    <string name="settings" translatable="false">Impostazioni</string>
-    <string name="leaving">"Sei sicuro di uscire?  I progressi della partita non verranno salvati     "</string>
-    <string name="yes" translatable="false">Si</string>
+    <string name="Play">play</string>
+    <string name="settings">settings</string>
+    <string name="exitButton">exit game</string>
+    <string name="leaving">"Are you sure you want to exit?  All progress will be lost forever     "</string>
+    <string name="yes">yes</string>
     <string name="no">no</string>
     <string name="helloplayfragment">helloplayfragment</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="Roll">Roll!</string>
-    <string name="seeResults">Risultati</string>
-    <string name="coppia">Coppia:</string>
+    <string name="seeResults">results</string>
+    <string name="coppia">Pair:</string>
     <string name="tris">Tris:</string>
     <string name="quater">Quater:</string>
     <string name="yahtzee">Yahtzee!:</string>
-    <string name="scala_da_4">Scala da 4:</string>
-    <string name="scala_da_5">Scala da 5:</string>
+    <string name="scala_da_4">4-Straight:</string>
+    <string name="scala_da_5">5-Straight:</string>
     <string name="full">Full:</string>
     <string name="bonus">Bonus:</string>
     <string name="chance">Chance:</string>
     <string name="next_roll">next Roll!</string>
-    <string name="Cancel">cancella</string>
+    <string name="Cancel">cancel</string>
     <string name="Ok">ok</string>
-    <string name="select" translatable="false">s</string>
-    <string name="insert_your_username" translatable="false">i</string>
+    <string name="select">select</string>
+    <string name="insert_your_username">insert your username</string>
+    <string name="credits">"Developed by:
+        \n\nFederico Cappellini and Giordano Spirito     "</string>
+    <string name="credit" translatable="false">CREDITS</string>
+    <string name="ok">ok</string>
     <array name="SelectMatch">
         <item>Singleplayer(training)</item>
-        <item>2 players(CPU)</item>
-        <item>3 players(CPU)</item>
-        <item>4 players(CPU)</item>
+        <item>2 players(vs CPU)</item>
+        <item>3 players(vs CPU)</item>
+        <item>4 players(vs CPU)</item>
     </array>
+    <string name="how_to_play">how to play</string>
+    <string name="accept">accept</string>
+    <string name="score">score</string>
+    <string name="rolls_remaining">rolls remaining:</string>
+    <string name="noCombo">no combo</string>
+    <string name="back">back</string>
+    <string name="End_game">End game</string>
+    <string name="Points">points!</string>
+    <string name="warning">WARNING!</string>
+    <string name="Select_gamemode">Select a game-mode first</string>
+    <string name="selezionare_il_numero_dei_giocatori">Select the number of players</string>
+    <string name="singleplayer_training">SinglePlayer (training)</string>
+    <string name="_2_players">2 Players</string>
+    <string name="_3_players">3 Players</string>
+    <string name="_4_players">4 Players</string>
+    <string name="apply">Apply</string>
+
 
 </resources>

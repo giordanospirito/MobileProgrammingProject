@@ -44,7 +44,7 @@
                     android:id="@+id/numberRolls"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:text="rolls remaining:"
+                    android:text="@string/rolls_remaining"
                     android:textSize="22sp"
                     android:layout_weight="1"
                     android:textColor="#F6E362"
@@ -147,7 +147,7 @@
 
                 <Button
                     android:id="@+id/AcceptBtn"
-                    android:text="accept"
+                    android:text="@string/accept"
                     android:textSize="10sp"
                     android:layout_width="wrap_content"
                     android:layout_height="0dp"
@@ -160,7 +160,7 @@
 
                 <Button
                     android:id="@+id/seeResults"
-                    android:text="score"
+                    android:text="@string/score"
                     android:textSize="10sp"
                     android:layout_width="wrap_content"
                     android:layout_height="0dp"

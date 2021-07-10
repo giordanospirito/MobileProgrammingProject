@@ -17,7 +17,7 @@
             android:id="@+id/titolo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Selezionare il numero dei giocatori"
+            android:text="@string/selezionare_il_numero_dei_giocatori"
             android:textColor="@color/giallino"
             android:textSize="24sp"
             app:layout_constraintStart_toStartOf="parent"
@@ -39,7 +39,7 @@
                 android:id="@+id/SinglePlayerButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="SinglePlayer (training)"
+                android:text="@string/singleplayer_training"
                 android:textSize="20sp"
                 android:textColor="@color/giallino"/>
 
@@ -47,7 +47,7 @@
                 android:id="@+id/TwoPlayerButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="2 Players"
+                android:text="@string/_2_players"
                 android:textSize="20sp"
                 android:textColor="@color/giallino"/>
 
@@ -55,7 +55,7 @@
                 android:id="@+id/ThreePlayerButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="3 Players"
+                android:text="@string/_3_players"
                 android:textSize="20sp"
                 android:textColor="@color/giallino"/>
 
@@ -63,7 +63,7 @@
                 android:id="@+id/FourPlayerButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="4 Players"
+                android:text="@string/_4_players"
                 android:textSize="20sp"
                 android:textColor="@color/giallino"/>
         </RadioGroup>
@@ -73,7 +73,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="10dp"
-            android:text="Apply"
+            android:text="@string/apply"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
