@@ -13,6 +13,7 @@ import android.view.animation.Animation
 import android.view.animation.AnimationUtils
 import com.example.mobileprogrammingproject.R
 import android.widget.ImageView
+import android.widget.Toast
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.example.mobileprogrammingproject.MainMenuActivity
@@ -65,7 +66,7 @@ class PlayFragment : Fragment() {
         //end binding section
 
         //some init
-        binding.username.text = (activity as MainMenuActivity).userName
+        binding.username.text = username
         binding.numberRolls.text = resources.getString(R.string.rolls_remaining)+" ${13-numberRoll}"
         //end init
 
@@ -258,6 +259,7 @@ class PlayFragment : Fragment() {
         //return section
         return view
     }
+
 
 
     private fun ScoreUpdate(score: Int, rollResults: MutableList<Int>): Int {

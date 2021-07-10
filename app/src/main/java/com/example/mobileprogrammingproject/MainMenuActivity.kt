@@ -5,20 +5,24 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatDelegate
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
 import com.example.mobileprogrammingproject.dialogs.ExitGameDialog
 
 class MainMenuActivity : AppCompatActivity() {
 
+    private lateinit var ViewModel : MyViewModel
     lateinit var mediaPlayer : MediaPlayer
     var wantMusic = true
     var gameMode: Int = 0
-    var userName : String = "Guest"
+    var userName : String = ""
 
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        ViewModel = ViewModelProvider(this).get(MyViewModel::class.java)
+        userName = ViewModel.userName
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
         setContentView(R.layout.main_menu)
 
@@ -66,6 +70,10 @@ class MainMenuActivity : AppCompatActivity() {
         //Toast.makeText(this, wantMusic.toString(), Toast.LENGTH_SHORT).show()
     }
 
+    fun editUserName(u : String){
+        ViewModel.editUserName(u)
+        userName=u
+    }
 }
 
 

@@ -44,8 +44,8 @@ class MenuFragment : Fragment() {
             binding.playButton.setOnClickListener {
                 val action = MenuFragmentDirections.actionMenuFragmentToPlayFragment(0)
                 if (binding.UsernameEditText.text.toString() != "") {
-                    (activity as MainMenuActivity).userName =
-                        binding.UsernameEditText.text.toString()
+                    (activity as MainMenuActivity).editUserName(binding.UsernameEditText.text.toString())
+                    //(activity as MainMenuActivity).userName = binding.UsernameEditText.text.toString()
                 }
                 findNavController().navigate(action)
 
