@@ -79,8 +79,9 @@
             android:defaultValue="false" />
         <action
             android:id="@+id/action_playFragment_to_endGameFragment"
-            app:destination="@id/endGameFragment">
-        </action>
+            app:destination="@id/endGameFragment"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out"></action>
         <argument
             android:name="rollsNumberArg"
             app:argType="integer"
@@ -108,9 +109,6 @@
             app:destination="@id/menuFragment"
             app:popUpTo="@id/menuFragment"
             app:popUpToInclusive="true"/>
-        <action
-            android:id="@+id/action_settingsFragment_to_endGameFragment"
-            app:destination="@id/endGameFragment" />
     </fragment>
 
     <fragment

@@ -8,5 +8,164 @@
     android:orientation="vertical"
     android:background="@color/black">
 
+    <LinearLayout
+        android:id="@+id/playersBox"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        android:layout_weight="3">
 
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:textSize="40sp"
+            android:gravity="center_horizontal|center_vertical"
+            android:text="@string/tabella_punteggi"
+            android:textColor="@color/giallino"
+            android:background="#003F5C">
+        </TextView>
+
+        <LinearLayout
+            android:id="@+id/firstPlace"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:orientation="horizontal"
+            android:layout_weight="1">
+
+            <TextView
+                android:id="@+id/firstPlaceUsarname"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="2">
+
+            </TextView>
+
+            <TextView
+                android:id="@+id/firstPlaceScore"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="2">
+
+            </TextView>
+
+            <ImageView
+                android:id="@+id/coppaFirstPlace"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1.5">
+
+            </ImageView>
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/secondPlace"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:orientation="horizontal"
+            android:layout_weight="1">
+
+            <TextView
+                android:id="@+id/secondPlaceUsarname"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="2">
+
+            </TextView>
+
+            <TextView
+                android:id="@+id/secondPlaceScore"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="2">
+
+            </TextView>
+
+            <ImageView
+                android:id="@+id/coppaSecondPlace"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1.5">
+
+            </ImageView>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/thirdPlace"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:orientation="horizontal"
+            android:layout_weight="1">
+
+            <TextView
+                android:id="@+id/thirdPlaceUsarname"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="2">
+
+            </TextView>
+
+            <TextView
+                android:id="@+id/thirdPlaceScore"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="2">
+
+            </TextView>
+
+            <ImageView
+                android:id="@+id/coppaThirdPlace"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1.5">
+
+            </ImageView>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/fourthPlace"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:orientation="horizontal"
+            android:layout_weight="1">
+
+            <TextView
+                android:id="@+id/fourthPlaceUsarname"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="2">
+
+            </TextView>
+
+            <TextView
+                android:id="@+id/fourthPlaceScore"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="2">
+
+            </TextView>
+
+            <ImageView
+                android:id="@+id/coppaFourthPlace"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1.5">
+
+            </ImageView>
+        </LinearLayout>
+
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/buttonsBox"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:orientation="horizontal"
+        android:layout_weight="1">
+
+    </LinearLayout>
 </LinearLayout>
