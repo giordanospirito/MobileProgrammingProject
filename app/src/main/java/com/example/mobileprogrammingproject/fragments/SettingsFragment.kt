@@ -9,6 +9,7 @@ import android.widget.Toast
 import androidx.core.view.get
 import androidx.navigation.Navigation
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 import com.example.mobileprogrammingproject.MainMenuActivity
 import com.example.mobileprogrammingproject.R
 import com.example.mobileprogrammingproject.databinding.FragmentPlayBinding
@@ -64,6 +65,8 @@ class SettingsFragment : Fragment() {
             if (canContinue == 0) {
                 Toast.makeText(this.context, getString(R.string.Select_gamemode), Toast.LENGTH_SHORT).show()
             }
+            val action = SettingsFragmentDirections.actionSettingsFragmentToEndGameFragment()
+            findNavController().navigate(action)
         }
 
 
