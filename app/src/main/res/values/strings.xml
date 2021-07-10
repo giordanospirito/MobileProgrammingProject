@@ -21,7 +21,7 @@
     <string name="Play">Gioca</string>
     <string name="settings">Impostazioni</string>
     <string name="exitButton">esci dal gioco</string>
-    <string name="leaving">"S?  All progress will be lost forever     "</string>
+    <string name="leaving">"Sei sicuro di uscire?  All progress will be lost forever     "</string>
     <string name="yes">Si</string>
     <string name="no">no</string>
     <string name="helloplayfragment">helloplayfragment</string>
