@@ -71,4 +71,5 @@
     <string name="_4_players">4 giocatori(vs CPU)</string>
     <string name="apply">Applica</string>
     <string name="tabella_punteggi">Punteggi</string>
+    <string name="back_to_menu">torna al menu</string>
 </resources>
