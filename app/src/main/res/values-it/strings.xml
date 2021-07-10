@@ -57,7 +57,7 @@
     <string name="accept">accetta</string>
     <string name="score">punteggio:</string>
     <string name="punteggio">punteggio</string>
-    <string name="rolls_remaining">turni rimanenti:</string>
+    <string name="rolls_remaining">lanci rimasti:</string>
     <string name="noCombo">nessuna combo</string>
     <string name="back">indietro</string>
     <string name="End_game">fine partita</string>
