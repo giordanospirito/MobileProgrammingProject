@@ -109,7 +109,7 @@ class PlayFragment : Fragment() {
         binding.AcceptBtn.isEnabled = isAcceptButtonActivated //(false the first time)
         binding.AcceptBtn.setBackgroundColor(resources.getColor(acceptButtonColor)) //(grigio the first time)
         if((PartialScore==-1)or(x)){
-            binding.Score.text = ""
+            binding.Score.text = "${getScore(getCombo(myRolls))} points!"
         }
         if((combo == "nessuna combo") or (combo == "") or (combo == "no combo")){
             binding.ComboReader.text = combo}
