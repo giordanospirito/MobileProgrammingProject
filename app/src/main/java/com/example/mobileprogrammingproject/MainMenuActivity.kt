@@ -20,6 +20,13 @@ class MainMenuActivity : AppCompatActivity() {
     var ScoreP2 : Int = 0
     var ScoreP3:Int = 0
     var ScoreP4:Int = 0
+    var isPlayButtonActivated:Boolean=true
+    var isAcceptButtonActivated:Boolean=false
+    var isScoreButtonActivated:Boolean=true
+    var playButtonColor = R.color.giallino
+    var acceptButtonColor = R.color.giallino
+    var scoreButtonColor = R.color.grey
+
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -30,6 +37,14 @@ class MainMenuActivity : AppCompatActivity() {
         ScoreP2 = ViewModel.ScoreP2
         ScoreP3 = ViewModel.ScoreP3
         ScoreP4 = ViewModel.ScoreP4
+        isPlayButtonActivated = ViewModel.isPlayButtonActivated
+        isAcceptButtonActivated = ViewModel.isAcceptButtonActivated
+        isScoreButtonActivated = ViewModel.isScoreButtonActivated
+        playButtonColor = ViewModel.playButtonColor
+        acceptButtonColor = ViewModel.acceptButtonColor
+        scoreButtonColor = ViewModel.scoreButtonColor
+
+
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
         setContentView(R.layout.main_menu)
 
@@ -96,6 +111,45 @@ class MainMenuActivity : AppCompatActivity() {
     fun editScoreP4(value:Int){
         ViewModel.editScoreP4(value)
         ScoreP4=value
+    }
+    fun editPlayButton(){
+        ViewModel.editPlayButton()
+        isPlayButtonActivated = !isPlayButtonActivated
+    }
+    fun editAcceptButton(){
+        ViewModel.editAcceptButton()
+        isAcceptButtonActivated = !isAcceptButtonActivated
+    }
+    fun editScoreButton(){
+        ViewModel.editScoreButton()
+        isScoreButtonActivated = !isScoreButtonActivated
+    }
+    fun editPlayButtonColor(){
+        ViewModel.editPlayButtonColor()
+        if(playButtonColor==R.color.giallino){
+            playButtonColor=R.color.grey
+        }
+        else{
+            playButtonColor=R.color.giallino
+        }
+    }
+    fun editAcceptButtonColor(){
+        ViewModel.editAcceptButtonColor()
+        if(acceptButtonColor==R.color.giallino){
+            acceptButtonColor=R.color.grey
+        }
+        else{
+            acceptButtonColor=R.color.giallino
+        }
+    }
+    fun editScoreButtonColor(){
+        ViewModel.editScoreButtonColor()
+        if(scoreButtonColor==R.color.giallino){
+            scoreButtonColor=R.color.grey
+        }
+        else{
+            scoreButtonColor=R.color.giallino
+        }
     }
 }
 

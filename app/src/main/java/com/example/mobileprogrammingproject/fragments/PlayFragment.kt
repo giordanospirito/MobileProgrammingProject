@@ -35,6 +35,14 @@ class PlayFragment : Fragment() {
     @SuppressLint("ResourceAsColor")
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
 
+        var isPlayButtonActivated = (activity as MainMenuActivity).isPlayButtonActivated
+        var isAcceptButtonActivated = (activity as MainMenuActivity).isAcceptButtonActivated
+        var isScoreButtonActivated = (activity as MainMenuActivity).isScoreButtonActivated
+        var playButtonColor = (activity as MainMenuActivity).playButtonColor
+        var acceptButtonColor = (activity as MainMenuActivity).acceptButtonColor
+        var scoreButtonColor = (activity as MainMenuActivity).scoreButtonColor
+
+
         val username = (activity as MainMenuActivity).userName
         //vibration effect
         val vibe = context?.getSystemService(Context.VIBRATOR_SERVICE) as Vibrator
@@ -70,19 +78,33 @@ class PlayFragment : Fragment() {
         binding.numberRolls.text = resources.getString(R.string.rolls_remaining)+" ${13-numberRoll}"
         //end init
 
-        //accept
-        binding.AcceptBtn.isEnabled = false
-        binding.AcceptBtn.setBackgroundColor(resources.getColor(R.color.grey))
+        //initializing buttons
+        binding.RollerAndChecker.isEnabled = isPlayButtonActivated
+        binding.RollerAndChecker.setBackgroundColor(resources.getColor(playButtonColor))
+        binding.seeResults.isEnabled = isScoreButtonActivated
+        binding.seeResults.setBackgroundColor(resources.getColor(scoreButtonColor))
+        binding.AcceptBtn.isEnabled = isAcceptButtonActivated //(false the first time)
+        binding.AcceptBtn.setBackgroundColor(resources.getColor(acceptButtonColor)) //(grigio the first time)
+
         binding.AcceptBtn.setOnClickListener {
             binding.ComboReader.text = ""
             binding.Score.text = ""
             binding.dicesRow.visibility = View.INVISIBLE
+
             binding.seeResults.isEnabled = true
             binding.seeResults.setBackgroundColor(resources.getColor(R.color.giallino))
+            (activity as MainMenuActivity).editScoreButton()
+            (activity as MainMenuActivity).editScoreButtonColor()
+
             binding.RollerAndChecker.isEnabled = true
+            (activity as MainMenuActivity).editPlayButton()
             binding.RollerAndChecker.setBackgroundColor(resources.getColor(R.color.giallino))
+            (activity as MainMenuActivity).editPlayButtonColor()
+
             binding.AcceptBtn.isEnabled = false
+            (activity as MainMenuActivity).editAcceptButton()
             binding.AcceptBtn.setBackgroundColor(resources.getColor(R.color.grey))
+            (activity as MainMenuActivity).editAcceptButtonColor()
 
             if((lastCombo==resources.getString(R.string.coppia) && DoubleBool==false) or (lastCombo==resources.getString(R.string.tris) && TrisBool == false) or (lastCombo==resources.getString(R.string.quater) && quaterBool == false) or (lastCombo==resources.getString(R.string.full) && FullBool == false) or (lastCombo==resources.getString(R.string.scala_da_4) && FourASCBool == false) or (lastCombo==resources.getString(R.string.scala_da_5) && FiveASCBool == false)){
                 Score = ScoreUpdate(Score,rollResults)
@@ -123,7 +145,9 @@ class PlayFragment : Fragment() {
 
             if(numberRoll == 13){
                 binding.seeResults.isEnabled = false
+                (activity as MainMenuActivity).editScoreButton()
                 binding.seeResults.setBackgroundColor(resources.getColor(R.color.grey))
+                (activity as MainMenuActivity).editScoreButtonColor()
             }
         }
         //end accept
@@ -154,10 +178,19 @@ class PlayFragment : Fragment() {
 
             binding.seeResults.isEnabled = false
             binding.seeResults.setBackgroundColor(resources.getColor(R.color.grey))
+            (activity as MainMenuActivity).editScoreButton()
+            (activity as MainMenuActivity).editScoreButtonColor()
+
             binding.RollerAndChecker.isEnabled = false
             binding.RollerAndChecker.setBackgroundColor(resources.getColor(R.color.grey))
+            (activity as MainMenuActivity).editPlayButton()
+            (activity as MainMenuActivity).editPlayButtonColor()
+
             binding.AcceptBtn.isEnabled = true
             binding.AcceptBtn.setBackgroundColor(resources.getColor(R.color.giallino))
+            (activity as MainMenuActivity).editAcceptButton()
+            (activity as MainMenuActivity).editAcceptButtonColor()
+
             x = false
             if (numberRoll<13) {
                 numberRoll++

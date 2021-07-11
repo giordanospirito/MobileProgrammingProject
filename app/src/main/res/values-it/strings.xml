@@ -77,4 +77,6 @@
     <string name="Player_3">Giocatore 3</string>
     <string name="player_4">Giocatore 4</string>
     <string name="endgame">Tornare al menu principale?</string>
+    <string name="verticalRoll">r&#10;o&#10;l&#10;l&#10;</string>
+
 </resources>
