@@ -129,6 +129,7 @@ class PlayFragment : Fragment() {
         binding.FifthRoll.isEnabled = isFifthDiceClickable
 
         binding.AcceptBtn.setOnClickListener {
+            (activity as MainMenuActivity).edithidden(true)
             binding.ComboReader.text = ""
             (activity as MainMenuActivity).editCombo("")
             binding.Score.text = ""
