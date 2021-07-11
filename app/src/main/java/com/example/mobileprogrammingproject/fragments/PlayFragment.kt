@@ -45,6 +45,14 @@ class PlayFragment : Fragment() {
         var ViewModelArrayDices = (activity as MainMenuActivity).arrayDices
         var noroll = (activity as MainMenuActivity).noroll
 
+        var isFirstDiceClickable = (activity as MainMenuActivity).isFirstDiceClickable
+        var isSecondDiceClickable = (activity as MainMenuActivity).isSecondDiceClickable
+        var isThirdDiceClickable = (activity as MainMenuActivity).isThirdDiceClickable
+        var isFourthDiceClickable = (activity as MainMenuActivity).isFourthDiceClickable
+        var isFifthDiceClickable = (activity as MainMenuActivity).isFifthDiceClickable
+
+
+        var myRolls = (activity as MainMenuActivity).rollResult
 
         val username = (activity as MainMenuActivity).userName
         //vibration effect
@@ -69,7 +77,7 @@ class PlayFragment : Fragment() {
 
 
         //where our scoring array will be saved
-        val rollResults = mutableListOf<Int>()
+        val rollResults = myRolls
 
 
         //start binding section
@@ -108,7 +116,11 @@ class PlayFragment : Fragment() {
             else{
                 binding.ComboReader.text = combo.substring(0 until (combo.lastIndex))}
 
-
+        binding.FirstRoll.isClickable = isFirstDiceClickable
+        binding.SecondRoll.isClickable = isSecondDiceClickable
+        binding.ThirdRoll.isClickable = isThirdDiceClickable
+        binding.FourthRoll.isClickable = isFourthDiceClickable
+        binding.FifthRoll.isClickable = isFifthDiceClickable
 
         binding.AcceptBtn.setOnClickListener {
             binding.ComboReader.text = ""
@@ -231,9 +243,14 @@ class PlayFragment : Fragment() {
                 binding.dicesRow.visibility = View.VISIBLE
                 for (i in 0..4) {
                     getRandomValue(arrayDices[i], rollResults)
+                }
+                (activity as MainMenuActivity).getRollResults(rollResults)
+                for(i in 0..4){
                     ViewModelArrayDices[i] = diceImages[rollResults[i]-1]
                     (activity as MainMenuActivity).getArrayDices(i,rollResults[i]-1,diceImages)
                 }
+
+
                 binding.dicesRow.startAnimation(animation3)
                 //binding.numberRolls.startAnimation(animation2)
                 binding.ComboReader.startAnimation(animation2)
@@ -271,6 +288,8 @@ class PlayFragment : Fragment() {
             val random = Random().nextInt(6)
             rollResults.removeAt(0)
             rollResults.add(0,random+1)
+            (activity as MainMenuActivity).getRollResults(rollResults)
+
 
             ViewModelArrayDices[0] = diceImages[rollResults[0]-1]
             (activity as MainMenuActivity).getArrayDices(0,rollResults[0]-1,diceImages)
@@ -282,13 +301,16 @@ class PlayFragment : Fragment() {
             PartialScore=getScore(getCombo(rollResults))
             (activity as MainMenuActivity).editScore(PartialScore)
             binding.Score.text = "${PartialScore} "+ getString(R.string.Points)
-            binding.FirstRoll.isClickable = false
+            (activity as MainMenuActivity).isFirstDiceClickable=false
+            binding.FirstRoll.isClickable = isFirstDiceClickable
             combo = getCombo(rollResults)
         }
         binding.SecondRoll.setOnClickListener {
             val random = Random().nextInt(6)
             rollResults.removeAt(1)
             rollResults.add(1,random+1)
+            (activity as MainMenuActivity).getRollResults(rollResults)
+
 
             ViewModelArrayDices[1] = diceImages[rollResults[1]-1]
             (activity as MainMenuActivity).getArrayDices(1,rollResults[1]-1,diceImages)
@@ -301,13 +323,18 @@ class PlayFragment : Fragment() {
             PartialScore=getScore(getCombo(rollResults))
             (activity as MainMenuActivity).editScore(PartialScore)
             binding.Score.text = "${PartialScore} "+ getString(R.string.Points)
-            binding.SecondRoll.isClickable = false
+            (activity as MainMenuActivity).isSecondDiceClickable=false
+            binding.SecondRoll.isClickable = isSecondDiceClickable
+
+
             combo = getCombo(rollResults)
         }
         binding.ThirdRoll.setOnClickListener {
             val random = Random().nextInt(6)
             rollResults.removeAt(2)
             rollResults.add(2,random+1)
+            (activity as MainMenuActivity).getRollResults(rollResults)
+
 
             ViewModelArrayDices[2] = diceImages[rollResults[2]-1]
             (activity as MainMenuActivity).getArrayDices(2,rollResults[2]-1,diceImages)
@@ -315,17 +342,23 @@ class PlayFragment : Fragment() {
             arrayDices[2].setImageResource(ViewModelArrayDices[2])
             arrayDices[2].startAnimation(AnimationUtils.loadAnimation(this.context, R.anim.shake_animation))
             if (getCombo(rollResults) == "nessuna combo"){binding.ComboReader.text = getCombo(rollResults)}
-            else{binding.ComboReader.text = getCombo(rollResults) .substring(0..(getCombo(rollResults).lastIndex)-1)} //[0..getCombo(rollResults).lastIndex]
+            else {//binding.ComboReader.text = getCombo(rollResults) .substring(0..(getCombo(rollResults).lastIndex)-1)} //[0..getCombo(rollResults).lastIndex]
+            }
             PartialScore=getScore(getCombo(rollResults))
             (activity as MainMenuActivity).editScore(PartialScore)
             binding.Score.text = "${PartialScore} "+ getString(R.string.Points)
-            binding.ThirdRoll.isClickable = false
+            (activity as MainMenuActivity).isThirdDiceClickable=false
+            binding.ThirdRoll.isClickable = isThirdDiceClickable
+
+
             combo = getCombo(rollResults)
         }
         binding.FourthRoll.setOnClickListener {
             val random = Random().nextInt(6)
             rollResults.removeAt(3)
             rollResults.add(3,random+1)
+            (activity as MainMenuActivity).getRollResults(rollResults)
+
 
             ViewModelArrayDices[3] = diceImages[rollResults[3]-1]
             (activity as MainMenuActivity).getArrayDices(3,rollResults[3]-1,diceImages)
@@ -337,13 +370,18 @@ class PlayFragment : Fragment() {
             PartialScore=getScore(getCombo(rollResults))
             (activity as MainMenuActivity).editScore(PartialScore)
             binding.Score.text = "${PartialScore} "+ getString(R.string.Points)
-            binding.FourthRoll.isClickable = false
+            (activity as MainMenuActivity).isFourthDiceClickable=false
+            binding.FourthRoll.isClickable = isFourthDiceClickable
+
+
             combo = getCombo(rollResults)
         }
         binding.FifthRoll.setOnClickListener {
             val random = Random().nextInt(6)
             rollResults.removeAt(4)
             rollResults.add(4,random+1)
+            (activity as MainMenuActivity).getRollResults(rollResults)
+
 
             ViewModelArrayDices[4] = diceImages[rollResults[4]-1]
             (activity as MainMenuActivity).getArrayDices(4,rollResults[4]-1,diceImages)
@@ -355,7 +393,9 @@ class PlayFragment : Fragment() {
             PartialScore=getScore(getCombo(rollResults))
             (activity as MainMenuActivity).editScore(PartialScore)
             binding.Score.text = "${PartialScore} "+ getString(R.string.Points)
-            binding.FifthRoll.isClickable = false
+            (activity as MainMenuActivity).isFifthDiceClickable=false
+            binding.FifthRoll.isClickable = isFifthDiceClickable
+
             combo = getCombo(rollResults)
         }
 
@@ -376,6 +416,7 @@ class PlayFragment : Fragment() {
 
     //functions
     private fun getRandomValue(dice: ImageView?,list: MutableList<Int>){
+        list.removeAll(listOf(0))
         val random = Random().nextInt(6)
         dice?.startAnimation(animation1)
         dice?.setImageResource(diceImages.elementAt(random))

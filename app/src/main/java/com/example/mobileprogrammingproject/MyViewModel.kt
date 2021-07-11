@@ -21,7 +21,12 @@ class MyViewModel: ViewModel() {
     var actualScore:Int= 0
     var arraydices = mutableListOf<Int>(0,0,0,0,0)
     var noroll = true
-
+    var isFirstDiceClickable = false
+    var isSecondDiceClickable = false
+    var isThirdDiceClickable = false
+    var isFourthDiceClickable = false
+    var isFifthDiceClickable = false
+    var rollResult = mutableListOf<Int>(0,0,0,0,0)
 
     fun editUserName(u : String){
         userName=u
@@ -86,8 +91,24 @@ class MyViewModel: ViewModel() {
     fun editNoRoll(b:Boolean){
         noroll=b
     }
-
-
+    fun ChangeFirstDiceClick(){
+        isFirstDiceClickable = !isFirstDiceClickable
+    }
+    fun ChangeSecondDiceClick(){
+        isSecondDiceClickable = !isSecondDiceClickable
+    }
+    fun ChangeThirdDiceClick(){
+        isThirdDiceClickable = !isThirdDiceClickable
+    }
+    fun ChangeFourthDiceClick(){
+        isFourthDiceClickable = !isFourthDiceClickable
+    }
+    fun ChangeFifthDiceClick(){
+        isFifthDiceClickable = !isFifthDiceClickable
+    }
+    fun getRollResults(otherRolls: MutableList<Int>){
+        rollResult = otherRolls
+    }
 }
 
 /// TODO: Salvare ScoreView, ComboView (values)

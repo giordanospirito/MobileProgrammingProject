@@ -32,6 +32,12 @@ class MainMenuActivity : AppCompatActivity() {
     var ActualScore:Int= 0
     var noroll = true
     var arrayDices = mutableListOf<Int>()
+    var isFirstDiceClickable = false
+    var isSecondDiceClickable = false
+    var isThirdDiceClickable = false
+    var isFourthDiceClickable = false
+    var isFifthDiceClickable = false
+    var rollResult = mutableListOf<Int>(0,0,0,0,0)
 
 
 
@@ -54,6 +60,12 @@ class MainMenuActivity : AppCompatActivity() {
         ActualScore = ViewModel.actualScore
         arrayDices = ViewModel.arraydices
         noroll = ViewModel.noroll
+        isFirstDiceClickable = ViewModel.isFirstDiceClickable
+        isSecondDiceClickable = ViewModel.isSecondDiceClickable
+        isThirdDiceClickable = ViewModel.isThirdDiceClickable
+        isFourthDiceClickable = ViewModel.isFourthDiceClickable
+        isFifthDiceClickable = ViewModel.isFifthDiceClickable
+        rollResult = ViewModel.rollResult
 
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
         setContentView(R.layout.main_menu)
@@ -177,6 +189,29 @@ class MainMenuActivity : AppCompatActivity() {
     fun getArrayDices(index:Int,otherIndex:Int,resource:MutableList<Int>){
         arrayDices[index]=resource[otherIndex]
         ViewModel.getArrayDices(index,otherIndex,resource)
+    }
+    fun ChangeFirstDiceClick(){
+        isFirstDiceClickable = !isFirstDiceClickable
+        ViewModel.ChangeFirstDiceClick()
+    }
+    fun ChangeSecondDiceClick(){
+        isSecondDiceClickable = !isSecondDiceClickable
+        ViewModel.ChangeSecondDiceClick()
+    }
+    fun ChangeThirdDiceClick(){
+        isThirdDiceClickable = !isThirdDiceClickable
+        ViewModel.ChangeThirdDiceClick()
+    }
+    fun ChangeFourthDiceClick(){
+        isFourthDiceClickable = !isFourthDiceClickable
+        ViewModel.ChangeFourthDiceClick()
+    }
+    fun ChangeFifthDiceClick(){
+        isFifthDiceClickable = !isFifthDiceClickable
+        ViewModel.ChangeFifthDiceClick()
+    }
+    fun getRollResults(otherRolls: MutableList<Int>){
+        ViewModel.getRollResults(otherRolls)
     }
     fun editNoroll(b:Boolean){
         noroll = b
