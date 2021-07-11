@@ -114,6 +114,7 @@ class PlayFragment : Fragment() {
         binding.AcceptBtn.setBackgroundColor(resources.getColor(acceptButtonColor)) //(grigio the first time)
         if(PartialScore==-1){
             binding.Score.text = ""
+            binding.dicesRow.visibility = View.INVISIBLE
         }
         if((combo == "nessuna combo") or (combo == "") or (combo == "no combo")){
             binding.ComboReader.text = combo}
