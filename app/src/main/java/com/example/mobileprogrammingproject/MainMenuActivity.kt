@@ -23,6 +23,7 @@ class MainMenuActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         ViewModel = ViewModelProvider(this).get(MyViewModel::class.java)
         userName = ViewModel.userName
+        gameMode = ViewModel.gameMode
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
         setContentView(R.layout.main_menu)
 
@@ -73,6 +74,10 @@ class MainMenuActivity : AppCompatActivity() {
     fun editUserName(u : String){
         ViewModel.editUserName(u)
         userName=u
+    }
+    fun editGameMode(g : Int){
+        ViewModel.editGameMode(g)
+        gameMode=g
     }
 }
 

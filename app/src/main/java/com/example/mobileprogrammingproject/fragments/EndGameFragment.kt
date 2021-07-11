@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.example.mobileprogrammingproject.MainMenuActivity
@@ -26,6 +27,8 @@ class EndGameFragment : Fragment() {
         _binding = FragmentEndGameBinding.inflate(inflater, container, false)
         val view = binding.root
         //end binding
+
+        Toast.makeText(this.context, (activity as MainMenuActivity).gameMode.toString(), Toast.LENGTH_SHORT).show()
 
         val scorePlayer2 = getRandomScore()
         val scorePlayer3 = getRandomScore()

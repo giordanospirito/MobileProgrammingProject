@@ -46,19 +46,19 @@ class SettingsFragment : Fragment() {
         ApplyButton.setOnClickListener {
             var canContinue = 0
             if (SinglePlayerCheck.isChecked) {
-                (activity as MainMenuActivity).gameMode = 0
+                (activity as MainMenuActivity).editGameMode(0)
                 canContinue = 1
             }
             if (TwoPlayersCheck.isChecked) {
-                (activity as MainMenuActivity).gameMode = 1
+                (activity as MainMenuActivity).editGameMode(1)
                 canContinue = 1
             }
             if (ThreePlayersCheck.isChecked) {
-                (activity as MainMenuActivity).gameMode = 2
+                (activity as MainMenuActivity).editGameMode(2)
                 canContinue = 1
             }
             if (FourPlayersCheck.isChecked) {
-                (activity as MainMenuActivity).gameMode = 3
+                (activity as MainMenuActivity).editGameMode(3)
                 canContinue = 1
             }
 
