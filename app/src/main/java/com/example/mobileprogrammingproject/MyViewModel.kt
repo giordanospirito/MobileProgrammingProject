@@ -120,6 +120,7 @@ class MyViewModel: ViewModel() {
     fun azzerarollnumber(){
         numberRoll=0
     }
+
 }
 
 /// TODO: Salvare scritte dei pulsanti

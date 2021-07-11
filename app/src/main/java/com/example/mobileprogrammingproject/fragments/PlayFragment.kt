@@ -88,8 +88,9 @@ class PlayFragment : Fragment() {
 
         binding.Score.text = "${PartialScore} "+ getString(R.string.Points)
         if(ViewModelRollNumber==0){
-            binding.Score.visibility=View.INVISIBLE
+            binding.Score.visibility = View.INVISIBLE
             binding.dicesRow.visibility = View.INVISIBLE}
+
 
         //some init
         binding.username.text = username
@@ -111,8 +112,8 @@ class PlayFragment : Fragment() {
         binding.seeResults.setBackgroundColor(resources.getColor(scoreButtonColor))
         binding.AcceptBtn.isEnabled = isAcceptButtonActivated //(false the first time)
         binding.AcceptBtn.setBackgroundColor(resources.getColor(acceptButtonColor)) //(grigio the first time)
-        if((PartialScore==-1)or(x)){
-            binding.Score.text = "${getScore(getCombo(myRolls))} points!"
+        if(PartialScore==-1){
+            binding.Score.text = ""
         }
         if((combo == "nessuna combo") or (combo == "") or (combo == "no combo")){
             binding.ComboReader.text = combo}
@@ -140,7 +141,6 @@ class PlayFragment : Fragment() {
             (activity as MainMenuActivity).editCombo("")
             binding.Score.text = ""
             binding.dicesRow.visibility = View.INVISIBLE
-
             binding.seeResults.isEnabled = true
             binding.seeResults.setBackgroundColor(resources.getColor(R.color.giallino))
             (activity as MainMenuActivity).editScoreButton()
