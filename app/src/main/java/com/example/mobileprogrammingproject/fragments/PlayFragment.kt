@@ -161,6 +161,7 @@ class PlayFragment : Fragment() {
         //start see result button
         binding.seeResults.setOnClickListener {
             if(!x){
+                lastCombo = combo
                 val action = PlayFragmentDirections.actionPlayFragmentToResultsFragment(currentRollsNumberArg = numberRoll,totalScore = Score,doubleBool = DoubleBool, trisBool = TrisBool,quaterBool = quaterBool,yahtzeeBool = yahtzeeBool,fourASCBool = FourASCBool,fiveASCBool = FiveASCBool,fullBool = FullBool,chanceBool = chanceBool,bonusBool = BonusBool,lastCombo2 = lastCombo,noRoll = x)
                 findNavController().navigate(action)
             }else{
