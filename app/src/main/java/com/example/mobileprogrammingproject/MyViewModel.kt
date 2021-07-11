@@ -123,4 +123,3 @@ class MyViewModel: ViewModel() {
 
 }
 
-/// TODO: Salvare scritte dei pulsanti

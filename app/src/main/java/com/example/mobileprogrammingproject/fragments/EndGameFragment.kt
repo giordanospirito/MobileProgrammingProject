@@ -53,6 +53,26 @@ class EndGameFragment : Fragment() {
             (activity as MainMenuActivity).editScoreP4(scorePlayer4)
         }
 
+        if((activity as MainMenuActivity).gameMode==3){
+             scorePlayer2 = (activity as MainMenuActivity).ScoreP2
+             scorePlayer3 = (activity as MainMenuActivity).ScoreP3
+             scorePlayer4 = (activity as MainMenuActivity).ScoreP4
+        }
+        if((activity as MainMenuActivity).gameMode==2){
+             scorePlayer2 = (activity as MainMenuActivity).ScoreP2
+             scorePlayer3 = (activity as MainMenuActivity).ScoreP3
+             scorePlayer4 = 0
+        }
+        if((activity as MainMenuActivity).gameMode==1){
+             scorePlayer2 = (activity as MainMenuActivity).ScoreP2
+             scorePlayer3 = 0
+             scorePlayer4 = 0
+        }
+        if((activity as MainMenuActivity).gameMode==0){
+             scorePlayer2 = 0
+             scorePlayer3 = 0
+             scorePlayer4 = 0
+        }
 
 
         val FirstPlaceName : String = ReturnPlace(1,args.myScoreArg2,scorePlayer2,scorePlayer3,scorePlayer4,args.username)
