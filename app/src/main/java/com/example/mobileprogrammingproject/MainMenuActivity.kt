@@ -25,8 +25,8 @@ class MainMenuActivity : AppCompatActivity() {
     var isAcceptButtonActivated:Boolean=false
     var isScoreButtonActivated:Boolean=true
     var playButtonColor = R.color.giallino
-    var acceptButtonColor = R.color.giallino
-    var scoreButtonColor = R.color.grey
+    var acceptButtonColor = R.color.grey
+    var scoreButtonColor = R.color.giallino
     var combo = ""
     var playerscore :Int = 0
     var ActualScore:Int= 0
