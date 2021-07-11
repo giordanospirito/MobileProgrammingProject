@@ -50,8 +50,9 @@ class PlayFragment : Fragment() {
         var isThirdDiceClickable = (activity as MainMenuActivity).isThirdDiceClickable
         var isFourthDiceClickable = (activity as MainMenuActivity).isFourthDiceClickable
         var isFifthDiceClickable = (activity as MainMenuActivity).isFifthDiceClickable
-
-
+        var PartialScore = (activity as MainMenuActivity).playerscore
+        var hidden = (activity as MainMenuActivity).hidden
+        var ViewModelRollNumber = (activity as MainMenuActivity).numberRoll
         var myRolls = (activity as MainMenuActivity).rollResult
 
         val username = (activity as MainMenuActivity).userName
@@ -73,8 +74,7 @@ class PlayFragment : Fragment() {
         var FullBool = args.fullBool
         var lastCombo : String = args.lastCombo1
         var x = args.noRoll
-        var PartialScore = (activity as MainMenuActivity).playerscore
-        var hidden = (activity as MainMenuActivity).hidden
+
 
 
         //where our scoring array will be saved
@@ -128,7 +128,17 @@ class PlayFragment : Fragment() {
         binding.FourthRoll.isEnabled = isFourthDiceClickable
         binding.FifthRoll.isEnabled = isFifthDiceClickable
 
+        if(ViewModelRollNumber>numberRoll){
+            binding.numberRolls.text = resources.getString(R.string.rolls_remaining)+" ${13-ViewModelRollNumber}"
+        }
+        else{
+            ViewModelRollNumber=numberRoll
+            binding.numberRolls.text = resources.getString(R.string.rolls_remaining)+" ${13-numberRoll}"
+        }
+
+
         binding.AcceptBtn.setOnClickListener {
+            numberRoll=ViewModelRollNumber
             (activity as MainMenuActivity).edithidden(true)
             binding.ComboReader.text = ""
             (activity as MainMenuActivity).editCombo("")
@@ -244,7 +254,8 @@ class PlayFragment : Fragment() {
             (activity as MainMenuActivity).editNoroll(false)
             noroll = false
             if (numberRoll<13) {
-                numberRoll++
+                ViewModelRollNumber++
+                (activity as MainMenuActivity).editNumberRoll()
                 vibe.vibrate(vibeEff)
                 rollResults.removeAll(listOf(1, 2, 3, 4, 5, 6))
                 binding.dicesRow.visibility = View.VISIBLE
@@ -262,7 +273,7 @@ class PlayFragment : Fragment() {
                 //binding.numberRolls.startAnimation(animation2)
                 binding.ComboReader.startAnimation(animation2)
                 binding.Score.startAnimation(animation2)
-                binding.numberRolls.text = resources.getString(R.string.rolls_remaining)+" ${13-numberRoll}"
+                binding.numberRolls.text = resources.getString(R.string.rolls_remaining)+" ${13-ViewModelRollNumber}"
                 if ((getCombo(rollResults) == "nessuna combo") or (getCombo(rollResults) == "no combo")){binding.ComboReader.text = getCombo(rollResults)}
                 else{binding.ComboReader.text = getCombo(rollResults) .substring(0..(getCombo(rollResults).lastIndex)-1)} //[0..getCombo(rollResults).lastIndex]
                 PartialScore=getScore(getCombo(rollResults))
@@ -285,7 +296,7 @@ class PlayFragment : Fragment() {
                 (activity as MainMenuActivity).ChangeFifthDiceClick()
 
 
-                if (numberRoll == 13) {
+                if (ViewModelRollNumber == 13) {
                     binding.RollerAndChecker.text = getString(R.string.End_game)
                     binding.seeResults.isClickable= false
                 }

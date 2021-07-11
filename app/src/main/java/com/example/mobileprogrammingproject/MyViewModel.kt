@@ -28,6 +28,7 @@ class MyViewModel: ViewModel() {
     var isFifthDiceClickable = false
     var rollResult = mutableListOf<Int>(0,0,0,0,0)
     var hidden = true
+    var numberRoll : Int= 0
 
     fun editUserName(u : String){
         userName=u
@@ -113,9 +114,9 @@ class MyViewModel: ViewModel() {
     fun edithidden(b:Boolean){
         hidden=b
     }
+    fun editRollNumber(){
+        numberRoll++
+    }
 }
 
-/// TODO: Salvare ScoreView, ComboView (values)
-/// TODO: Salvare rollresults(anche al click dei dati)
-/// TODO: Salvare DicesRow
 /// TODO: Salvare scritte dei pulsanti

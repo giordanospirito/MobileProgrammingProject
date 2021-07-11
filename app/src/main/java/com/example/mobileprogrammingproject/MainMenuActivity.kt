@@ -39,7 +39,7 @@ class MainMenuActivity : AppCompatActivity() {
     var isFifthDiceClickable = false
     var rollResult = mutableListOf<Int>(0,0,0,0,0)
     var hidden = true
-
+    var numberRoll = 0
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -68,6 +68,7 @@ class MainMenuActivity : AppCompatActivity() {
         isFifthDiceClickable = ViewModel.isFifthDiceClickable
         rollResult = ViewModel.rollResult
         hidden = ViewModel.hidden
+        numberRoll = ViewModel.numberRoll
 
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
         setContentView(R.layout.main_menu)
@@ -217,6 +218,9 @@ class MainMenuActivity : AppCompatActivity() {
     fun edithidden(b:Boolean){
         hidden = b
         ViewModel.edithidden(b)
+    }
+    fun editNumberRoll(){
+        ViewModel.editRollNumber()
     }
 }
 
