@@ -26,6 +26,7 @@ class MainMenuActivity : AppCompatActivity() {
     var playButtonColor = R.color.giallino
     var acceptButtonColor = R.color.giallino
     var scoreButtonColor = R.color.grey
+    var combo = ""
 
 
 
@@ -43,6 +44,7 @@ class MainMenuActivity : AppCompatActivity() {
         playButtonColor = ViewModel.playButtonColor
         acceptButtonColor = ViewModel.acceptButtonColor
         scoreButtonColor = ViewModel.scoreButtonColor
+        combo = ViewModel.combo
 
 
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
@@ -150,6 +152,11 @@ class MainMenuActivity : AppCompatActivity() {
         else{
             scoreButtonColor=R.color.giallino
         }
+    }
+
+    fun editCombo(c: String){
+        combo = c
+        ViewModel.editCombo(c)
     }
 }
 

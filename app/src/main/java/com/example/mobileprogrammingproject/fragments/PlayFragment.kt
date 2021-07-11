@@ -41,6 +41,7 @@ class PlayFragment : Fragment() {
         var playButtonColor = (activity as MainMenuActivity).playButtonColor
         var acceptButtonColor = (activity as MainMenuActivity).acceptButtonColor
         var scoreButtonColor = (activity as MainMenuActivity).scoreButtonColor
+        var combo = (activity as MainMenuActivity).combo
 
 
         val username = (activity as MainMenuActivity).userName
@@ -85,9 +86,11 @@ class PlayFragment : Fragment() {
         binding.seeResults.setBackgroundColor(resources.getColor(scoreButtonColor))
         binding.AcceptBtn.isEnabled = isAcceptButtonActivated //(false the first time)
         binding.AcceptBtn.setBackgroundColor(resources.getColor(acceptButtonColor)) //(grigio the first time)
+        binding.ComboReader.text = combo
 
         binding.AcceptBtn.setOnClickListener {
             binding.ComboReader.text = ""
+            (activity as MainMenuActivity).editCombo("")
             binding.Score.text = ""
             binding.dicesRow.visibility = View.INVISIBLE
 
@@ -106,35 +109,35 @@ class PlayFragment : Fragment() {
             binding.AcceptBtn.setBackgroundColor(resources.getColor(R.color.grey))
             (activity as MainMenuActivity).editAcceptButtonColor()
 
-            if((lastCombo==resources.getString(R.string.coppia) && DoubleBool==false) or (lastCombo==resources.getString(R.string.tris) && TrisBool == false) or (lastCombo==resources.getString(R.string.quater) && quaterBool == false) or (lastCombo==resources.getString(R.string.full) && FullBool == false) or (lastCombo==resources.getString(R.string.scala_da_4) && FourASCBool == false) or (lastCombo==resources.getString(R.string.scala_da_5) && FiveASCBool == false)){
+            if((combo==resources.getString(R.string.coppia) && DoubleBool==false) or (combo==resources.getString(R.string.tris) && TrisBool == false) or (combo==resources.getString(R.string.quater) && quaterBool == false) or (combo==resources.getString(R.string.full) && FullBool == false) or (combo==resources.getString(R.string.scala_da_4) && FourASCBool == false) or (combo==resources.getString(R.string.scala_da_5) && FiveASCBool == false)){
                 Score = ScoreUpdate(Score,rollResults)
             }
-            if(((lastCombo==resources.getString(R.string.coppia) && DoubleBool==true)or(lastCombo==resources.getString(R.string.tris) && TrisBool == true)or(lastCombo==resources.getString(R.string.quater) && quaterBool == true)or(lastCombo==resources.getString(R.string.full) && FullBool == true)or(lastCombo==resources.getString(R.string.scala_da_4) && FourASCBool == true)or(lastCombo==resources.getString(R.string.scala_da_5) && FiveASCBool == true))and !chanceBool){
+            if(((combo==resources.getString(R.string.coppia) && DoubleBool==true)or(combo==resources.getString(R.string.tris) && TrisBool == true)or(combo==resources.getString(R.string.quater) && quaterBool == true)or(combo==resources.getString(R.string.full) && FullBool == true)or(combo==resources.getString(R.string.scala_da_4) && FourASCBool == true)or(combo==resources.getString(R.string.scala_da_5) && FiveASCBool == true))and !chanceBool){
                 chanceBool=true
                 Score+=25
             }
-            if(lastCombo==resources.getString(R.string.coppia)){
+            if(combo==resources.getString(R.string.coppia)){
                 DoubleBool = true
             }
-            if(lastCombo==resources.getString(R.string.tris)){
+            if(combo==resources.getString(R.string.tris)){
                 TrisBool = true
             }
-            if(lastCombo==resources.getString(R.string.quater)){
+            if(combo==resources.getString(R.string.quater)){
                 quaterBool = true
             }
-            if(lastCombo==resources.getString(R.string.yahtzee)){
+            if(combo==resources.getString(R.string.yahtzee)){
                 yahtzeeBool = true
             }
-            if((lastCombo==resources.getString(R.string.yahtzee))and yahtzeeBool){
+            if((combo==resources.getString(R.string.yahtzee))and yahtzeeBool){
                 Score+=50
             }
-            if(lastCombo==resources.getString(R.string.full)){
+            if(combo==resources.getString(R.string.full)){
                 FullBool=true
             }
-            if(lastCombo==resources.getString(R.string.scala_da_4)){
+            if(combo==resources.getString(R.string.scala_da_4)){
                 FourASCBool=true
             }
-            if(lastCombo==resources.getString(R.string.scala_da_5)){
+            if(combo==resources.getString(R.string.scala_da_5)){
                 FiveASCBool=true
             }
             if((Score>100) and !BonusBool){
@@ -208,7 +211,9 @@ class PlayFragment : Fragment() {
                 if (getCombo(rollResults) == "nessuna combo"){binding.ComboReader.text = getCombo(rollResults)}
                 else{binding.ComboReader.text = getCombo(rollResults) .substring(0..(getCombo(rollResults).lastIndex)-1)} //[0..getCombo(rollResults).lastIndex]
                 binding.Score.text = "${getScore(getCombo(rollResults)).toString()} "+ getString(R.string.Points)
-                lastCombo = getCombo(rollResults)
+                combo = getCombo(rollResults)
+                (activity as MainMenuActivity).editCombo(getCombo(rollResults))
+
 
                 //user should want to change some dice results
                 binding.FirstRoll.isClickable = true
@@ -240,7 +245,8 @@ class PlayFragment : Fragment() {
             else{binding.ComboReader.text = getCombo(rollResults) .substring(0..(getCombo(rollResults).lastIndex)-1)} //[0..getCombo(rollResults).lastIndex]
             binding.Score.text = "${getScore(getCombo(rollResults)).toString()} "+ getString(R.string.Points)
             binding.FirstRoll.isClickable = false
-            lastCombo = getCombo(rollResults)
+            combo = getCombo(rollResults)
+            (activity as MainMenuActivity).editCombo(getCombo(rollResults))
         }
         binding.SecondRoll.setOnClickListener {
             val random = Random().nextInt(6)
@@ -253,7 +259,8 @@ class PlayFragment : Fragment() {
             else{binding.ComboReader.text = getCombo(rollResults) .substring(0..(getCombo(rollResults).lastIndex)-1)} //[0..getCombo(rollResults).lastIndex]
             binding.Score.text = "${getScore(getCombo(rollResults)).toString()} "+ getString(R.string.Points)
             binding.SecondRoll.isClickable = false
-            lastCombo = getCombo(rollResults)
+            combo = getCombo(rollResults)
+            (activity as MainMenuActivity).editCombo(getCombo(rollResults))
         }
         binding.ThirdRoll.setOnClickListener {
             val random = Random().nextInt(6)
@@ -266,7 +273,8 @@ class PlayFragment : Fragment() {
             else{binding.ComboReader.text = getCombo(rollResults) .substring(0..(getCombo(rollResults).lastIndex)-1)} //[0..getCombo(rollResults).lastIndex]
             binding.Score.text ="${getScore(getCombo(rollResults)).toString()} "+ getString(R.string.Points)
             binding.ThirdRoll.isClickable = false
-            lastCombo = getCombo(rollResults)
+            combo = getCombo(rollResults)
+            (activity as MainMenuActivity).editCombo(getCombo(rollResults))
         }
         binding.FourthRoll.setOnClickListener {
             val random = Random().nextInt(6)
@@ -279,7 +287,8 @@ class PlayFragment : Fragment() {
             else{binding.ComboReader.text = getCombo(rollResults) .substring(0..(getCombo(rollResults).lastIndex)-1)} //[0..getCombo(rollResults).lastIndex]
             binding.Score.text = "${getScore(getCombo(rollResults)).toString()} "+ getString(R.string.Points)
             binding.FourthRoll.isClickable = false
-            lastCombo = getCombo(rollResults)
+            combo = getCombo(rollResults)
+            (activity as MainMenuActivity).editCombo(getCombo(rollResults))
         }
         binding.FifthRoll.setOnClickListener {
             val random = Random().nextInt(6)
@@ -292,7 +301,8 @@ class PlayFragment : Fragment() {
             else{binding.ComboReader.text = getCombo(rollResults) .substring(0..(getCombo(rollResults).lastIndex)-1)} //[0..getCombo(rollResults).lastIndex]
             binding.Score.text = "${getScore(getCombo(rollResults)).toString()} "+ getString(R.string.Points)
             binding.FifthRoll.isClickable = false
-            lastCombo = getCombo(rollResults)
+            combo = getCombo(rollResults)
+            (activity as MainMenuActivity).editCombo(getCombo(rollResults))
         }
 
 

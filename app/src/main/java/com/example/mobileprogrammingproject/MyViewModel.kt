@@ -14,7 +14,8 @@ class MyViewModel: ViewModel() {
     var isScoreButtonActivated:Boolean=true
     var playButtonColor = R.color.giallino
     var acceptButtonColor = R.color.grey
-    var scoreButtonColor = R.color.grey
+    var scoreButtonColor = R.color.giallino
+    var combo = ""
 
 
     fun editUserName(u : String){
@@ -64,6 +65,10 @@ class MyViewModel: ViewModel() {
         else{
             scoreButtonColor=R.color.giallino
         }
+    }
+
+    fun editCombo(c: String){
+        combo = c
     }
 
 
