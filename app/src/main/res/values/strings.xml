@@ -76,6 +76,7 @@
     <string name="Player_2">Player 2</string>
     <string name="Player_3">Player 3</string>
     <string name="player_4">Player 4</string>
+    <string name="endgame">Back to main menu?</string>
 
 
 </resources>

@@ -13,6 +13,7 @@ import com.example.mobileprogrammingproject.MainMenuActivity
 import com.example.mobileprogrammingproject.R
 import com.example.mobileprogrammingproject.databinding.FragmentEndGameBinding
 import com.example.mobileprogrammingproject.databinding.FragmentMenuBinding
+import com.example.mobileprogrammingproject.dialogs.ExitGameDialog
 import java.util.*
 import java.util.jar.Manifest
 
@@ -76,8 +77,8 @@ class EndGameFragment : Fragment() {
             binding.fourthPlace.startAnimation(animation1)}
 
         binding.back.setOnClickListener {
-            val action = EndGameFragmentDirections.actionEndGameFragmentToMenuFragment()
-            findNavController().navigate(action)
+            val dialog = ExitGameDialog()
+            dialog.show(parentFragmentManager, "endgamedialog")
         }
 
         return view
