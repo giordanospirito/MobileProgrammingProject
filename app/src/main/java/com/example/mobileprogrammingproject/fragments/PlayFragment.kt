@@ -169,6 +169,7 @@ class PlayFragment : Fragment() {
         binding.seeResults.setOnClickListener {
             if(!noroll){
                 lastCombo = combo
+                x = noroll
                 val action = PlayFragmentDirections.actionPlayFragmentToResultsFragment(currentRollsNumberArg = numberRoll,totalScore = Score,doubleBool = DoubleBool, trisBool = TrisBool,quaterBool = quaterBool,yahtzeeBool = yahtzeeBool,fourASCBool = FourASCBool,fiveASCBool = FiveASCBool,fullBool = FullBool,chanceBool = chanceBool,bonusBool = BonusBool,lastCombo2 = lastCombo,noRoll = x)
                 findNavController().navigate(action)
             }else{
@@ -207,6 +208,7 @@ class PlayFragment : Fragment() {
 
 
             (activity as MainMenuActivity).editNoroll(false)
+            noroll = false
             if (numberRoll<13) {
                 numberRoll++
                 vibe.vibrate(vibeEff)

@@ -29,12 +29,12 @@ class ExitGameDialog : DialogFragment() {
                     (activity as MainMenuActivity).editScoreP2(0)
                     (activity as MainMenuActivity).editScoreP3(0)
                     (activity as MainMenuActivity).editScoreP4(0)
-                    //isPlayButtonActivated:Boolean=true
-                    //isAcceptButtonActivated:Boolean=false
-                    //isScoreButtonActivated:Boolean=true
-                    //playButtonColor = R.color.giallino
-                    //acceptButtonColor = R.color.giallino
-                    //scoreButtonColor = R.color.grey
+                    if(!(activity as MainMenuActivity).isPlayButtonActivated){ (activity as MainMenuActivity).editPlayButton()}
+                    if((activity as MainMenuActivity).isAcceptButtonActivated){ (activity as MainMenuActivity).editAcceptButton()}
+                    if(!(activity as MainMenuActivity).isScoreButtonActivated){ (activity as MainMenuActivity).editScoreButton()}
+                    if((activity as MainMenuActivity).playButtonColor != R.color.giallino){ (activity as MainMenuActivity).editPlayButtonColor()}
+                    if((activity as MainMenuActivity).acceptButtonColor == R.color.giallino){ (activity as MainMenuActivity).editAcceptButton()}
+                    if((activity as MainMenuActivity).scoreButtonColor != R.color.giallino){ (activity as MainMenuActivity).editScoreButtonColor()}
                     (activity as MainMenuActivity).editCombo("")
                     (activity as MainMenuActivity).editScore(0)
                     //ActualScore:Int= 0
