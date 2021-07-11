@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.animation.AnimationUtils
 import android.widget.Toast
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
@@ -21,6 +22,7 @@ class EndGameFragment : Fragment() {
     private var _binding: FragmentEndGameBinding? = null
     private val binding get() = _binding!!
     private val args: EndGameFragmentArgs by navArgs()
+    var fake = "fake"
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
 
@@ -28,6 +30,8 @@ class EndGameFragment : Fragment() {
         _binding = FragmentEndGameBinding.inflate(inflater, container, false)
         val view = binding.root
         //end binding
+
+        val animation1 = AnimationUtils.loadAnimation(this.context, R.anim.slide_in_bottom)
 
         //initializing
         var scorePlayer2 = (activity as MainMenuActivity).ScoreP2
@@ -65,12 +69,23 @@ class EndGameFragment : Fragment() {
         binding.thirdPlaceScore.text = getScoreRelatedTo(3,args.myScoreArg2,scorePlayer2,scorePlayer3,scorePlayer4).toString()
         binding.fourthPlaceScore.text = getScoreRelatedTo(4,args.myScoreArg2,scorePlayer2,scorePlayer3,scorePlayer4).toString()
 
+        if (savedInstanceState==null){
+            binding.firstPlace.startAnimation(animation1)
+            binding.secondPlace.startAnimation(animation1)
+            binding.thirdPlace.startAnimation(animation1)
+            binding.fourthPlace.startAnimation(animation1)}
+
         binding.back.setOnClickListener {
             val action = EndGameFragmentDirections.actionEndGameFragmentToMenuFragment()
             findNavController().navigate(action)
         }
 
         return view
+    }
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+        outState.putString("fake", fake)
     }
 
     private fun getScoreRelatedTo(i: Int, myScoreArg2: Int, scorePlayer2: Int, scorePlayer3: Int, scorePlayer4: Int): Int {
