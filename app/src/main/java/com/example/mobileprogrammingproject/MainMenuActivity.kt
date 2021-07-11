@@ -3,6 +3,7 @@ package com.example.mobileprogrammingproject
 import android.media.MediaPlayer
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.lifecycle.ViewModelProvider
@@ -16,7 +17,9 @@ class MainMenuActivity : AppCompatActivity() {
     var wantMusic = true
     var gameMode: Int = 0
     var userName : String = ""
-
+    var ScoreP2 : Int = 0
+    var ScoreP3:Int = 0
+    var ScoreP4:Int = 0
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -24,6 +27,9 @@ class MainMenuActivity : AppCompatActivity() {
         ViewModel = ViewModelProvider(this).get(MyViewModel::class.java)
         userName = ViewModel.userName
         gameMode = ViewModel.gameMode
+        ScoreP2 = ViewModel.ScoreP2
+        ScoreP3 = ViewModel.ScoreP3
+        ScoreP4 = ViewModel.ScoreP4
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
         setContentView(R.layout.main_menu)
 
@@ -78,6 +84,18 @@ class MainMenuActivity : AppCompatActivity() {
     fun editGameMode(g : Int){
         ViewModel.editGameMode(g)
         gameMode=g
+    }
+    fun editScoreP2(value:Int){
+        ViewModel.editScoreP2(value)
+        ScoreP2=value
+    }
+    fun editScoreP3(value:Int){
+        ViewModel.editScoreP3(value)
+        ScoreP3=value
+    }
+    fun editScoreP4(value:Int){
+        ViewModel.editScoreP4(value)
+        ScoreP4=value
     }
 }
 

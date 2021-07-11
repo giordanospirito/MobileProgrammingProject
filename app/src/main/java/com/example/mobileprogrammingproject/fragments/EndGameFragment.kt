@@ -13,6 +13,7 @@ import com.example.mobileprogrammingproject.R
 import com.example.mobileprogrammingproject.databinding.FragmentEndGameBinding
 import com.example.mobileprogrammingproject.databinding.FragmentMenuBinding
 import java.util.*
+import java.util.jar.Manifest
 
 
 class EndGameFragment : Fragment() {
@@ -28,11 +29,26 @@ class EndGameFragment : Fragment() {
         val view = binding.root
         //end binding
 
-        Toast.makeText(this.context, (activity as MainMenuActivity).gameMode.toString(), Toast.LENGTH_SHORT).show()
+        //initializing
+        var scorePlayer2 = (activity as MainMenuActivity).ScoreP2
+        var scorePlayer3 = (activity as MainMenuActivity).ScoreP3
+        var scorePlayer4 = (activity as MainMenuActivity).ScoreP4
 
-        val scorePlayer2 = getRandomScore()
-        val scorePlayer3 = getRandomScore()
-        val scorePlayer4 = getRandomScore()
+        //determining scores
+        if((activity as MainMenuActivity).ScoreP2==0){
+            scorePlayer2 = getRandomScore()
+            (activity as MainMenuActivity).editScoreP2(scorePlayer2)
+        }
+        if((activity as MainMenuActivity).ScoreP3==0){
+            scorePlayer3 = getRandomScore()
+            (activity as MainMenuActivity).editScoreP3(scorePlayer3)
+        }
+        if((activity as MainMenuActivity).ScoreP4==0){
+            scorePlayer4 = getRandomScore()
+            (activity as MainMenuActivity).editScoreP4(scorePlayer4)
+        }
+
+
 
         val FirstPlaceName : String = ReturnPlace(1,args.myScoreArg2,scorePlayer2,scorePlayer3,scorePlayer4,args.username)
         val SecondPlaceName : String = ReturnPlace(2,args.myScoreArg2,scorePlayer2,scorePlayer3,scorePlayer4,args.username)
