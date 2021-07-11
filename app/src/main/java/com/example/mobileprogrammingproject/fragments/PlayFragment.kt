@@ -42,6 +42,7 @@ class PlayFragment : Fragment() {
         var acceptButtonColor = (activity as MainMenuActivity).acceptButtonColor
         var scoreButtonColor = (activity as MainMenuActivity).scoreButtonColor
         var combo = (activity as MainMenuActivity).combo
+        var ViewModelArrayDices = (activity as MainMenuActivity).arrayDices
 
 
         val username = (activity as MainMenuActivity).userName
@@ -63,6 +64,7 @@ class PlayFragment : Fragment() {
         var FullBool = args.fullBool
         var lastCombo : String = args.lastCombo1
         var x = args.noRoll
+        var PartialScore = (activity as MainMenuActivity).playerscore
 
 
         //where our scoring array will be saved
@@ -73,6 +75,8 @@ class PlayFragment : Fragment() {
         _binding = FragmentPlayBinding.inflate(inflater, container, false)
         val view = binding.root
         //end binding section
+
+        binding.Score.text = "${PartialScore} "+ getString(R.string.Points)
 
         //some init
         binding.username.text = username
@@ -90,6 +94,8 @@ class PlayFragment : Fragment() {
             binding.ComboReader.text = combo}
             else{
                 binding.ComboReader.text = combo.substring(0 until (combo.lastIndex))}
+
+
 
         binding.AcceptBtn.setOnClickListener {
             binding.ComboReader.text = ""
@@ -113,7 +119,7 @@ class PlayFragment : Fragment() {
             (activity as MainMenuActivity).editAcceptButtonColor()
 
             if((combo==resources.getString(R.string.coppia) && DoubleBool==false) or (combo==resources.getString(R.string.tris) && TrisBool == false) or (combo==resources.getString(R.string.quater) && quaterBool == false) or (combo==resources.getString(R.string.full) && FullBool == false) or (combo==resources.getString(R.string.scala_da_4) && FourASCBool == false) or (combo==resources.getString(R.string.scala_da_5) && FiveASCBool == false)){
-                Score = ScoreUpdate(Score,rollResults)
+                Score += PartialScore
             }
             if(((combo==resources.getString(R.string.coppia) && DoubleBool==true)or(combo==resources.getString(R.string.tris) && TrisBool == true)or(combo==resources.getString(R.string.quater) && quaterBool == true)or(combo==resources.getString(R.string.full) && FullBool == true)or(combo==resources.getString(R.string.scala_da_4) && FourASCBool == true)or(combo==resources.getString(R.string.scala_da_5) && FiveASCBool == true))and !chanceBool){
                 chanceBool=true
@@ -214,7 +220,9 @@ class PlayFragment : Fragment() {
                 binding.numberRolls.text = resources.getString(R.string.rolls_remaining)+" ${13-numberRoll}"
                 if ((getCombo(rollResults) == "nessuna combo") or (getCombo(rollResults) == "no combo")){binding.ComboReader.text = getCombo(rollResults)}
                 else{binding.ComboReader.text = getCombo(rollResults) .substring(0..(getCombo(rollResults).lastIndex)-1)} //[0..getCombo(rollResults).lastIndex]
-                binding.Score.text = "${getScore(getCombo(rollResults)).toString()} "+ getString(R.string.Points)
+                PartialScore=getScore(getCombo(rollResults))
+                (activity as MainMenuActivity).editScore(getScore(getCombo(rollResults)))
+                binding.Score.text = "${PartialScore} "+ getString(R.string.Points)
                 combo = getCombo(rollResults)
                 (activity as MainMenuActivity).editCombo(getCombo(rollResults))
 
@@ -245,12 +253,13 @@ class PlayFragment : Fragment() {
             arrayDices[0].startAnimation(AnimationUtils.loadAnimation(this.context, R.anim.shake_animation))
             rollResults.removeAt(0)
             rollResults.add(0,random+1)
-            if ((getCombo(rollResults) == "nessuna combo") or (getCombo(rollResults) == "no combo")){binding.ComboReader.text = getCombo(rollResults)}
+            if (getCombo(rollResults) == "nessuna combo"){binding.ComboReader.text = getCombo(rollResults)}
             else{binding.ComboReader.text = getCombo(rollResults) .substring(0..(getCombo(rollResults).lastIndex)-1)} //[0..getCombo(rollResults).lastIndex]
-            binding.Score.text = "${getScore(getCombo(rollResults)).toString()} "+ getString(R.string.Points)
+            PartialScore=getScore(getCombo(rollResults))
+            (activity as MainMenuActivity).editScore(PartialScore)
+            binding.Score.text = "${PartialScore} "+ getString(R.string.Points)
             binding.FirstRoll.isClickable = false
             combo = getCombo(rollResults)
-            (activity as MainMenuActivity).editCombo(getCombo(rollResults))
         }
         binding.SecondRoll.setOnClickListener {
             val random = Random().nextInt(6)
@@ -259,12 +268,13 @@ class PlayFragment : Fragment() {
             arrayDices[1].startAnimation(AnimationUtils.loadAnimation(this.context, R.anim.shake_animation))
             rollResults.removeAt(1)
             rollResults.add(1,random+1)
-            if ((getCombo(rollResults) == "nessuna combo") or (getCombo(rollResults) == "no combo")){binding.ComboReader.text = getCombo(rollResults)}
+            if (getCombo(rollResults) == "nessuna combo"){binding.ComboReader.text = getCombo(rollResults)}
             else{binding.ComboReader.text = getCombo(rollResults) .substring(0..(getCombo(rollResults).lastIndex)-1)} //[0..getCombo(rollResults).lastIndex]
-            binding.Score.text = "${getScore(getCombo(rollResults)).toString()} "+ getString(R.string.Points)
+            PartialScore=getScore(getCombo(rollResults))
+            (activity as MainMenuActivity).editScore(PartialScore)
+            binding.Score.text = "${PartialScore} "+ getString(R.string.Points)
             binding.SecondRoll.isClickable = false
             combo = getCombo(rollResults)
-            (activity as MainMenuActivity).editCombo(getCombo(rollResults))
         }
         binding.ThirdRoll.setOnClickListener {
             val random = Random().nextInt(6)
@@ -273,12 +283,13 @@ class PlayFragment : Fragment() {
             arrayDices[2].startAnimation(AnimationUtils.loadAnimation(this.context, R.anim.shake_animation))
             rollResults.removeAt(2)
             rollResults.add(2,random+1)
-            if ((getCombo(rollResults) == "nessuna combo") or (getCombo(rollResults) == "no combo")){binding.ComboReader.text = getCombo(rollResults)}
+            if (getCombo(rollResults) == "nessuna combo"){binding.ComboReader.text = getCombo(rollResults)}
             else{binding.ComboReader.text = getCombo(rollResults) .substring(0..(getCombo(rollResults).lastIndex)-1)} //[0..getCombo(rollResults).lastIndex]
-            binding.Score.text ="${getScore(getCombo(rollResults)).toString()} "+ getString(R.string.Points)
+            PartialScore=getScore(getCombo(rollResults))
+            (activity as MainMenuActivity).editScore(PartialScore)
+            binding.Score.text = "${PartialScore} "+ getString(R.string.Points)
             binding.ThirdRoll.isClickable = false
             combo = getCombo(rollResults)
-            (activity as MainMenuActivity).editCombo(getCombo(rollResults))
         }
         binding.FourthRoll.setOnClickListener {
             val random = Random().nextInt(6)
@@ -287,12 +298,13 @@ class PlayFragment : Fragment() {
             arrayDices[3].startAnimation(AnimationUtils.loadAnimation(this.context, R.anim.shake_animation))
             rollResults.removeAt(3)
             rollResults.add(3,random+1)
-            if ((getCombo(rollResults) == "nessuna combo") or (getCombo(rollResults) == "no combo")){binding.ComboReader.text = getCombo(rollResults)}
+            if (getCombo(rollResults) == "nessuna combo"){binding.ComboReader.text = getCombo(rollResults)}
             else{binding.ComboReader.text = getCombo(rollResults) .substring(0..(getCombo(rollResults).lastIndex)-1)} //[0..getCombo(rollResults).lastIndex]
-            binding.Score.text = "${getScore(getCombo(rollResults)).toString()} "+ getString(R.string.Points)
+            PartialScore=getScore(getCombo(rollResults))
+            (activity as MainMenuActivity).editScore(PartialScore)
+            binding.Score.text = "${PartialScore} "+ getString(R.string.Points)
             binding.FourthRoll.isClickable = false
             combo = getCombo(rollResults)
-            (activity as MainMenuActivity).editCombo(getCombo(rollResults))
         }
         binding.FifthRoll.setOnClickListener {
             val random = Random().nextInt(6)
@@ -301,12 +313,13 @@ class PlayFragment : Fragment() {
             arrayDices[4].startAnimation(AnimationUtils.loadAnimation(this.context, R.anim.shake_animation))
             rollResults.removeAt(4)
             rollResults.add(4,random+1)
-            if ((getCombo(rollResults) == "nessuna combo") or (getCombo(rollResults) == "no combo")){binding.ComboReader.text = getCombo(rollResults)}
+            if (getCombo(rollResults) == "nessuna combo"){binding.ComboReader.text = getCombo(rollResults)}
             else{binding.ComboReader.text = getCombo(rollResults) .substring(0..(getCombo(rollResults).lastIndex)-1)} //[0..getCombo(rollResults).lastIndex]
-            binding.Score.text = "${getScore(getCombo(rollResults)).toString()} "+ getString(R.string.Points)
+            PartialScore=getScore(getCombo(rollResults))
+            (activity as MainMenuActivity).editScore(PartialScore)
+            binding.Score.text = "${PartialScore} "+ getString(R.string.Points)
             binding.FifthRoll.isClickable = false
             combo = getCombo(rollResults)
-            (activity as MainMenuActivity).editCombo(getCombo(rollResults))
         }
 
 

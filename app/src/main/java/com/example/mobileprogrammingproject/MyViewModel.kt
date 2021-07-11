@@ -1,6 +1,7 @@
 package com.example.mobileprogrammingproject
 
 import android.provider.Settings.Global.getString
+import android.widget.ImageView
 import androidx.lifecycle.ViewModel
 
 class MyViewModel: ViewModel() {
@@ -16,6 +17,9 @@ class MyViewModel: ViewModel() {
     var acceptButtonColor = R.color.grey
     var scoreButtonColor = R.color.giallino
     var combo = ""
+    var scoreView :Int = 0
+    var actualScore:Int= 0
+    var arraydices = mutableListOf<ImageView>()
 
 
     fun editUserName(u : String){
@@ -66,15 +70,23 @@ class MyViewModel: ViewModel() {
             scoreButtonColor=R.color.giallino
         }
     }
-
+    fun editScore(value: Int){
+        scoreView=value
+    }
+    fun editActualScore(valueInt: Int){
+        actualScore=valueInt
+    }
+    fun getArrayDices(list : MutableList<ImageView>){
+        arraydices=list
+    }
     fun editCombo(c: String){
         combo = c
     }
 
 
 }
-/// TODO: Salvare isActivated dei pulsanti
+
 /// TODO: Salvare ScoreView, ComboView (values)
 /// TODO: Salvare rollresults(anche al click dei dati)
 /// TODO: Salvare DicesRow
-/// TODO: Salvare scritte dei pulsanti e loro funzionamenti tramite variabile
+/// TODO: Salvare scritte dei pulsanti

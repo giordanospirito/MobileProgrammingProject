@@ -4,6 +4,7 @@ import android.media.MediaPlayer
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import android.widget.ImageView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.lifecycle.ViewModelProvider
@@ -27,6 +28,9 @@ class MainMenuActivity : AppCompatActivity() {
     var acceptButtonColor = R.color.giallino
     var scoreButtonColor = R.color.grey
     var combo = ""
+    var playerscore :Int = 0
+    var ActualScore:Int= 0
+    var arrayDices = mutableListOf<ImageView>()
 
 
 
@@ -45,7 +49,9 @@ class MainMenuActivity : AppCompatActivity() {
         acceptButtonColor = ViewModel.acceptButtonColor
         scoreButtonColor = ViewModel.scoreButtonColor
         combo = ViewModel.combo
-
+        playerscore = ViewModel.scoreView
+        ActualScore = ViewModel.actualScore
+        arrayDices = ViewModel.arraydices
 
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
         setContentView(R.layout.main_menu)
@@ -157,6 +163,18 @@ class MainMenuActivity : AppCompatActivity() {
     fun editCombo(c: String){
         combo = c
         ViewModel.editCombo(c)
+    }
+    fun editScore(value: Int){
+        playerscore=value
+        ViewModel.editScore(value)
+    }
+    fun editActualScore(valueInt: Int){
+        ViewModel.editActualScore(valueInt)
+        ActualScore=valueInt
+    }
+    fun getArrayDices(list : MutableList<ImageView>){
+        arrayDices=list
+        ViewModel.getArrayDices(list)
     }
 }
 
