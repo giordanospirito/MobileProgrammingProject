@@ -4,15 +4,18 @@ import android.app.AlertDialog
 import android.app.Dialog
 import android.content.DialogInterface
 import android.os.Bundle
+import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.Toast
 import androidx.fragment.app.DialogFragment
 import androidx.navigation.fragment.findNavController
 import com.example.mobileprogrammingproject.MainMenuActivity
 import com.example.mobileprogrammingproject.R
+import com.example.mobileprogrammingproject.databinding.FragmentPlayBinding
 import com.example.mobileprogrammingproject.fragments.PlayFragment
 
 class ExitGameDialog : DialogFragment() {
+
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
         return activity?.let {
 
@@ -36,10 +39,14 @@ class ExitGameDialog : DialogFragment() {
                     if((activity as MainMenuActivity).playButtonColor != R.color.giallino){ (activity as MainMenuActivity).editPlayButtonColor()}
                     if((activity as MainMenuActivity).acceptButtonColor == R.color.giallino){ (activity as MainMenuActivity).editAcceptButtonColor()}
                     if((activity as MainMenuActivity).scoreButtonColor != R.color.giallino){ (activity as MainMenuActivity).editScoreButtonColor()}
+                    (activity as MainMenuActivity).edithidden(true)
 
                     (activity as MainMenuActivity).editCombo("")
                     (activity as MainMenuActivity).editScore(0)
                     //ActualScore:Int= 0
+                    for (i in 0..4){
+                        (activity as MainMenuActivity).getArrayDices(i,i, mutableListOf<Int>(R.drawable.ic_dice,R.drawable.ic_dice,R.drawable.ic_dice,R.drawable.ic_dice,R.drawable.ic_dice))
+                    }
                     //arrayDices = mutableListOf<ImageView>()
                     (activity as MainMenuActivity).editNoroll(true)
                     when (findNavController().currentDestination?.id){

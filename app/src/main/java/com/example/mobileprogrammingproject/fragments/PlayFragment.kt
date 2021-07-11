@@ -74,6 +74,7 @@ class PlayFragment : Fragment() {
         var lastCombo : String = args.lastCombo1
         var x = args.noRoll
         var PartialScore = (activity as MainMenuActivity).playerscore
+        var hidden = (activity as MainMenuActivity).hidden
 
 
         //where our scoring array will be saved
@@ -85,6 +86,11 @@ class PlayFragment : Fragment() {
         val view = binding.root
         //end binding section
 
+        if (hidden){
+            binding.dicesRow.visibility = View.INVISIBLE
+            (activity as MainMenuActivity).edithidden(false)
+
+        }
         binding.Score.text = "${PartialScore} "+ getString(R.string.Points)
 
         //some init
@@ -93,7 +99,7 @@ class PlayFragment : Fragment() {
         //end init
         //restoring dice image
 
-        binding.dicesRow.visibility=View.VISIBLE
+        if(!hidden){binding.dicesRow.visibility=View.VISIBLE}
         binding.FirstRoll.setImageResource(ViewModelArrayDices[0])
         binding.SecondRoll.setImageResource(ViewModelArrayDices[1])
         binding.ThirdRoll.setImageResource(ViewModelArrayDices[2])

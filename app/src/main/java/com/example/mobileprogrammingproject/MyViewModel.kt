@@ -27,6 +27,7 @@ class MyViewModel: ViewModel() {
     var isFourthDiceClickable = false
     var isFifthDiceClickable = false
     var rollResult = mutableListOf<Int>(0,0,0,0,0)
+    var hidden = true
 
     fun editUserName(u : String){
         userName=u
@@ -108,6 +109,9 @@ class MyViewModel: ViewModel() {
     }
     fun getRollResults(otherRolls: MutableList<Int>){
         rollResult = otherRolls
+    }
+    fun edithidden(b:Boolean){
+        hidden=b
     }
 }
 

@@ -38,6 +38,7 @@ class MainMenuActivity : AppCompatActivity() {
     var isFourthDiceClickable = false
     var isFifthDiceClickable = false
     var rollResult = mutableListOf<Int>(0,0,0,0,0)
+    var hidden = true
 
 
 
@@ -66,6 +67,7 @@ class MainMenuActivity : AppCompatActivity() {
         isFourthDiceClickable = ViewModel.isFourthDiceClickable
         isFifthDiceClickable = ViewModel.isFifthDiceClickable
         rollResult = ViewModel.rollResult
+        hidden = ViewModel.hidden
 
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
         setContentView(R.layout.main_menu)
@@ -211,6 +213,10 @@ class MainMenuActivity : AppCompatActivity() {
     fun editNoroll(b:Boolean){
         noroll = b
         ViewModel.editNoRoll(b)
+    }
+    fun edithidden(b:Boolean){
+        hidden = b
+        ViewModel.edithidden(b)
     }
 }
 
