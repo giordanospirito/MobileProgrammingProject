@@ -116,11 +116,11 @@ class PlayFragment : Fragment() {
             else{
                 binding.ComboReader.text = combo.substring(0 until (combo.lastIndex))}
 
-        binding.FirstRoll.isClickable = isFirstDiceClickable
-        binding.SecondRoll.isClickable = isSecondDiceClickable
-        binding.ThirdRoll.isClickable = isThirdDiceClickable
-        binding.FourthRoll.isClickable = isFourthDiceClickable
-        binding.FifthRoll.isClickable = isFifthDiceClickable
+        binding.FirstRoll.isEnabled = isFirstDiceClickable
+        binding.SecondRoll.isEnabled = isSecondDiceClickable
+        binding.ThirdRoll.isEnabled = isThirdDiceClickable
+        binding.FourthRoll.isEnabled = isFourthDiceClickable
+        binding.FifthRoll.isEnabled = isFifthDiceClickable
 
         binding.AcceptBtn.setOnClickListener {
             binding.ComboReader.text = ""
@@ -266,11 +266,16 @@ class PlayFragment : Fragment() {
 
 
                 //user should want to change some dice results
-                binding.FirstRoll.isClickable = true
-                binding.SecondRoll.isClickable = true
-                binding.ThirdRoll.isClickable = true
-                binding.FourthRoll.isClickable = true
-                binding.FifthRoll.isClickable = true
+                binding.FirstRoll.isEnabled = true
+                (activity as MainMenuActivity).ChangeFirstDiceClick()
+                binding.SecondRoll.isEnabled = true
+                (activity as MainMenuActivity).ChangeSecondDiceClick()
+                binding.ThirdRoll.isEnabled = true
+                (activity as MainMenuActivity).ChangeThirdDiceClick()
+                binding.FourthRoll.isEnabled = true
+                (activity as MainMenuActivity).ChangeFourthDiceClick()
+                binding.FifthRoll.isEnabled = true
+                (activity as MainMenuActivity).ChangeFifthDiceClick()
 
 
                 if (numberRoll == 13) {
@@ -301,8 +306,8 @@ class PlayFragment : Fragment() {
             PartialScore=getScore(getCombo(rollResults))
             (activity as MainMenuActivity).editScore(PartialScore)
             binding.Score.text = "${PartialScore} "+ getString(R.string.Points)
-            (activity as MainMenuActivity).isFirstDiceClickable=false
-            binding.FirstRoll.isClickable = isFirstDiceClickable
+            binding.FirstRoll.isEnabled = false
+            (activity as MainMenuActivity).ChangeFirstDiceClick()
             combo = getCombo(rollResults)
         }
         binding.SecondRoll.setOnClickListener {
@@ -323,8 +328,8 @@ class PlayFragment : Fragment() {
             PartialScore=getScore(getCombo(rollResults))
             (activity as MainMenuActivity).editScore(PartialScore)
             binding.Score.text = "${PartialScore} "+ getString(R.string.Points)
-            (activity as MainMenuActivity).isSecondDiceClickable=false
-            binding.SecondRoll.isClickable = isSecondDiceClickable
+            binding.SecondRoll.isEnabled = false
+            (activity as MainMenuActivity).ChangeSecondDiceClick()
 
 
             combo = getCombo(rollResults)
@@ -347,8 +352,9 @@ class PlayFragment : Fragment() {
             PartialScore=getScore(getCombo(rollResults))
             (activity as MainMenuActivity).editScore(PartialScore)
             binding.Score.text = "${PartialScore} "+ getString(R.string.Points)
-            (activity as MainMenuActivity).isThirdDiceClickable=false
-            binding.ThirdRoll.isClickable = isThirdDiceClickable
+            binding.ThirdRoll.isEnabled = false
+            (activity as MainMenuActivity).ChangeThirdDiceClick()
+
 
 
             combo = getCombo(rollResults)
@@ -370,8 +376,9 @@ class PlayFragment : Fragment() {
             PartialScore=getScore(getCombo(rollResults))
             (activity as MainMenuActivity).editScore(PartialScore)
             binding.Score.text = "${PartialScore} "+ getString(R.string.Points)
-            (activity as MainMenuActivity).isFourthDiceClickable=false
-            binding.FourthRoll.isClickable = isFourthDiceClickable
+            binding.FourthRoll.isEnabled = false
+            (activity as MainMenuActivity).ChangeFourthDiceClick()
+
 
 
             combo = getCombo(rollResults)
@@ -393,8 +400,9 @@ class PlayFragment : Fragment() {
             PartialScore=getScore(getCombo(rollResults))
             (activity as MainMenuActivity).editScore(PartialScore)
             binding.Score.text = "${PartialScore} "+ getString(R.string.Points)
-            (activity as MainMenuActivity).isFifthDiceClickable=false
-            binding.FifthRoll.isClickable = isFifthDiceClickable
+            binding.FifthRoll.isEnabled = false
+            (activity as MainMenuActivity).ChangeFifthDiceClick()
+
 
             combo = getCombo(rollResults)
         }

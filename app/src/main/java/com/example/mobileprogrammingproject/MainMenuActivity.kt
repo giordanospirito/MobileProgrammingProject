@@ -191,23 +191,18 @@ class MainMenuActivity : AppCompatActivity() {
         ViewModel.getArrayDices(index,otherIndex,resource)
     }
     fun ChangeFirstDiceClick(){
-        isFirstDiceClickable = !isFirstDiceClickable
         ViewModel.ChangeFirstDiceClick()
     }
     fun ChangeSecondDiceClick(){
-        isSecondDiceClickable = !isSecondDiceClickable
         ViewModel.ChangeSecondDiceClick()
     }
     fun ChangeThirdDiceClick(){
-        isThirdDiceClickable = !isThirdDiceClickable
         ViewModel.ChangeThirdDiceClick()
     }
     fun ChangeFourthDiceClick(){
-        isFourthDiceClickable = !isFourthDiceClickable
         ViewModel.ChangeFourthDiceClick()
     }
     fun ChangeFifthDiceClick(){
-        isFifthDiceClickable = !isFifthDiceClickable
         ViewModel.ChangeFifthDiceClick()
     }
     fun getRollResults(otherRolls: MutableList<Int>){
