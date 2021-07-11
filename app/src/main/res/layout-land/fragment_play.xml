@@ -96,7 +96,7 @@
                     android:orientation="horizontal"
                     android:layout_weight="1"
                     tools:ignore="NestedWeights"
-                    android:visibility="invisible">
+                    android:visibility="visible">
 
 
 
