@@ -172,7 +172,8 @@ class PlayFragment : Fragment() {
                 binding.ComboReader.startAnimation(animation2)
                 binding.Score.startAnimation(animation2)
                 binding.numberRolls.text = resources.getString(R.string.rolls_remaining)+" ${13-numberRoll}"
-                binding.ComboReader.text = getCombo(rollResults) .substring(0..(getCombo(rollResults).lastIndex)-1)  //[0..getCombo(rollResults).lastIndex]
+                if (getCombo(rollResults) == "nessuna combo"){binding.ComboReader.text = getCombo(rollResults)}
+                else{binding.ComboReader.text = getCombo(rollResults) .substring(0..(getCombo(rollResults).lastIndex)-1)} //[0..getCombo(rollResults).lastIndex]
                 binding.Score.text = "${getScore(getCombo(rollResults)).toString()} "+ getString(R.string.Points)
                 lastCombo = getCombo(rollResults)
 
@@ -202,7 +203,8 @@ class PlayFragment : Fragment() {
             arrayDices[0].startAnimation(AnimationUtils.loadAnimation(this.context, R.anim.shake_animation))
             rollResults.removeAt(0)
             rollResults.add(0,random+1)
-            binding.ComboReader.text = getCombo(rollResults) .substring(0..(getCombo(rollResults).lastIndex)-1)  //[0..getCombo(rollResults).lastIndex]
+            if (getCombo(rollResults) == "nessuna combo"){binding.ComboReader.text = getCombo(rollResults)}
+            else{binding.ComboReader.text = getCombo(rollResults) .substring(0..(getCombo(rollResults).lastIndex)-1)} //[0..getCombo(rollResults).lastIndex]
             binding.Score.text = "${getScore(getCombo(rollResults)).toString()} "+ getString(R.string.Points)
             binding.FirstRoll.isClickable = false
             lastCombo = getCombo(rollResults)
@@ -214,7 +216,9 @@ class PlayFragment : Fragment() {
             arrayDices[1].startAnimation(AnimationUtils.loadAnimation(this.context, R.anim.shake_animation))
             rollResults.removeAt(1)
             rollResults.add(1,random+1)
-            binding.ComboReader.text = getCombo(rollResults) .substring(0..(getCombo(rollResults).lastIndex)-1)  //[0..getCombo(rollResults).lastIndex]            binding.Score.text = "${getScore(getCombo(rollResults)).toString()} "+ getString(R.string.Points)
+            if (getCombo(rollResults) == "nessuna combo"){binding.ComboReader.text = getCombo(rollResults)}
+            else{binding.ComboReader.text = getCombo(rollResults) .substring(0..(getCombo(rollResults).lastIndex)-1)} //[0..getCombo(rollResults).lastIndex]
+            binding.Score.text = "${getScore(getCombo(rollResults)).toString()} "+ getString(R.string.Points)
             binding.SecondRoll.isClickable = false
             lastCombo = getCombo(rollResults)
         }
@@ -225,7 +229,9 @@ class PlayFragment : Fragment() {
             arrayDices[2].startAnimation(AnimationUtils.loadAnimation(this.context, R.anim.shake_animation))
             rollResults.removeAt(2)
             rollResults.add(2,random+1)
-            binding.ComboReader.text = getCombo(rollResults) .substring(0..(getCombo(rollResults).lastIndex)-1)  //[0..getCombo(rollResults).lastIndex]            binding.Score.text ="${getScore(getCombo(rollResults)).toString()} "+ getString(R.string.Points)
+            if (getCombo(rollResults) == "nessuna combo"){binding.ComboReader.text = getCombo(rollResults)}
+            else{binding.ComboReader.text = getCombo(rollResults) .substring(0..(getCombo(rollResults).lastIndex)-1)} //[0..getCombo(rollResults).lastIndex]
+            binding.Score.text ="${getScore(getCombo(rollResults)).toString()} "+ getString(R.string.Points)
             binding.ThirdRoll.isClickable = false
             lastCombo = getCombo(rollResults)
         }
@@ -236,7 +242,9 @@ class PlayFragment : Fragment() {
             arrayDices[3].startAnimation(AnimationUtils.loadAnimation(this.context, R.anim.shake_animation))
             rollResults.removeAt(3)
             rollResults.add(3,random+1)
-            binding.ComboReader.text = getCombo(rollResults) .substring(0..(getCombo(rollResults).lastIndex)-1)  //[0..getCombo(rollResults).lastIndex]            binding.Score.text = "${getScore(getCombo(rollResults)).toString()} "+ getString(R.string.Points)
+            if (getCombo(rollResults) == "nessuna combo"){binding.ComboReader.text = getCombo(rollResults)}
+            else{binding.ComboReader.text = getCombo(rollResults) .substring(0..(getCombo(rollResults).lastIndex)-1)} //[0..getCombo(rollResults).lastIndex]
+            binding.Score.text = "${getScore(getCombo(rollResults)).toString()} "+ getString(R.string.Points)
             binding.FourthRoll.isClickable = false
             lastCombo = getCombo(rollResults)
         }
@@ -247,7 +255,9 @@ class PlayFragment : Fragment() {
             arrayDices[4].startAnimation(AnimationUtils.loadAnimation(this.context, R.anim.shake_animation))
             rollResults.removeAt(4)
             rollResults.add(4,random+1)
-            binding.ComboReader.text = getCombo(rollResults) .substring(0..(getCombo(rollResults).lastIndex)-1)  //[0..getCombo(rollResults).lastIndex]            binding.Score.text = "${getScore(getCombo(rollResults)).toString()} "+ getString(R.string.Points)
+            if (getCombo(rollResults) == "nessuna combo"){binding.ComboReader.text = getCombo(rollResults)}
+            else{binding.ComboReader.text = getCombo(rollResults) .substring(0..(getCombo(rollResults).lastIndex)-1)} //[0..getCombo(rollResults).lastIndex]
+            binding.Score.text = "${getScore(getCombo(rollResults)).toString()} "+ getString(R.string.Points)
             binding.FifthRoll.isClickable = false
             lastCombo = getCombo(rollResults)
         }
