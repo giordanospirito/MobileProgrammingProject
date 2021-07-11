@@ -87,6 +87,9 @@ class PlayFragment : Fragment() {
 
 
         binding.Score.text = "${PartialScore} "+ getString(R.string.Points)
+        if(ViewModelRollNumber==0){
+            binding.Score.visibility=View.INVISIBLE
+        }
 
         //some init
         binding.username.text = username
@@ -227,7 +230,7 @@ class PlayFragment : Fragment() {
 
         //setting up listeners
         binding.RollerAndChecker.setOnClickListener {
-
+            binding.Score.visibility = View.VISIBLE
             binding.seeResults.isEnabled = false
             binding.seeResults.setBackgroundColor(resources.getColor(R.color.grey))
             (activity as MainMenuActivity).editScoreButton()
