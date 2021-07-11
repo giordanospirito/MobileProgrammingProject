@@ -51,7 +51,6 @@ class PlayFragment : Fragment() {
         var isFourthDiceClickable = (activity as MainMenuActivity).isFourthDiceClickable
         var isFifthDiceClickable = (activity as MainMenuActivity).isFifthDiceClickable
         var PartialScore = (activity as MainMenuActivity).playerscore
-        var hidden = (activity as MainMenuActivity).hidden
         var ViewModelRollNumber = (activity as MainMenuActivity).numberRoll
         var myRolls = (activity as MainMenuActivity).rollResult
 
@@ -86,11 +85,7 @@ class PlayFragment : Fragment() {
         val view = binding.root
         //end binding section
 
-        if (hidden){
-            binding.dicesRow.visibility = View.INVISIBLE
-            (activity as MainMenuActivity).edithidden(false)
 
-        }
         binding.Score.text = "${PartialScore} "+ getString(R.string.Points)
 
         //some init
@@ -98,8 +93,7 @@ class PlayFragment : Fragment() {
         binding.numberRolls.text = resources.getString(R.string.rolls_remaining)+" ${13-numberRoll}"
         //end init
         //restoring dice image
-
-        if(!hidden){binding.dicesRow.visibility=View.VISIBLE}
+        binding.dicesRow.visibility = View.VISIBLE
         binding.FirstRoll.setImageResource(ViewModelArrayDices[0])
         binding.SecondRoll.setImageResource(ViewModelArrayDices[1])
         binding.ThirdRoll.setImageResource(ViewModelArrayDices[2])
@@ -139,7 +133,6 @@ class PlayFragment : Fragment() {
 
         binding.AcceptBtn.setOnClickListener {
             numberRoll=ViewModelRollNumber
-            (activity as MainMenuActivity).edithidden(true)
             binding.ComboReader.text = ""
             (activity as MainMenuActivity).editCombo("")
             binding.Score.text = ""
