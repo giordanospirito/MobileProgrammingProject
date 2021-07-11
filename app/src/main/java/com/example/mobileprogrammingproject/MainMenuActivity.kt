@@ -31,6 +31,7 @@ class MainMenuActivity : AppCompatActivity() {
     var playerscore :Int = 0
     var ActualScore:Int= 0
     var arrayDices = mutableListOf<ImageView>()
+    var noroll = true
 
 
 
@@ -52,6 +53,7 @@ class MainMenuActivity : AppCompatActivity() {
         playerscore = ViewModel.scoreView
         ActualScore = ViewModel.actualScore
         arrayDices = ViewModel.arraydices
+        noroll = ViewModel.noroll
 
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
         setContentView(R.layout.main_menu)
@@ -175,6 +177,10 @@ class MainMenuActivity : AppCompatActivity() {
     fun getArrayDices(list : MutableList<ImageView>){
         arrayDices=list
         ViewModel.getArrayDices(list)
+    }
+    fun editNoroll(b:Boolean){
+        noroll = b
+        ViewModel.editNoRoll(b)
     }
 }
 

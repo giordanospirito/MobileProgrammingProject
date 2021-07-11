@@ -20,6 +20,7 @@ class MyViewModel: ViewModel() {
     var scoreView :Int = 0
     var actualScore:Int= 0
     var arraydices = mutableListOf<ImageView>()
+    var noroll = true
 
 
     fun editUserName(u : String){
@@ -81,6 +82,9 @@ class MyViewModel: ViewModel() {
     }
     fun editCombo(c: String){
         combo = c
+    }
+    fun editNoRoll(b:Boolean){
+        noroll=b
     }
 
 

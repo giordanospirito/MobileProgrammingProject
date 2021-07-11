@@ -43,6 +43,7 @@ class PlayFragment : Fragment() {
         var scoreButtonColor = (activity as MainMenuActivity).scoreButtonColor
         var combo = (activity as MainMenuActivity).combo
         var ViewModelArrayDices = (activity as MainMenuActivity).arrayDices
+        var noroll = (activity as MainMenuActivity).noroll
 
 
         val username = (activity as MainMenuActivity).userName
@@ -166,7 +167,7 @@ class PlayFragment : Fragment() {
 
         //start see result button
         binding.seeResults.setOnClickListener {
-            if(!x){
+            if(!noroll){
                 lastCombo = combo
                 val action = PlayFragmentDirections.actionPlayFragmentToResultsFragment(currentRollsNumberArg = numberRoll,totalScore = Score,doubleBool = DoubleBool, trisBool = TrisBool,quaterBool = quaterBool,yahtzeeBool = yahtzeeBool,fourASCBool = FourASCBool,fiveASCBool = FiveASCBool,fullBool = FullBool,chanceBool = chanceBool,bonusBool = BonusBool,lastCombo2 = lastCombo,noRoll = x)
                 findNavController().navigate(action)
@@ -204,7 +205,8 @@ class PlayFragment : Fragment() {
             (activity as MainMenuActivity).editAcceptButton()
             (activity as MainMenuActivity).editAcceptButtonColor()
 
-            x = false
+
+            (activity as MainMenuActivity).editNoroll(false)
             if (numberRoll<13) {
                 numberRoll++
                 vibe.vibrate(vibeEff)
