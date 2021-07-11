@@ -19,7 +19,7 @@ class MyViewModel: ViewModel() {
     var combo = ""
     var scoreView :Int = 0
     var actualScore:Int= 0
-    var arraydices = mutableListOf<ImageView>()
+    var arraydices = mutableListOf<Int>(0,0,0,0,0)
     var noroll = true
 
 
@@ -77,8 +77,8 @@ class MyViewModel: ViewModel() {
     fun editActualScore(valueInt: Int){
         actualScore=valueInt
     }
-    fun getArrayDices(list : MutableList<ImageView>){
-        arraydices=list
+    fun getArrayDices(index:Int, otherindex:Int,list : MutableList<Int>){
+        arraydices[index]=list[otherindex]
     }
     fun editCombo(c: String){
         combo = c

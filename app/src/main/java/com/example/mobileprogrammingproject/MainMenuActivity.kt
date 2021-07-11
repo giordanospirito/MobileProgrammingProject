@@ -30,8 +30,8 @@ class MainMenuActivity : AppCompatActivity() {
     var combo = ""
     var playerscore :Int = 0
     var ActualScore:Int= 0
-    var arrayDices = mutableListOf<ImageView>()
     var noroll = true
+    var arrayDices = mutableListOf<Int>()
 
 
 
@@ -174,9 +174,9 @@ class MainMenuActivity : AppCompatActivity() {
         ViewModel.editActualScore(valueInt)
         ActualScore=valueInt
     }
-    fun getArrayDices(list : MutableList<ImageView>){
-        arrayDices=list
-        ViewModel.getArrayDices(list)
+    fun getArrayDices(index:Int,otherIndex:Int,resource:MutableList<Int>){
+        arrayDices[index]=resource[otherIndex]
+        ViewModel.getArrayDices(index,otherIndex,resource)
     }
     fun editNoroll(b:Boolean){
         noroll = b
