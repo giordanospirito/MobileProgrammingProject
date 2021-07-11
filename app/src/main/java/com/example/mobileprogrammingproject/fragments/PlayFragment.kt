@@ -82,6 +82,15 @@ class PlayFragment : Fragment() {
         binding.username.text = username
         binding.numberRolls.text = resources.getString(R.string.rolls_remaining)+" ${13-numberRoll}"
         //end init
+        //restoring dice image
+
+        binding.dicesRow.visibility=View.VISIBLE
+        binding.FirstRoll.setImageResource(ViewModelArrayDices[0])
+        binding.SecondRoll.setImageResource(ViewModelArrayDices[1])
+        binding.ThirdRoll.setImageResource(ViewModelArrayDices[2])
+        binding.FourthRoll.setImageResource(ViewModelArrayDices[3])
+        binding.FifthRoll.setImageResource(ViewModelArrayDices[4])
+
 
         //initializing buttons
         binding.RollerAndChecker.isEnabled = isPlayButtonActivated
@@ -90,6 +99,9 @@ class PlayFragment : Fragment() {
         binding.seeResults.setBackgroundColor(resources.getColor(scoreButtonColor))
         binding.AcceptBtn.isEnabled = isAcceptButtonActivated //(false the first time)
         binding.AcceptBtn.setBackgroundColor(resources.getColor(acceptButtonColor)) //(grigio the first time)
+        if((PartialScore==-1)or(x)){
+            binding.Score.text = ""
+        }
         if((combo == "nessuna combo") or (combo == "") or (combo == "no combo")){
             binding.ComboReader.text = combo}
             else{
@@ -161,6 +173,9 @@ class PlayFragment : Fragment() {
                 binding.seeResults.setBackgroundColor(resources.getColor(R.color.grey))
                 (activity as MainMenuActivity).editScoreButtonColor()
             }
+            PartialScore=-1
+            (activity as MainMenuActivity).editScore(-1)
+
         }
         //end accept
 
@@ -178,13 +193,13 @@ class PlayFragment : Fragment() {
 
         //start roll section
         val arrayDices = mutableListOf(binding.FirstRoll, binding.SecondRoll, binding.ThirdRoll, binding.FourthRoll, binding.FifthRoll)
-
         diceImagesAdder(diceImages)
 
         animation1 = AnimationUtils.loadAnimation(this.context, R.anim.shake_animation)
         animation2 = AnimationUtils.loadAnimation(this.context, R.anim.fade_in_delay)
         animation3 = AnimationUtils.loadAnimation(this.context, R.anim.fade_in)
         animation4 = AnimationUtils.loadAnimation(this.context, R.anim.norollanimation)
+
 
         //setting up listeners
         binding.RollerAndChecker.setOnClickListener {
@@ -212,6 +227,8 @@ class PlayFragment : Fragment() {
                 binding.dicesRow.visibility = View.VISIBLE
                 for (i in 0..4) {
                     getRandomValue(arrayDices[i], rollResults)
+                    ViewModelArrayDices[i] = diceImages[rollResults[i]-1]
+                    (activity as MainMenuActivity).getArrayDices(i,rollResults[i]-1,diceImages)
                 }
                 binding.dicesRow.startAnimation(animation3)
                 //binding.numberRolls.startAnimation(animation2)
@@ -248,11 +265,14 @@ class PlayFragment : Fragment() {
         }
         binding.FirstRoll.setOnClickListener {
             val random = Random().nextInt(6)
-
-            arrayDices[0].setImageResource(diceImages.elementAt(random))
-            arrayDices[0].startAnimation(AnimationUtils.loadAnimation(this.context, R.anim.shake_animation))
             rollResults.removeAt(0)
             rollResults.add(0,random+1)
+
+            ViewModelArrayDices[0] = diceImages[rollResults[0]-1]
+            (activity as MainMenuActivity).getArrayDices(0,rollResults[0]-1,diceImages)
+
+            arrayDices[0].setImageResource(ViewModelArrayDices[0])
+            arrayDices[0].startAnimation(AnimationUtils.loadAnimation(this.context, R.anim.shake_animation))
             if (getCombo(rollResults) == "nessuna combo"){binding.ComboReader.text = getCombo(rollResults)}
             else{binding.ComboReader.text = getCombo(rollResults) .substring(0..(getCombo(rollResults).lastIndex)-1)} //[0..getCombo(rollResults).lastIndex]
             PartialScore=getScore(getCombo(rollResults))
@@ -263,11 +283,15 @@ class PlayFragment : Fragment() {
         }
         binding.SecondRoll.setOnClickListener {
             val random = Random().nextInt(6)
-
-            arrayDices[1].setImageResource(diceImages.elementAt(random))
-            arrayDices[1].startAnimation(AnimationUtils.loadAnimation(this.context, R.anim.shake_animation))
             rollResults.removeAt(1)
             rollResults.add(1,random+1)
+
+            ViewModelArrayDices[1] = diceImages[rollResults[1]-1]
+            (activity as MainMenuActivity).getArrayDices(1,rollResults[1]-1,diceImages)
+
+            arrayDices[1].setImageResource(ViewModelArrayDices[1])
+            arrayDices[1].startAnimation(AnimationUtils.loadAnimation(this.context, R.anim.shake_animation))
+
             if (getCombo(rollResults) == "nessuna combo"){binding.ComboReader.text = getCombo(rollResults)}
             else{binding.ComboReader.text = getCombo(rollResults) .substring(0..(getCombo(rollResults).lastIndex)-1)} //[0..getCombo(rollResults).lastIndex]
             PartialScore=getScore(getCombo(rollResults))
@@ -278,11 +302,14 @@ class PlayFragment : Fragment() {
         }
         binding.ThirdRoll.setOnClickListener {
             val random = Random().nextInt(6)
-
-            arrayDices[2].setImageResource(diceImages.elementAt(random))
-            arrayDices[2].startAnimation(AnimationUtils.loadAnimation(this.context, R.anim.shake_animation))
             rollResults.removeAt(2)
             rollResults.add(2,random+1)
+
+            ViewModelArrayDices[2] = diceImages[rollResults[2]-1]
+            (activity as MainMenuActivity).getArrayDices(2,rollResults[2]-1,diceImages)
+
+            arrayDices[2].setImageResource(ViewModelArrayDices[2])
+            arrayDices[2].startAnimation(AnimationUtils.loadAnimation(this.context, R.anim.shake_animation))
             if (getCombo(rollResults) == "nessuna combo"){binding.ComboReader.text = getCombo(rollResults)}
             else{binding.ComboReader.text = getCombo(rollResults) .substring(0..(getCombo(rollResults).lastIndex)-1)} //[0..getCombo(rollResults).lastIndex]
             PartialScore=getScore(getCombo(rollResults))
@@ -293,11 +320,14 @@ class PlayFragment : Fragment() {
         }
         binding.FourthRoll.setOnClickListener {
             val random = Random().nextInt(6)
-
-            arrayDices[3].setImageResource(diceImages.elementAt(random))
-            arrayDices[3].startAnimation(AnimationUtils.loadAnimation(this.context, R.anim.shake_animation))
             rollResults.removeAt(3)
             rollResults.add(3,random+1)
+
+            ViewModelArrayDices[3] = diceImages[rollResults[3]-1]
+            (activity as MainMenuActivity).getArrayDices(3,rollResults[3]-1,diceImages)
+
+            arrayDices[3].setImageResource(ViewModelArrayDices[3])
+            arrayDices[3].startAnimation(AnimationUtils.loadAnimation(this.context, R.anim.shake_animation))
             if (getCombo(rollResults) == "nessuna combo"){binding.ComboReader.text = getCombo(rollResults)}
             else{binding.ComboReader.text = getCombo(rollResults) .substring(0..(getCombo(rollResults).lastIndex)-1)} //[0..getCombo(rollResults).lastIndex]
             PartialScore=getScore(getCombo(rollResults))
@@ -308,11 +338,14 @@ class PlayFragment : Fragment() {
         }
         binding.FifthRoll.setOnClickListener {
             val random = Random().nextInt(6)
-
-            arrayDices[4].setImageResource(diceImages.elementAt(random))
-            arrayDices[4].startAnimation(AnimationUtils.loadAnimation(this.context, R.anim.shake_animation))
             rollResults.removeAt(4)
             rollResults.add(4,random+1)
+
+            ViewModelArrayDices[4] = diceImages[rollResults[4]-1]
+            (activity as MainMenuActivity).getArrayDices(4,rollResults[4]-1,diceImages)
+
+            arrayDices[4].setImageResource(ViewModelArrayDices[4])
+            arrayDices[4].startAnimation(AnimationUtils.loadAnimation(this.context, R.anim.shake_animation))
             if (getCombo(rollResults) == "nessuna combo"){binding.ComboReader.text = getCombo(rollResults)}
             else{binding.ComboReader.text = getCombo(rollResults) .substring(0..(getCombo(rollResults).lastIndex)-1)} //[0..getCombo(rollResults).lastIndex]
             PartialScore=getScore(getCombo(rollResults))
