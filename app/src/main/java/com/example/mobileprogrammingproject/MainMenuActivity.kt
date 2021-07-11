@@ -222,6 +222,10 @@ class MainMenuActivity : AppCompatActivity() {
     fun editNumberRoll(){
         ViewModel.editRollNumber()
     }
+    fun azzeranumberroll(){
+        numberRoll = 0
+        ViewModel.azzerarollnumber()
+    }
 }
 
 

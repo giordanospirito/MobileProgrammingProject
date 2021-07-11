@@ -89,14 +89,14 @@ class PlayFragment : Fragment() {
         binding.Score.text = "${PartialScore} "+ getString(R.string.Points)
         if(ViewModelRollNumber==0){
             binding.Score.visibility=View.INVISIBLE
-        }
+            binding.dicesRow.visibility = View.INVISIBLE}
 
         //some init
         binding.username.text = username
         binding.numberRolls.text = resources.getString(R.string.rolls_remaining)+" ${13-numberRoll}"
         //end init
         //restoring dice image
-        binding.dicesRow.visibility = View.VISIBLE
+
         binding.FirstRoll.setImageResource(ViewModelArrayDices[0])
         binding.SecondRoll.setImageResource(ViewModelArrayDices[1])
         binding.ThirdRoll.setImageResource(ViewModelArrayDices[2])

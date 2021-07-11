@@ -40,6 +40,8 @@ class ExitGameDialog : DialogFragment() {
                     if((activity as MainMenuActivity).acceptButtonColor == R.color.giallino){ (activity as MainMenuActivity).editAcceptButtonColor()}
                     if((activity as MainMenuActivity).scoreButtonColor != R.color.giallino){ (activity as MainMenuActivity).editScoreButtonColor()}
                     (activity as MainMenuActivity).edithidden(true)
+                    (activity as MainMenuActivity).azzeranumberroll()
+
 
                     (activity as MainMenuActivity).editCombo("")
                     (activity as MainMenuActivity).editScore(0)
